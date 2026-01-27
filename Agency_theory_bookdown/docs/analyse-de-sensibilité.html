@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Analyse de sensibilité | Le modèle principal agent ou The Agency Theory</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Analyse de sensibilité | Le modèle principal agent ou The Agency Theory" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Analyse de sensibilité | Le modèle principal agent ou The Agency Theory" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="fonction-de-vérification-du-pbe.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="cadre-conceptuel.html"><a href="cadre-conceptuel.html"><i class="fa fa-check"></i><b>2</b> Cadre conceptuel</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="07-Principal_Agent.html"><a href="#les-acteurs-du-mod%C3%A8le"><i class="fa fa-check"></i><b>2.1</b> Les acteurs du modèle</a></li>
+<li class="chapter" data-level="2.2" data-path="cadre-conceptuel.html"><a href="cadre-conceptuel.html#le-contrat-dagence"><i class="fa fa-check"></i><b>2.2</b> Le contrat d’agence</a></li>
+<li class="chapter" data-level="2.3" data-path="07-Principal_Agent.html"><a href="#lasym%C3%A9trie-dinformation"><i class="fa fa-check"></i><b>2.3</b> L’asymétrie d’information</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="07-Principal_Agent.html"><a href="#s%C3%A9lection-adverse-information-cach%C3%A9e-ex-ante"><i class="fa fa-check"></i><b>2.3.1</b> Sélection adverse (information cachée ex ante)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="07-Principal_Agent.html"><a href="#al%C3%A9a-moral-action-cach%C3%A9e-ex-post"><i class="fa fa-check"></i><b>2.3.2</b> Aléa moral (action cachée ex post)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="cadre-conceptuel.html"><a href="cadre-conceptuel.html#les-contrats-incomplets"><i class="fa fa-check"></i><b>2.4</b> Les contrats incomplets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="07-Principal_Agent.html"><a href="#formalisation-du-probl%C3%A8me"><i class="fa fa-check"></i><b>3</b> Formalisation du problème</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="07-Principal_Agent.html"><a href="#fonction-dutilit%C3%A9-et-attitude-face-au-risque"><i class="fa fa-check"></i><b>3.1</b> Fonction d’utilité et attitude face au risque</a></li>
+<li class="chapter" data-level="3.2" data-path="07-Principal_Agent.html"><a href="#variables-cl%C3%A9-et-hypoth%C3%A8ses-du-mod%C3%A8le"><i class="fa fa-check"></i><b>3.2</b> Variables clé et hypothèses du modèle</a></li>
+<li class="chapter" data-level="3.3" data-path="07-Principal_Agent.html"><a href="#formalisation-en-th%C3%A9orie-des-jeux"><i class="fa fa-check"></i><b>3.3</b> Formalisation en théorie des jeux</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="07-Principal_Agent.html"><a href="#r%C3%A9solution-analytique"><i class="fa fa-check"></i><b>4</b> Résolution analytique</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="07-Principal_Agent.html"><a href="#cadre-de-r%C3%A9solution"><i class="fa fa-check"></i><b>4.1</b> Cadre de résolution</a></li>
+<li class="chapter" data-level="4.2" data-path="07-Principal_Agent.html"><a href="#cas-du-first-best-information-sym%C3%A9trique"><i class="fa fa-check"></i><b>4.2</b> Cas du first best (information symétrique)</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="résolution-analytique.html"><a href="résolution-analytique.html"><i class="fa fa-check"></i><b>4.2.1</b> Fusionner les 2 demo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="07-Principal_Agent.html"><a href="#cas-du-second-best-al%C3%A9a-moral"><i class="fa fa-check"></i><b>4.3</b> Cas du second best (aléa moral)</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="résolution-analytique.html"><a href="résolution-analytique.html#fusionner-les-2-demo-1"><i class="fa fa-check"></i><b>4.3.1</b> Fusionner les 2 demo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="07-Principal_Agent.html"><a href="#justification-de-la-pr%C3%A9sence-dun-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>4.4</b> Justification de la présence d’un équilibre parfait bayésien</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="07-Principal_Agent.html"><a href="#premier-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>4.4.1</b> Premier-best et équilibre parfait bayésien</a></li>
+<li class="chapter" data-level="4.4.2" data-path="07-Principal_Agent.html"><a href="#second-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>4.4.2</b> Second-best et équilibre parfait bayésien</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="07-Principal_Agent.html"><a href="#r%C3%A9solution-logicielle"><i class="fa fa-check"></i><b>5</b> Résolution “logicielle”</a></li>
+<li class="chapter" data-level="6" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>6</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
+<li class="chapter" data-level="6.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
+<li class="chapter" data-level="6.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modele-principal-agent.html"><a href="modele-principal-agent.html"><i class="fa fa-check"></i><b>7</b> <strong>MODELE PRINCIPAL-AGENT</strong></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modele-principal-agent.html"><a href="modele-principal-agent.html#import-et-configuration"><i class="fa fa-check"></i><b>7.1</b> Import et configuration</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="07-Principal_Agent.html"><a href="#classe-principale-du-mod%C3%A8le"><i class="fa fa-check"></i><b>7.1.1</b> Classe principale du modèle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="classe-principalagentmodel.html"><a href="classe-principalagentmodel.html"><i class="fa fa-check"></i><b>8</b> 📘 Classe <code>PrincipalAgentModel</code></a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="07-Principal_Agent.html"><a href="#r%C3%B4le-g%C3%A9n%C3%A9ral-de-la-classe"><i class="fa fa-check"></i><b>8.0.1</b> Rôle général de la classe</a></li>
+<li class="chapter" data-level="8.0.2" data-path="classe-principalagentmodel.html"><a href="classe-principalagentmodel.html#fonction-utility_agent"><i class="fa fa-check"></i><b>8.0.2</b> Fonction <code>utility_agent</code></a></li>
+<li class="chapter" data-level="8.0.3" data-path="classe-principalagentmodel.html"><a href="classe-principalagentmodel.html#fonction-expected_utility_agent"><i class="fa fa-check"></i><b>8.0.3</b> Fonction <code>expected_utility_agent</code></a></li>
+<li class="chapter" data-level="8.0.4" data-path="classe-principalagentmodel.html"><a href="classe-principalagentmodel.html#fonction-expected_profit_principal"><i class="fa fa-check"></i><b>8.0.4</b> Fonction <code>expected_profit_principal</code></a></li>
+<li class="chapter" data-level="8.0.5" data-path="07-Principal_Agent.html"><a href="#r%C3%A9solution-du-first-best"><i class="fa fa-check"></i><b>8.0.5</b> Résolution du first-best</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="fonction-solve_first_best.html"><a href="fonction-solve_first_best.html"><i class="fa fa-check"></i><b>9</b> 📗 Fonction <code>solve_first_best</code></a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="07-Principal_Agent.html"><a href="#description-g%C3%A9n%C3%A9rale"><i class="fa fa-check"></i><b>9.0.1</b> Description générale</a></li>
+<li class="chapter" data-level="9.0.2" data-path="fonction-solve_first_best.html"><a href="fonction-solve_first_best.html#arguments"><i class="fa fa-check"></i><b>9.0.2</b> Arguments</a></li>
+<li class="chapter" data-level="9.0.3" data-path="fonction-solve_first_best.html"><a href="fonction-solve_first_best.html#sorties"><i class="fa fa-check"></i><b>9.0.3</b> Sorties</a></li>
+<li class="chapter" data-level="9.0.4" data-path="07-Principal_Agent.html"><a href="#logique-%C3%A9conomique"><i class="fa fa-check"></i><b>9.0.4</b> Logique économique</a></li>
+<li class="chapter" data-level="9.0.5" data-path="07-Principal_Agent.html"><a href="#r%C3%A9solution-du-second-best"><i class="fa fa-check"></i><b>9.0.5</b> Résolution du second-best</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="fonction-solve_second_best.html"><a href="fonction-solve_second_best.html"><i class="fa fa-check"></i><b>10</b> 📙 Fonction <code>solve_second_best</code></a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="07-Principal_Agent.html"><a href="#description-g%C3%A9n%C3%A9rale-1"><i class="fa fa-check"></i><b>10.0.1</b> Description générale</a></li>
+<li class="chapter" data-level="10.0.2" data-path="fonction-solve_second_best.html"><a href="fonction-solve_second_best.html#arguments-1"><i class="fa fa-check"></i><b>10.0.2</b> Arguments</a></li>
+<li class="chapter" data-level="10.0.3" data-path="fonction-solve_second_best.html"><a href="fonction-solve_second_best.html#sorties-1"><i class="fa fa-check"></i><b>10.0.3</b> Sorties</a></li>
+<li class="chapter" data-level="10.0.4" data-path="07-Principal_Agent.html"><a href="#logique-%C3%A9conomique-1"><i class="fa fa-check"></i><b>10.0.4</b> Logique économique</a></li>
+<li class="chapter" data-level="10.0.5" data-path="07-Principal_Agent.html"><a href="#v%C3%A9rification-de-l%C3%A9quilibre-parfairt-bay%C3%A9sien"><i class="fa fa-check"></i><b>10.0.5</b> Vérification de l’équilibre parfairt bayésien</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="07-Principal_Agent.html"><a href="#fonction-de-v%C3%A9rification-du-pbe"><i class="fa fa-check"></i><b>11</b> 📕 Fonction de vérification du PBE</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="07-Principal_Agent.html"><a href="#description-g%C3%A9n%C3%A9rale-2"><i class="fa fa-check"></i><b>11.0.1</b> Description générale</a></li>
+<li class="chapter" data-level="11.0.2" data-path="fonction-de-vérification-du-pbe.html"><a href="fonction-de-vérification-du-pbe.html"><i class="fa fa-check"></i><b>11.0.2</b> Comparaison et analyse des deux situations</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="07-Principal_Agent.html"><a href="#analyse-de-sensibilit%C3%A9"><i class="fa fa-check"></i><b>12</b> Analyse de sensibilité</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="07-Principal_Agent.html"><a href="#objectif-g%C3%A9n%C3%A9ral"><i class="fa fa-check"></i><b>12.1</b> Objectif général</a></li>
+<li class="chapter" data-level="12.2" data-path="07-Principal_Agent.html"><a href="#sensibilit%C3%A9-%C3%A0-laversion-au-risque-de-lagent-%CE%B3"><i class="fa fa-check"></i><b>12.2</b> Sensibilité à l’aversion au risque de l’agent (γ)</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="analyse-de-sensibilité.html"><a href="analyse-de-sensibilité.html"><i class="fa fa-check"></i><b>12.2.1</b> Description</a></li>
+<li class="chapter" data-level="12.2.2" data-path="07-Principal_Agent.html"><a href="#logique-%C3%A9conomique-2"><i class="fa fa-check"></i><b>12.2.2</b> Logique économique</a></li>
+<li class="chapter" data-level="12.2.3" data-path="07-Principal_Agent.html"><a href="#r%C3%A9sultats-observ%C3%A9s"><i class="fa fa-check"></i><b>12.2.3</b> Résultats observés</a></li>
+<li class="chapter" data-level="12.2.4" data-path="07-Principal_Agent.html"><a href="#interpr%C3%A9tation-%C3%A9conomique"><i class="fa fa-check"></i><b>12.2.4</b> Interprétation économique</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="07-Principal_Agent.html"><a href="#sensibilit%C3%A9-%C3%A0-la-probabilit%C3%A9-de-succ%C3%A8s-sous-effort-faible-%CF%80_b"><i class="fa fa-check"></i><b>12.3</b> Sensibilité à la probabilité de succès sous effort faible (π_B)</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="analyse-de-sensibilité.html"><a href="analyse-de-sensibilité.html#description-1"><i class="fa fa-check"></i><b>12.3.1</b> Description</a></li>
+<li class="chapter" data-level="12.3.2" data-path="07-Principal_Agent.html"><a href="#logique-%C3%A9conomique-3"><i class="fa fa-check"></i><b>12.3.2</b> Logique économique</a></li>
+<li class="chapter" data-level="12.3.3" data-path="07-Principal_Agent.html"><a href="#r%C3%A9sultats-observ%C3%A9s-1"><i class="fa fa-check"></i><b>12.3.3</b> Résultats observés</a></li>
+<li class="chapter" data-level="12.3.4" data-path="07-Principal_Agent.html"><a href="#interpr%C3%A9tation-%C3%A9conomique-1"><i class="fa fa-check"></i><b>12.3.4</b> Interprétation économique</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="07-Principal_Agent.html"><a href="#co%C3%BBt-dagence-et-enseignements-g%C3%A9n%C3%A9raux"><i class="fa fa-check"></i><b>12.4</b> Coût d’agence et enseignements généraux</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="07-Principal_Agent.html"><a href="#d%C3%A9finition"><i class="fa fa-check"></i><b>12.4.1</b> Définition</a></li>
+<li class="chapter" data-level="12.4.2" data-path="07-Principal_Agent.html"><a href="#r%C3%A9sultats-globaux"><i class="fa fa-check"></i><b>12.4.2</b> Résultats globaux</a></li>
+<li class="chapter" data-level="12.4.3" data-path="07-Principal_Agent.html"><a href="#interpr%C3%A9tation-synth%C3%A9tique"><i class="fa fa-check"></i><b>12.4.3</b> Interprétation synthétique</a></li>
+<li class="chapter" data-level="12.4.4" data-path="07-Principal_Agent.html"><a href="#analyse-de-sensibilit%C3%A9-1"><i class="fa fa-check"></i><b>12.4.4</b> Analyse de sensibilité</a></li>
+<li class="chapter" data-level="12.4.5" data-path="analyse-de-sensibilité.html"><a href="analyse-de-sensibilité.html#exemple-dutilisation"><i class="fa fa-check"></i><b>12.4.5</b> Exemple d’utilisation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Le modèle principal agent ou The Agency Theory</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analyse-de-sensibilité" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Analyse de sensibilité<a href="#analyse-de-sensibilit%C3%A9" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="objectif-général" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Objectif général<a href="#objectif-g%C3%A9n%C3%A9ral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>L’analyse de sensibilité vise à étudier la robustesse des résultats du modèle principal–agent face aux variations de certains paramètres clés. Elle permet de comprendre comment les <strong>incitations</strong>, le <strong>coût d’agence</strong> et la <strong>rentabilité du principal</strong> réagissent lorsque l’environnement économique change. Deux paramètres centraux sont analysés :</p>
+<ul>
+<li>l’aversion au risque de l’agent (γ),</li>
+<li>la productivité de l’effort faible (π_B).</li>
+</ul>
+</div>
+<div id="sensibilité-à-laversion-au-risque-de-lagent-γ" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Sensibilité à l’aversion au risque de l’agent (γ)<a href="#sensibilit%C3%A9-%C3%A0-laversion-au-risque-de-lagent-%CE%B3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="description" class="section level3 hasAnchor" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Description<a href="analyse-de-sensibilité.html#description" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Le paramètre γ mesure le degré d’aversion au risque de l’agent. Plus γ est faible, plus l’agent est averse au risque ; à l’inverse, lorsque γ se rapproche de 1, l’agent devient neutre au risque. L’analyse consiste à faire varier γ sur un intervalle donné et à résoudre successivement les problèmes first-best et second-best pour chaque valeur.</p>
+</div>
+<div id="logique-économique-2" class="section level3 hasAnchor" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Logique économique<a href="#logique-%C3%A9conomique-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lorsque l’agent est très averse au risque (γ faible), le principal doit offrir une forte assurance pour satisfaire la contrainte de participation. Cela conduit à des salaires élevés et peut fortement réduire, voire annuler, le profit du principal. Dans ce cas, inciter l’agent à fournir un effort élevé devient coûteux.</p>
+<p>À mesure que γ augmente :</p>
+<ul>
+<li>l’agent supporte mieux le risque,</li>
+<li>l’écart entre le salaire en cas de succès et d’échec diminue,</li>
+<li>le coût d’agence décroît progressivement.</li>
+</ul>
+</div>
+<div id="résultats-observés" class="section level3 hasAnchor" number="12.2.3">
+<h3><span class="header-section-number">12.2.3</span> Résultats observés<a href="#r%C3%A9sultats-observ%C3%A9s" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Pour des valeurs faibles de γ, le profit du principal peut devenir négatif et le principal préfère parfois imposer l’effort faible.</li>
+<li>Lorsque γ augmente, le contrat incitatif devient moins coûteux.</li>
+<li>À la limite γ = 1 (agent neutre au risque), le second-best coïncide avec le first-best et le coût d’agence devient nul.</li>
+</ul>
+</div>
+<div id="interprétation-économique" class="section level3 hasAnchor" number="12.2.4">
+<h3><span class="header-section-number">12.2.4</span> Interprétation économique<a href="#interpr%C3%A9tation-%C3%A9conomique" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cette analyse confirme un résultat fondamental de la théorie du principal–agent : <strong>le coût d’agence est d’autant plus élevé que l’agent est averse au risque</strong>. Lorsque l’agent est neutre au risque, il est possible de l’inciter sans perte d’efficacité, ce qui élimine toute inefficience liée à l’asymétrie d’information.</p>
+</div>
+</div>
+<div id="sensibilité-à-la-probabilité-de-succès-sous-effort-faible-π_b" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Sensibilité à la probabilité de succès sous effort faible (π_B)<a href="#sensibilit%C3%A9-%C3%A0-la-probabilit%C3%A9-de-succ%C3%A8s-sous-effort-faible-%CF%80_b" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="description-1" class="section level3 hasAnchor" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Description<a href="analyse-de-sensibilité.html#description-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La probabilité π_B mesure l’efficacité de l’effort faible. L’analyse de sensibilité consiste à augmenter progressivement π_B tout en maintenant π_H constant, afin d’évaluer comment la proximité entre les deux niveaux d’effort affecte la structure du contrat et le choix du principal.</p>
+</div>
+<div id="logique-économique-3" class="section level3 hasAnchor" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> Logique économique<a href="#logique-%C3%A9conomique-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lorsque π_B est faible, l’effort élevé apporte un gain productif important par rapport à l’effort faible. Le principal est alors prêt à supporter un coût d’incitation pour encourager l’effort élevé. En revanche, lorsque π_B augmente, la différence entre les deux efforts se réduit, ce qui diminue l’intérêt économique d’inciter l’agent à fournir l’effort élevé.</p>
+</div>
+<div id="résultats-observés-1" class="section level3 hasAnchor" number="12.3.3">
+<h3><span class="header-section-number">12.3.3</span> Résultats observés<a href="#r%C3%A9sultats-observ%C3%A9s-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>À mesure que π_B augmente, l’écart salarial ( w̄ - w ) nécessaire pour inciter l’effort élevé augmente.</li>
+<li>Le profit du principal diminue, reflétant une hausse du coût d’agence.</li>
+<li>Au-delà d’un certain seuil, le principal préfère abandonner l’effort élevé et choisir directement l’effort faible.</li>
+<li>Dans certains cas extrêmes, la contrainte d’incitation devient plus contraignante que la contrainte de participation, ce qui conduit à une <strong>rente informationnelle</strong> pour l’agent.</li>
+</ul>
+</div>
+<div id="interprétation-économique-1" class="section level3 hasAnchor" number="12.3.4">
+<h3><span class="header-section-number">12.3.4</span> Interprétation économique<a href="#interpr%C3%A9tation-%C3%A9conomique-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cette analyse montre que <strong>l’incitation à l’effort élevé n’est rentable que si l’effort faible est suffisamment inefficace</strong>. Lorsque les performances des deux efforts deviennent proches, l’asymétrie d’information engendre une inefficience trop importante, et le principal renonce à l’effort élevé.</p>
+</div>
+</div>
+<div id="coût-dagence-et-enseignements-généraux" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Coût d’agence et enseignements généraux<a href="#co%C3%BBt-dagence-et-enseignements-g%C3%A9n%C3%A9raux" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition" class="section level3 hasAnchor" number="12.4.1">
+<h3><span class="header-section-number">12.4.1</span> Définition<a href="#d%C3%A9finition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Le coût d’agence est défini comme la différence de profit entre le régime first-best et le régime second-best :</p>
+<p><span class="math display">\[
+\text{Coût d’agence} = \Pi^{FB} - \Pi^{SB}
+\]</span></p>
+</div>
+<div id="résultats-globaux" class="section level3 hasAnchor" number="12.4.2">
+<h3><span class="header-section-number">12.4.2</span> Résultats globaux<a href="#r%C3%A9sultats-globaux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Le coût d’agence augmente lorsque :</p>
+<ul>
+<li>l’agent est très averse au risque,</li>
+<li>l’effort faible devient plus productif.</li>
+</ul></li>
+<li><p>Le coût d’agence tend vers zéro lorsque :</p>
+<ul>
+<li>l’agent est neutre au risque,</li>
+<li>l’effort élevé domine largement l’effort faible.</li>
+</ul></li>
+</ul>
+</div>
+<div id="interprétation-synthétique" class="section level3 hasAnchor" number="12.4.3">
+<h3><span class="header-section-number">12.4.3</span> Interprétation synthétique<a href="#interpr%C3%A9tation-synth%C3%A9tique" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>L’analyse de sensibilité met en évidence le compromis central du modèle principal–agent : <strong>inciter un agent sous asymétrie d’information implique nécessairement un coût</strong>, dont l’ampleur dépend à la fois des préférences de l’agent et de la technologie de production.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="analyse-de-sensibilité.html#cb7-1" tabindex="-1"></a><span class="kw">def</span> compare_regimes(model: PrincipalAgentModel) <span class="op">-&gt;</span> Tuple[Dict, Dict, <span class="bu">float</span>]:</span>
+<span id="cb7-2"><a href="analyse-de-sensibilité.html#cb7-2" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb7-3"><a href="analyse-de-sensibilité.html#cb7-3" tabindex="-1"></a><span class="co">    Compare les résultats First-Best vs Second-Best</span></span>
+<span id="cb7-4"><a href="analyse-de-sensibilité.html#cb7-4" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb7-5"><a href="analyse-de-sensibilité.html#cb7-5" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb7-6"><a href="analyse-de-sensibilité.html#cb7-6" tabindex="-1"></a><span class="co">        model: instance du modèle</span></span>
+<span id="cb7-7"><a href="analyse-de-sensibilité.html#cb7-7" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb7-8"><a href="analyse-de-sensibilité.html#cb7-8" tabindex="-1"></a><span class="co">        tuple (first_best, second_best, agency_cost)</span></span>
+<span id="cb7-9"><a href="analyse-de-sensibilité.html#cb7-9" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb7-10"><a href="analyse-de-sensibilité.html#cb7-10" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb7-11"><a href="analyse-de-sensibilité.html#cb7-11" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Comparaison des régimes First-Best vs Second-Best&quot;</span>)</span>
+<span id="cb7-12"><a href="analyse-de-sensibilité.html#cb7-12" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb7-13"><a href="analyse-de-sensibilité.html#cb7-13" tabindex="-1"></a>    </span>
+<span id="cb7-14"><a href="analyse-de-sensibilité.html#cb7-14" tabindex="-1"></a>    fb <span class="op">=</span> solve_first_best(model, <span class="st">&#39;H&#39;</span>)</span>
+<span id="cb7-15"><a href="analyse-de-sensibilité.html#cb7-15" tabindex="-1"></a>    sb <span class="op">=</span> solve_second_best(model)</span>
+<span id="cb7-16"><a href="analyse-de-sensibilité.html#cb7-16" tabindex="-1"></a>    </span>
+<span id="cb7-17"><a href="analyse-de-sensibilité.html#cb7-17" tabindex="-1"></a>    <span class="co"># Coût d&#39;agence</span></span>
+<span id="cb7-18"><a href="analyse-de-sensibilité.html#cb7-18" tabindex="-1"></a>    agency_cost <span class="op">=</span> fb[<span class="st">&#39;profit_principal&#39;</span>] <span class="op">-</span> sb[<span class="st">&#39;profit_principal&#39;</span>]</span>
+<span id="cb7-19"><a href="analyse-de-sensibilité.html#cb7-19" tabindex="-1"></a>    </span>
+<span id="cb7-20"><a href="analyse-de-sensibilité.html#cb7-20" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Coût d&#39;agence (perte due à l&#39;asymétrie d&#39;information):&quot;</span>)</span>
+<span id="cb7-21"><a href="analyse-de-sensibilité.html#cb7-21" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;  Profit FB - Profit SB = </span><span class="sc">{</span>agency_cost<span class="sc">:.2f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb7-22"><a href="analyse-de-sensibilité.html#cb7-22" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;  Perte relative: </span><span class="sc">{</span><span class="dv">100</span> <span class="op">*</span> agency_cost <span class="op">/</span> fb[<span class="st">&#39;profit_principal&#39;</span>]<span class="sc">:.2f}</span><span class="ss">%&quot;</span>)</span>
+<span id="cb7-23"><a href="analyse-de-sensibilité.html#cb7-23" tabindex="-1"></a>    </span>
+<span id="cb7-24"><a href="analyse-de-sensibilité.html#cb7-24" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Écart de salaire:&quot;</span>)</span>
+<span id="cb7-25"><a href="analyse-de-sensibilité.html#cb7-25" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;  FB: w̄ - w = </span><span class="sc">{</span>fb[<span class="st">&#39;w_bar&#39;</span>] <span class="op">-</span> fb[<span class="st">&#39;w&#39;</span>]<span class="sc">:.2f}</span><span class="ss"> (assurance complète)&quot;</span>)</span>
+<span id="cb7-26"><a href="analyse-de-sensibilité.html#cb7-26" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;  SB: w̄ - w = </span><span class="sc">{</span>sb[<span class="st">&#39;w_bar&#39;</span>] <span class="op">-</span> sb[<span class="st">&#39;w&#39;</span>]<span class="sc">:.2f}</span><span class="ss"> (incitation)&quot;</span>)</span>
+<span id="cb7-27"><a href="analyse-de-sensibilité.html#cb7-27" tabindex="-1"></a>    </span>
+<span id="cb7-28"><a href="analyse-de-sensibilité.html#cb7-28" tabindex="-1"></a>    <span class="cf">return</span> fb, sb, agency_cost</span></code></pre></div>
+</div>
+<div id="analyse-de-sensibilité-1" class="section level3 hasAnchor" number="12.4.4">
+<h3><span class="header-section-number">12.4.4</span> Analyse de sensibilité<a href="#analyse-de-sensibilit%C3%A9-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="analyse-de-sensibilité.html#cb8-1" tabindex="-1"></a><span class="kw">def</span> sensitivity_analysis(model: PrincipalAgentModel):</span>
+<span id="cb8-2"><a href="analyse-de-sensibilité.html#cb8-2" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb8-3"><a href="analyse-de-sensibilité.html#cb8-3" tabindex="-1"></a><span class="co">    Analyse de sensibilité: impact des paramètres sur le coût d&#39;agence</span></span>
+<span id="cb8-4"><a href="analyse-de-sensibilité.html#cb8-4" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb8-5"><a href="analyse-de-sensibilité.html#cb8-5" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb8-6"><a href="analyse-de-sensibilité.html#cb8-6" tabindex="-1"></a><span class="co">        model: instance du modèle</span></span>
+<span id="cb8-7"><a href="analyse-de-sensibilité.html#cb8-7" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb8-8"><a href="analyse-de-sensibilité.html#cb8-8" tabindex="-1"></a><span class="co">        figure matplotlib</span></span>
+<span id="cb8-9"><a href="analyse-de-sensibilité.html#cb8-9" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb8-10"><a href="analyse-de-sensibilité.html#cb8-10" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">40</span>)</span>
+<span id="cb8-11"><a href="analyse-de-sensibilité.html#cb8-11" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Analyse de sensibilité du coût d&#39;agence&quot;</span>)</span>
+<span id="cb8-12"><a href="analyse-de-sensibilité.html#cb8-12" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">40</span>)</span>
+<span id="cb8-13"><a href="analyse-de-sensibilité.html#cb8-13" tabindex="-1"></a>    </span>
+<span id="cb8-14"><a href="analyse-de-sensibilité.html#cb8-14" tabindex="-1"></a>    <span class="co"># Sauvegarder paramètres originaux</span></span>
+<span id="cb8-15"><a href="analyse-de-sensibilité.html#cb8-15" tabindex="-1"></a>    original_gamma <span class="op">=</span> model.gamma</span>
+<span id="cb8-16"><a href="analyse-de-sensibilité.html#cb8-16" tabindex="-1"></a>    original_pi_B <span class="op">=</span> model.pi_B</span>
+<span id="cb8-17"><a href="analyse-de-sensibilité.html#cb8-17" tabindex="-1"></a>    </span>
+<span id="cb8-18"><a href="analyse-de-sensibilité.html#cb8-18" tabindex="-1"></a>    <span class="co"># Analyse 1: Impact de l&#39;aversion au risque (gamma)</span></span>
+<span id="cb8-19"><a href="analyse-de-sensibilité.html#cb8-19" tabindex="-1"></a>    gammas <span class="op">=</span> np.linspace(<span class="fl">0.3</span>, <span class="fl">1.0</span>, <span class="dv">8</span>)</span>
+<span id="cb8-20"><a href="analyse-de-sensibilité.html#cb8-20" tabindex="-1"></a>    agency_costs_gamma <span class="op">=</span> []</span>
+<span id="cb8-21"><a href="analyse-de-sensibilité.html#cb8-21" tabindex="-1"></a>    </span>
+<span id="cb8-22"><a href="analyse-de-sensibilité.html#cb8-22" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">1. Impact de l&#39;aversion au risque (γ):&quot;</span>)</span>
+<span id="cb8-23"><a href="analyse-de-sensibilité.html#cb8-23" tabindex="-1"></a>    <span class="cf">for</span> g <span class="kw">in</span> gammas:</span>
+<span id="cb8-24"><a href="analyse-de-sensibilité.html#cb8-24" tabindex="-1"></a>        model.gamma <span class="op">=</span> g</span>
+<span id="cb8-25"><a href="analyse-de-sensibilité.html#cb8-25" tabindex="-1"></a>        fb <span class="op">=</span> solve_first_best(model, <span class="st">&#39;H&#39;</span>)</span>
+<span id="cb8-26"><a href="analyse-de-sensibilité.html#cb8-26" tabindex="-1"></a>        sb <span class="op">=</span> solve_second_best(model)</span>
+<span id="cb8-27"><a href="analyse-de-sensibilité.html#cb8-27" tabindex="-1"></a>        ac <span class="op">=</span> fb[<span class="st">&#39;profit_principal&#39;</span>] <span class="op">-</span> sb[<span class="st">&#39;profit_principal&#39;</span>]</span>
+<span id="cb8-28"><a href="analyse-de-sensibilité.html#cb8-28" tabindex="-1"></a>        agency_costs_gamma.append(ac)</span>
+<span id="cb8-29"><a href="analyse-de-sensibilité.html#cb8-29" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;   γ = </span><span class="sc">{</span>g<span class="sc">:.2f}</span><span class="ss">: Coût d&#39;agence = </span><span class="sc">{</span>ac<span class="sc">:.2f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb8-30"><a href="analyse-de-sensibilité.html#cb8-30" tabindex="-1"></a>    </span>
+<span id="cb8-31"><a href="analyse-de-sensibilité.html#cb8-31" tabindex="-1"></a>    <span class="co"># Analyse 2: Impact de pi_B</span></span>
+<span id="cb8-32"><a href="analyse-de-sensibilité.html#cb8-32" tabindex="-1"></a>    model.gamma <span class="op">=</span> original_gamma</span>
+<span id="cb8-33"><a href="analyse-de-sensibilité.html#cb8-33" tabindex="-1"></a>    pi_Bs <span class="op">=</span> np.linspace(<span class="fl">0.2</span>, <span class="fl">0.7</span>, <span class="dv">8</span>)</span>
+<span id="cb8-34"><a href="analyse-de-sensibilité.html#cb8-34" tabindex="-1"></a>    agency_costs_pi <span class="op">=</span> []</span>
+<span id="cb8-35"><a href="analyse-de-sensibilité.html#cb8-35" tabindex="-1"></a>    </span>
+<span id="cb8-36"><a href="analyse-de-sensibilité.html#cb8-36" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">2. Impact de π_B (effort faible):&quot;</span>)</span>
+<span id="cb8-37"><a href="analyse-de-sensibilité.html#cb8-37" tabindex="-1"></a>    <span class="cf">for</span> pi_b <span class="kw">in</span> pi_Bs:</span>
+<span id="cb8-38"><a href="analyse-de-sensibilité.html#cb8-38" tabindex="-1"></a>        <span class="cf">if</span> pi_b <span class="op">&lt;</span> model.pi_H:</span>
+<span id="cb8-39"><a href="analyse-de-sensibilité.html#cb8-39" tabindex="-1"></a>            model.pi_B <span class="op">=</span> pi_b</span>
+<span id="cb8-40"><a href="analyse-de-sensibilité.html#cb8-40" tabindex="-1"></a>            fb <span class="op">=</span> solve_first_best(model, <span class="st">&#39;H&#39;</span>)</span>
+<span id="cb8-41"><a href="analyse-de-sensibilité.html#cb8-41" tabindex="-1"></a>            sb <span class="op">=</span> solve_second_best(model)</span>
+<span id="cb8-42"><a href="analyse-de-sensibilité.html#cb8-42" tabindex="-1"></a>            ac <span class="op">=</span> fb[<span class="st">&#39;profit_principal&#39;</span>] <span class="op">-</span> sb[<span class="st">&#39;profit_principal&#39;</span>]</span>
+<span id="cb8-43"><a href="analyse-de-sensibilité.html#cb8-43" tabindex="-1"></a>            agency_costs_pi.append(ac)</span>
+<span id="cb8-44"><a href="analyse-de-sensibilité.html#cb8-44" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f&quot;   π_B = </span><span class="sc">{</span>pi_b<span class="sc">:.2f}</span><span class="ss">: Coût d&#39;agence = </span><span class="sc">{</span>ac<span class="sc">:.2f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb8-45"><a href="analyse-de-sensibilité.html#cb8-45" tabindex="-1"></a>    </span>
+<span id="cb8-46"><a href="analyse-de-sensibilité.html#cb8-46" tabindex="-1"></a>    <span class="co"># Restaurer paramètres</span></span>
+<span id="cb8-47"><a href="analyse-de-sensibilité.html#cb8-47" tabindex="-1"></a>    model.gamma <span class="op">=</span> original_gamma</span>
+<span id="cb8-48"><a href="analyse-de-sensibilité.html#cb8-48" tabindex="-1"></a>    model.pi_B <span class="op">=</span> original_pi_B</span>
+<span id="cb8-49"><a href="analyse-de-sensibilité.html#cb8-49" tabindex="-1"></a>    </span>
+<span id="cb8-50"><a href="analyse-de-sensibilité.html#cb8-50" tabindex="-1"></a>    <span class="co"># Graphiques</span></span>
+<span id="cb8-51"><a href="analyse-de-sensibilité.html#cb8-51" tabindex="-1"></a>    fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>))</span>
+<span id="cb8-52"><a href="analyse-de-sensibilité.html#cb8-52" tabindex="-1"></a>    </span>
+<span id="cb8-53"><a href="analyse-de-sensibilité.html#cb8-53" tabindex="-1"></a>    ax1.plot(gammas, agency_costs_gamma, <span class="st">&#39;b-o&#39;</span>, linewidth<span class="op">=</span><span class="dv">2</span>, markersize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb8-54"><a href="analyse-de-sensibilité.html#cb8-54" tabindex="-1"></a>    ax1.set_xlabel(<span class="st">&#39;Coefficient d</span><span class="ch">\&#39;</span><span class="st">aversion au risque (γ)&#39;</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb8-55"><a href="analyse-de-sensibilité.html#cb8-55" tabindex="-1"></a>    ax1.set_ylabel(<span class="st">&#39;Coût d</span><span class="ch">\&#39;</span><span class="st">agence&#39;</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb8-56"><a href="analyse-de-sensibilité.html#cb8-56" tabindex="-1"></a>    ax1.set_title(<span class="st">&#39;Impact de l</span><span class="ch">\&#39;</span><span class="st">aversion au risque&#39;</span>, fontsize<span class="op">=</span><span class="dv">13</span>, fontweight<span class="op">=</span><span class="st">&#39;bold&#39;</span>)</span>
+<span id="cb8-57"><a href="analyse-de-sensibilité.html#cb8-57" tabindex="-1"></a>    ax1.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb8-58"><a href="analyse-de-sensibilité.html#cb8-58" tabindex="-1"></a>    ax1.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">&#39;r&#39;</span>, linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-59"><a href="analyse-de-sensibilité.html#cb8-59" tabindex="-1"></a>    </span>
+<span id="cb8-60"><a href="analyse-de-sensibilité.html#cb8-60" tabindex="-1"></a>    ax2.plot(pi_Bs[:<span class="bu">len</span>(agency_costs_pi)], agency_costs_pi, <span class="st">&#39;g-o&#39;</span>, linewidth<span class="op">=</span><span class="dv">2</span>, markersize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb8-61"><a href="analyse-de-sensibilité.html#cb8-61" tabindex="-1"></a>    ax2.set_xlabel(<span class="st">&#39;Probabilité de succès avec effort faible (π_B)&#39;</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb8-62"><a href="analyse-de-sensibilité.html#cb8-62" tabindex="-1"></a>    ax2.set_ylabel(<span class="st">&#39;Coût d</span><span class="ch">\&#39;</span><span class="st">agence&#39;</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb8-63"><a href="analyse-de-sensibilité.html#cb8-63" tabindex="-1"></a>    ax2.set_title(<span class="st">&#39;Impact de la difficulté de surveillance&#39;</span>, fontsize<span class="op">=</span><span class="dv">13</span>, fontweight<span class="op">=</span><span class="st">&#39;bold&#39;</span>)</span>
+<span id="cb8-64"><a href="analyse-de-sensibilité.html#cb8-64" tabindex="-1"></a>    ax2.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb8-65"><a href="analyse-de-sensibilité.html#cb8-65" tabindex="-1"></a>    ax2.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">&#39;r&#39;</span>, linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-66"><a href="analyse-de-sensibilité.html#cb8-66" tabindex="-1"></a>    </span>
+<span id="cb8-67"><a href="analyse-de-sensibilité.html#cb8-67" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb8-68"><a href="analyse-de-sensibilité.html#cb8-68" tabindex="-1"></a>    </span>
+<span id="cb8-69"><a href="analyse-de-sensibilité.html#cb8-69" tabindex="-1"></a>    <span class="cf">return</span> fig</span></code></pre></div>
+</div>
+<div id="exemple-dutilisation" class="section level3 hasAnchor" number="12.4.5">
+<h3><span class="header-section-number">12.4.5</span> Exemple d’utilisation<a href="analyse-de-sensibilité.html#exemple-dutilisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="analyse-de-sensibilité.html#cb9-1" tabindex="-1"></a><span class="co"># 1. Création du modèle</span></span>
+<span id="cb9-2"><a href="analyse-de-sensibilité.html#cb9-2" tabindex="-1"></a>model <span class="op">=</span> PrincipalAgentModel(</span>
+<span id="cb9-3"><a href="analyse-de-sensibilité.html#cb9-3" tabindex="-1"></a>    q_bar<span class="op">=</span><span class="dv">600</span>,    <span class="co"># Profit si succès</span></span>
+<span id="cb9-4"><a href="analyse-de-sensibilité.html#cb9-4" tabindex="-1"></a>    q<span class="op">=</span><span class="dv">100</span>,         <span class="co"># Profit si échec</span></span>
+<span id="cb9-5"><a href="analyse-de-sensibilité.html#cb9-5" tabindex="-1"></a>    pi_H<span class="op">=</span><span class="fl">0.7</span>,     <span class="co"># pi_B=0.7 Proba succès si effort faible  pi_H=0.7 donne le PBE</span></span>
+<span id="cb9-6"><a href="analyse-de-sensibilité.html#cb9-6" tabindex="-1"></a>    pi_B<span class="op">=</span><span class="fl">0.3</span>,     <span class="co"># pi_B=0.3 Proba succès si effort faible  pi_B=0.3 donne le PBE</span></span>
+<span id="cb9-7"><a href="analyse-de-sensibilité.html#cb9-7" tabindex="-1"></a>    d_H<span class="op">=</span><span class="dv">5</span>,        <span class="co"># Coût effort élevé</span></span>
+<span id="cb9-8"><a href="analyse-de-sensibilité.html#cb9-8" tabindex="-1"></a>    d_B<span class="op">=</span><span class="dv">2</span>,        <span class="co"># Coût effort faible</span></span>
+<span id="cb9-9"><a href="analyse-de-sensibilité.html#cb9-9" tabindex="-1"></a>    u_r<span class="op">=</span><span class="dv">10</span>,       <span class="co"># Utilité de réserve</span></span>
+<span id="cb9-10"><a href="analyse-de-sensibilité.html#cb9-10" tabindex="-1"></a>    gamma<span class="op">=</span><span class="fl">0.5</span>     <span class="co"># Aversion au risque</span></span>
+<span id="cb9-11"><a href="analyse-de-sensibilité.html#cb9-11" tabindex="-1"></a>)</span>
+<span id="cb9-12"><a href="analyse-de-sensibilité.html#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="analyse-de-sensibilité.html#cb9-13" tabindex="-1"></a><span class="co"># 2. Résoudre First-Best</span></span>
+<span id="cb9-14"><a href="analyse-de-sensibilité.html#cb9-14" tabindex="-1"></a>fb <span class="op">=</span> solve_first_best(model, <span class="st">&#39;H&#39;</span>)</span>
+<span id="cb9-15"><a href="analyse-de-sensibilité.html#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="analyse-de-sensibilité.html#cb9-16" tabindex="-1"></a><span class="co"># 3. Résoudre Second-Best</span></span>
+<span id="cb9-17"><a href="analyse-de-sensibilité.html#cb9-17" tabindex="-1"></a>sb <span class="op">=</span> solve_second_best(model)</span>
+<span id="cb9-18"><a href="analyse-de-sensibilité.html#cb9-18" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="analyse-de-sensibilité.html#cb9-19" tabindex="-1"></a><span class="co"># 4. Vérifier l&#39;équilibre bayésien</span></span>
+<span id="cb9-20"><a href="analyse-de-sensibilité.html#cb9-20" tabindex="-1"></a>pbe_results <span class="op">=</span> verify_perfect_bayesian_equilibrium(model, sb)</span>
+<span id="cb9-21"><a href="analyse-de-sensibilité.html#cb9-21" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="analyse-de-sensibilité.html#cb9-22" tabindex="-1"></a><span class="co"># 5. Comparer les régimes</span></span>
+<span id="cb9-23"><a href="analyse-de-sensibilité.html#cb9-23" tabindex="-1"></a>fb, sb, agency_cost <span class="op">=</span> compare_regimes(model)</span>
+<span id="cb9-24"><a href="analyse-de-sensibilité.html#cb9-24" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="analyse-de-sensibilité.html#cb9-25" tabindex="-1"></a><span class="co"># 6. Analyse de sensibilité</span></span>
+<span id="cb9-26"><a href="analyse-de-sensibilité.html#cb9-26" tabindex="-1"></a>fig <span class="op">=</span> sensitivity_analysis(model)</span>
+<span id="cb9-27"><a href="analyse-de-sensibilité.html#cb9-27" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<pre><code>--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 106.00
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 297.56
+  w (échec)  = 95.06
+  Écart w̄ - w = 202.50
+
+Résultats:
+  Profit espéré Principal: 213.19
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+
+--------------------------------------------------
+Vérification de l&#39;équilibre bayésien parfait (PBE)
+--------------------------------------------------
+
+1. Vérification de la rationalité de l&#39;Agent:
+   EU_A(accepter, e=H) = 10.0000
+   EU_A(accepter, e=B) = 10.0000
+   EU_A(refuser)       = 10.0000
+
+   → L&#39;agent Refuse le contrat
+
+2. Croyances du Principal (après observation du résultat):
+   Croyances a priori (avant observation):
+     P(e=H | contrat proposé) = 1 (anticipé)
+     P(e=B | contrat proposé) = 0
+
+3. Vérification de l&#39;optimalité du Principal:
+   Profit à l&#39;équilibre: 94.1875
+
+   Test de déviations:
+     Déviation vers e=B: Profit = 106.0000
+     Ne pas contracter: Profit = 0.0000
+
+   Pas de déviation profitable: NON
+
+4. Tests de robustesse:
+   Si w̄ augmente de 10%:
+     CI reste satisfaite: True
+     Profit Principal: 192.3581 ≥ 94.1875
+
+   Si w̄ diminue de 10%:
+     CI satisfaite: False
+     CP satisfaite: False
+
+--------------------------------------------------
+Conclusion sur l&#39;Équilibre Bayésien Parfait:
+--------------------------------------------------
+Pas de PBE
+
+==================================================
+Comparaison des régimes First-Best vs Second-Best
+==================================================
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 106.00
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 297.56
+  w (échec)  = 95.06
+  Écart w̄ - w = 202.50
+
+Résultats:
+  Profit espéré Principal: 213.19
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+
+Coût d&#39;agence (perte due à l&#39;asymétrie d&#39;information):
+  Profit FB - Profit SB = 11.81
+  Perte relative: 5.25%
+
+Écart de salaire:
+  FB: w̄ - w = 0.00 (assurance complète)
+  SB: w̄ - w = 202.50 (incitation)
+
+========================================
+Analyse de sensibilité du coût d&#39;agence
+========================================
+
+1. Impact de l&#39;aversion au risque (γ):
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 8323.47
+
+Résultats:
+  Profit espéré Principal: -7873.47
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = -7873.47
+  Si effort B imposé: Profit = -3706.13
+ Le principal préfère imposer l&#39;effort B
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 13262.65
+  w (échec)  = 1980.08
+  Écart w̄ - w = 11282.57
+
+Résultats:
+  Profit espéré Principal: -9427.88
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.30: Coût d&#39;agence = 1554.41
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 871.42
+
+Résultats:
+  Profit espéré Principal: -421.42
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = -421.42
+  Si effort B imposé: Profit = -248.83
+ Le principal préfère imposer l&#39;effort B
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 1235.87
+  w (échec)  = 296.83
+  Écart w̄ - w = 939.04
+
+Résultats:
+  Profit espéré Principal: -504.16
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.40: Coût d&#39;agence = 82.74
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 106.00
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 297.56
+  w (échec)  = 95.06
+  Écart w̄ - w = 202.50
+
+Résultats:
+  Profit espéré Principal: 213.19
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.50: Coût d&#39;agence = 11.81
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 91.23
+
+Résultats:
+  Profit espéré Principal: 358.77
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 358.77
+  Si effort B imposé: Profit = 187.10
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 115.16
+  w (échec)  = 44.50
+  Écart w̄ - w = 70.67
+
+Résultats:
+  Profit espéré Principal: 356.04
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.60: Coût d&#39;agence = 2.73
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 47.88
+
+Résultats:
+  Profit espéré Principal: 402.12
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 402.12
+  Si effort B imposé: Profit = 215.19
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 58.46
+  w (échec)  = 25.87
+  Écart w̄ - w = 32.58
+
+Résultats:
+  Profit espéré Principal: 401.32
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.70: Coût d&#39;agence = 0.81
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 29.52
+
+Résultats:
+  Profit espéré Principal: 420.48
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 420.48
+  Si effort B imposé: Profit = 227.67
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 35.15
+  w (échec)  = 17.23
+  Écart w̄ - w = 17.93
+
+Résultats:
+  Profit espéré Principal: 420.22
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.80: Coût d&#39;agence = 0.26
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 20.27
+
+Résultats:
+  Profit espéré Principal: 429.73
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 429.73
+  Si effort B imposé: Profit = 234.18
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 23.67
+  w (échec)  = 12.56
+  Écart w̄ - w = 11.11
+
+Résultats:
+  Profit espéré Principal: 429.66
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.90: Coût d&#39;agence = 0.07
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 15.00
+
+Résultats:
+  Profit espéré Principal: 435.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 435.00
+  Si effort B imposé: Profit = 238.00
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 17.25
+  w (échec)  = 9.75
+  Écart w̄ - w = 7.50
+
+Résultats:
+  Profit espéré Principal: 435.00
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 1.00: Coût d&#39;agence = -0.00
+
+2. Impact de π_B (effort faible):
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 56.00
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 282.24
+  w (échec)  = 116.64
+  Écart w̄ - w = 165.60
+
+Résultats:
+  Profit espéré Principal: 217.44
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.20: Coût d&#39;agence = 7.56
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 91.71
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 292.41
+  w (échec)  = 102.01
+  Écart w̄ - w = 190.40
+
+Résultats:
+  Profit espéré Principal: 214.71
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.27: Coût d&#39;agence = 10.29
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 127.43
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 306.95
+  w (échec)  = 83.17
+  Écart w̄ - w = 223.78
+
+Résultats:
+  Profit espéré Principal: 210.18
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.34: Coût d&#39;agence = 14.82
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 163.14
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 329.42
+  w (échec)  = 58.52
+  Écart w̄ - w = 270.90
+
+Résultats:
+  Profit espéré Principal: 201.85
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.41: Coût d&#39;agence = 23.15
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 198.86
+ Le principal préfère imposer l&#39;effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 368.64
+  w (échec)  = 27.04
+  Écart w̄ - w = 341.60
+
+Résultats:
+  Profit espéré Principal: 183.84
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.49: Coût d&#39;agence = 41.16
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 234.57
+ Le principal préfère imposer l&#39;effort B
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 453.69
+  w (échec)  = 0.09
+  Écart w̄ - w = 453.60
+
+Résultats:
+  Profit espéré Principal: 132.39
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.56: Coût d&#39;agence = 92.61
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 270.29
+ Le principal préfère imposer l&#39;effort B
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 1764.00
+  w (échec)  = 0.00
+  Écart w̄ - w = 1764.00
+
+Résultats:
+  Profit espéré Principal: -784.80
+  Utilité Agent (si e=H): 24.40
+  Utilité Agent (si e=B): 24.40
+
+Vérification des contraintes:
+  CP (≥ 0): 14.4000 ✓
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L&#39;agent est incité à fournir l&#39;effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.63: Coût d&#39;agence = 1009.80</code></pre>
+<div class="float">
+<img src="output_22_1.png" alt="png" />
+<div class="figcaption">png</div>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fonction-de-vérification-du-pbe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/07-Principal_Agent.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
