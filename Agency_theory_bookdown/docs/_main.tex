@@ -1,0 +1,2777 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  12pt,
+]{book}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{booktabs}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Le modèle principal agent ou The Agency Theory},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Le modèle principal agent ou The Agency Theory}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter*{}\label{section}
+\addcontentsline{toc}{chapter}{}
+
+Ministère de l'Economie du Plan et de la Coopération
+Agence nationale de la Statistique et de la Démographie (ANSD)
+Ecole nationale de la Statistique et de l'Analyse économique Pierre Ndiaye (ENSAE)
+
+Exposé de théorie des jeux
+
+Rédigé par :
+Khadidatou COULIBALY, Ange Emilson Rayan RAHERINASOLO, Mamady I BERETE, Prosper Lawa FOUMSOU et Samba DIENG
+Respectivement Élèves en ISE 2
+
+Sous la supervision de :
+Dr Idrissa DIAGNE
+
+Année scolaire : 2025/2026
+
+\chapter{Introduction}\label{introduction}
+
+Les relations économiques reposent très souvent sur des situations dans lesquelles une personne ou une organisation, appelée \textbf{le principal}, délègue une tâche à une autre, appelée \textbf{l'agent}. Cette délégation est au cœur du fonctionnement des entreprises, des administrations publiques et, plus largement, de nombreuses interactions économiques et sociales. Un employeur confie une mission à un salarié, un actionnaire délègue la gestion de son entreprise à un manager, un assuré confie la gestion d'un risque à un assureur, ou encore un client mandate un professionnel pour exécuter une tâche en son nom.
+
+Dans ces situations, le principal et l'agent poursuivent des objectifs distincts. Le principal cherche à maximiser un certain résultat --- profit, production, performance ou utilité --- tandis que l'agent cherche à maximiser sa propre utilité, qui dépend notamment de sa rémunération, de l'effort fourni et du risque auquel il est exposé. Cette divergence d'intérêts constitue le point de départ du \textbf{problème Principal--Agent}.
+
+Un élément central complique cependant cette relation : l'existence d'une asymétrie d'information. Très souvent, le principal ne peut pas observer parfaitement les actions de l'agent, ni toutes les informations pertinentes à la réalisation de la tâche. En particulier, l'effort fourni par l'agent est généralement non observable ou non vérifiable contractuellement. Le principal observe uniquement un résultat, qui dépend à la fois de l'effort de l'agent et de facteurs aléatoires échappant au contrôle des deux parties.
+
+Cette situation engendre ce que l'on appelle un problème d'aléa moral. L'agent peut être tenté de réduire son effort, puisque celui-ci est coûteux, sans que le principal puisse le détecter directement. Pour inciter l'agent à fournir un effort élevé, le principal doit alors concevoir un contrat incitatif, c'est-à-dire un mécanisme de rémunération qui lie le salaire de l'agent au résultat observé. Toutefois, cette solution introduit une nouvelle difficulté : le résultat dépend aussi du hasard. En liant la rémunération au résultat, le principal fait donc porter un risque à l'agent.
+
+Or, dans de nombreuses situations économiques réalistes, l'agent est averse au risque. Il préfère un revenu certain à un revenu aléatoire de même espérance. Ainsi apparaît une tension fondamentale entre deux objectifs contradictoires : d'une part, inciter l'agent à fournir un effort élevé en rendant sa rémunération dépendante du résultat, et d'autre part, protéger l'agent contre un risque excessif afin qu'il accepte le contrat.
+
+C'est cette tension entre incitation et assurance, ainsi que les inefficacités qu'elle engendre, qui constituent le cœur de l'analyse du modèle Principal--Agent. Lorsque l'effort est observable, le principal peut imposer directement le niveau d'effort souhaité et offrir un contrat simple, souvent un salaire fixe. En revanche, lorsque l'effort n'est pas observable, le principal est contraint de proposer des contrats plus complexes, ce qui conduit généralement à une perte d'efficacité par rapport à la situation idéale. On parle alors d'optimum de premier rang lorsque l'information est complète, et d'optimum de second rang en présence d'asymétrie d'information.
+
+Le modèle Principal--Agent s'inscrit naturellement dans le cadre de la théorie des jeux dynamiques à information incomplète. La relation entre le principal et l'agent se déroule dans le temps : le principal propose un contrat, l'agent décide de l'accepter ou de le refuser, choisit ensuite son effort, puis un résultat aléatoire se réalise avant que les paiements ne soient effectués. À chaque étape, les décisions sont prises sur la base d'informations partielles, et les anticipations sur le comportement futur jouent un rôle central.
+
+\chapter{Cadre conceptuel}\label{cadre-conceptuel}
+
+(parler un peu de la théorie de la firme et dire qu'il y a un lien avec les contrats incomplets)
+\ldots{}
+
+\section{Les acteurs du modèle}\label{les-acteurs-du-moduxe8le}
+
+(le principal, l'agent, la contrainte de participation)
+
+Le modèle Principal--Agent décrit une relation de délégation entre deux agents économiques : le principal et l'agent. Cette relation est encadrée par un contrat conclu avant la réalisation de l'activité.
+
+Le principal est le donneur d'ordre. Il délègue une tâche à l'agent et conçoit un contrat visant à orienter son comportement.\\
+Dans le modèle standard, le principal est supposé neutre au risque. Son objectif est de maximiser son profit espéré, noté :
+
+\[
+\Pi = \mathbb{E}[y - w]
+\]
+
+où \(y\) représente le résultat de l'activité et \(w\) la rémunération versée à l'agent.
+
+L'agent est l'exécutant de la tâche. Il choisit un niveau d'effort \(e\) qui influence la distribution du résultat.L'effort est coûteux pour l'agent et génère une désutilité. L'agent est généralement supposé potentiellement averse au risque.
+
+\section{Le contrat d'agence}\label{le-contrat-dagence}
+
+Il spécifie une règle de rémunération \(w(y)\), conditionnée uniquement sur des variables observables, en particulier le résultat de l'activité.\\
+Le contrat ne peut pas dépendre directement de l'effort lorsque celui-ci n'est pas observable.
+
+Le contrat Principal--Agent est un engagement conclu ex ante entre le principal et l'agent, c'est-à-dire avant la réalisation de l'activité et avant que l'agent ne choisisse son niveau d'effort. Il définit une règle de rémunération de l'agent en fonction des variables.
+
+Lorsque l'effort est observable, le principal peut conditionner le contrat directement sur le niveau d'effort et imposer l'effort optimal. Dans ce cas, le contrat permet d'atteindre une allocation efficace.
+
+En revanche, lorsque l'effort n'est pas observable, le contrat ne peut dépendre que du résultat du projet. Cette limitation empêche le principal de contrôler directement le comportement de l'agent. Le salaire conditionnel au résultat devient alors l'unique instrument dont dispose le principal pour influencer l'effort de l'agent.
+
+Le principal peut donc concevoir un contrat qui rende l'effort élevé préférable pour l'agent, compte tenu de ses préférences et du coût de l'effort. Toutefois, rendre la rémunération dépendante du résultat expose l'agent au risque lié à l'aléa du projet c'est à dire l'agent peut réaliser le projet avec un effort élevé et pourtant le projet n'aboutit pas du fait de l'aléa de la nature et sa rémunération va en dépendre. Ce point est particulièrement important lorsque l'agent est averse au risque.
+
+Le principal est ainsi confronté à un arbitrage fondamental entre incitations et assurance. Une rémunération très variable renforce les incitations à fournir un effort élevé, mais expose davantage l'agent au risque. À l'inverse, une rémunération plus stable protège mieux l'agent contre le risque, mais affaiblit les incitations.
+
+Lorsque l'effort est non observable, cet arbitrage conduit généralement à un contrat moins efficace que dans le cas d'information complète. L'impossibilité de contrôler directement l'effort engendre une perte de surplus par rapport au benchmark d'effort observable. Cette perte est appelée coût d'agence et constitue un élément central de l'analyse du modèle Principal--Agent.
+
+\section{L'asymétrie d'information}\label{lasymuxe9trie-dinformation}
+
+Le principal ne peut pas observer l'effort fourni par l'agent.\\
+Il observe uniquement le résultat, qui dépend à la fois de l'effort et d'un aléa.\\
+Cette inobservabilité de l'effort est à l'origine du problème d'aléa moral.
+
+Le modèle Principal--Agent repose sur l'existence d'une asymétrie d'information entre le principal et l'agent. Cette asymétrie signifie que certaines informations pertinentes pour la relation contractuelle ne sont pas observables ou vérifiables par le principal. Selon le moment où cette information privée intervient, on distingue deux grandes situations : la sélection adverse et l'aléa moral.
+
+Ces deux formes d'asymétrie d'information ont des implications différentes sur la structure des contrats et sur l'efficacité des résultats obtenus.
+
+\subsection{Sélection adverse (information cachée ex ante)}\label{suxe9lection-adverse-information-cachuxe9e-ex-ante}
+
+La sélection adverse correspond à une situation dans laquelle l'agent détient une information privée avant la signature du contrat. Cette information porte généralement sur ses caractéristiques intrinsèques, appelées son type. Par exemple, l'agent peut connaître sa productivité, son niveau de compétence ou son degré de risque, alors que le principal ne les observe pas.
+
+Dans ce contexte, le principal ne peut pas proposer un contrat unique sans risquer d'attirer uniquement les agents les moins favorables. Il est donc confronté à un problème de screening, dont l'objectif est d'identifier indirectement le type de l'agent.
+
+Pour résoudre ce problème, le principal propose un menu de contrats, c'est-à-dire plusieurs contrats différents parmi lesquels l'agent doit choisir. Chaque type d'agent est incité à sélectionner le contrat qui lui correspond le mieux. Ce mécanisme est appelé auto-sélection
+
+Cependant, pour inciter l'agent à révéler honnêtement son information privée, le principal doit généralement lui laisser un surplus supplémentaire par rapport à la situation d'information complète. Ce surplus est appelé rente informationnelle. L'existence de cette rente implique que le contrat optimal sous sélection adverse est généralement moins efficace que dans un contexte sans asymétrie d'information.
+
+\subsection{Aléa moral (action cachée ex post)}\label{aluxe9a-moral-action-cachuxe9e-ex-post}
+
+L'aléa moral correspond à une situation dans laquelle l'asymétrie d'information apparaît après la signature du contrat. L'agent choisit alors une action, typiquement un niveau d'effort, qui n'est pas observable par le principal.
+
+Dans ce cas, le principal connaît les caractéristiques de l'agent, mais ne peut pas observer son comportement. L'agent peut être tenté de fournir un effort plus faible que celui souhaité par le principal, car l'effort est coûteux.
+
+Cette situation engendre un problème d'incitation. Le principal doit concevoir un contrat qui rende l'effort élevé optimal pour l'agent, même si cet effort n'est pas observable. Les contrats utilisés dans ce contexte sont appelés contrats incitatifs.
+
+La présence d'aléa moral conduit généralement à une distorsion par rapport à la situation de premier rang, dans laquelle l'effort serait observable. Le contrat optimal sous aléa moral implique souvent une perte d'efficacité, appelée coût d'agence, qui résulte de l'impossibilité de contrôler directement l'effort de l'agent.
+
+\section{Les contrats incomplets}\label{les-contrats-incomplets}
+
+Le \textbf{contrat d'agence} est précisément le terrain où apparaissent les \textbf{contrats incomplets} : dans la relation Principal--Agent, le principal ne peut ni observer parfaitement l'action de l'agent ni la rendre entièrement \textbf{vérifiable} et ``contractible''. Des dimensions essentielles (effort, créativité, engagement) peuvent être perçues en pratique, mais restent difficiles à prouver juridiquement, ce qui empêche d'écrire un contrat exhaustif. Cette incomplétude oblige alors le principal à utiliser des \textbf{indicateurs imparfaits} pour inciter et à conserver un \textbf{droit résiduel de contrôle} (décider de ce que le contrat n'a pas prévu), si bien que la gouvernance combine règles formelles et mécanismes informels (autorité, confiance).
+
+Un \textbf{contrat incomplet} est donc un accord qui ne peut pas détailler toutes les obligations ni toutes les contingences futures ; il laisse nécessairement (ou volontairement) certaines décisions pour plus tard, ce qui apporte de la flexibilité mais aussi des risques stratégiques. L'exemple typique est un contrat de travail (p.~ex. un ingénieur logiciel) : on peut fixer salaire, durée, mission générale, mais pas décrire parfaitement toutes les tâches, la créativité attendue, la qualité du code dans tous les cas, ni anticiper tous les problèmes techniques imprévus.
+
+L'incomplétude s'explique principalement par les élements suivants.
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\roman{enumi})}
+  \tightlist
+  \item
+    la \textbf{rationalité limitée} : on ne peut pas prévoir tous les états du monde ni rédiger toutes les actions optimales pour chacun d'eux ;
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\roman{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    des \textbf{coûts de rédaction} qui explosent quand on veut tout spécifier ;
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\roman{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    la \textbf{non-vérifiabilité} (différence entre observable et prouvable devant un tribunal) qui rend non contractibles des variables comme qualité/effort ;
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\roman{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    l'\textbf{indescriptibilité} de certaines qualités (ex. ``bonne pédagogie'') impossibles à formaliser juridiquement avec précision.
+  \end{enumerate}
+\end{itemize}
+
+\chapter{Formalisation du problème}\label{formalisation-du-probluxe8me}
+
+Dans cette partie, nous allons procéder à la formalisation mathématique du problème.
+
+\section{Fonction d'utilité et attitude face au risque}\label{fonction-dutilituxe9-et-attitude-face-au-risque}
+
+Nous commençons par définir les fonctions d'utilité tou en précisant leurs caractéristiques, lesquelles dépendent de l'attitude face au risque.
+
+\begin{itemize}
+\tightlist
+\item
+  Fonction d'utilité du principal
+  La fonction d'utilité du principal est égale à son profit. Elle est donnée par l'espérance de gain du projet à laquelle est retranchée la rémunération versée à l'agent. Étant neutre au risque, il maximise l'espérance de ce profit :
+\end{itemize}
+
+\[
+U_P = \mathbb{E}[y - w(y)] = \mathbb{E}[y] - w(y)
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Fonction d'utilité de l'agent
+  L'utilité de l'agent dépend de la rémunération reçue et de l'effort fourni. Elle est donnée par :
+\end{itemize}
+
+\[
+U_A = \mathbb{E}[u(w(y))] - c(e)
+\]
+
+où \(u(\cdot)\) est une fonction croissante du salaire et \(d(e)\) représente la désutilité de l'effort, elle mesure à quel point l'effort est pénible pour l'agent.
+
+La fonction de coût de l'effort (désutilité) vérifie généralement :
+
+\[
+c'(e) > 0 \quad \text{et} \quad c''(e) \ge 0
+\]
+
+Un effort plus élevé améliore la performance attendue mais réduit l'utilité de l'agent.
+
+\begin{itemize}
+\item
+  Aversion au risque de l'agent
+  Lorsque l'agent est averse au risque, la fonction \(u(\cdot)\) est concave.\\
+  Cela implique que l'agent préfère une rémunération certaine à une rémunération aléatoire de même espérance.\\
+  Cette aversion au risque limite l'intensité des incitations que le principal peut introduire dans le contrat.
+\item
+  Rôle du partage du risque
+  Le contrat détermine la manière dont le risque lié à l'aléa est réparti entre le principal et l'agent.\\
+  Un salaire fixe assure complètement l'agent mais ne fournit pas d'incitation à l'effort.\\
+  Un salaire dépendant du résultat incite davantage l'agent mais lui fait supporter une partie du risque.
+\end{itemize}
+
+Le modèle Principal--Agent consiste précisément à analyser cet arbitrage entre incitation et partage du risque.
+
+\section{Variables clé et hypothèses du modèle}\label{variables-cluxe9-et-hypothuxe8ses-du-moduxe8le}
+
+L'analyse du modèle Principal--Agent repose sur un ensemble d'hypothèses simples visant à mettre en évidence les mécanismes essentiels liés à l'asymétrie d'information, et en particulier au problème d'aléa moral.
+
+L'effort fourni par l'agent joue un rôle central dans le modèle. Deux situations doivent être distinguées. Dans un premier cas, dit benchmark, l'effort est observable et vérifiable par le principal. Celui-ci peut alors imposer directement le niveau d'effort souhaité dans le contrat. Dans un second cas, plus réaliste, l'effort n'est pas observable. Cette inobservabilité est à l'origine du problème d'aléa moral, car le principal ne peut plus conditionner le contrat directement sur l'effort.
+
+Le résultat de l'activité est aléatoire. Il dépend à la fois du niveau d'effort choisi par l'agent et de facteurs de hasard échappant au contrôle des deux parties. Ce rôle du hasard est généralement modélisé par un acteur fictif ``Nature'', qui détermine l'issue du projet selon des probabilités conditionnelles.
+
+Dans un cadre simple, l'effort peut prendre deux valeurs :
+
+\begin{itemize}
+\tightlist
+\item
+  un effort élevé, noté \(e = H\),
+\item
+  un effort faible, noté \(e = B\).
+\end{itemize}
+
+De même, le résultat du projet est binaire :
+- succès,
+- échec.
+
+La probabilité de succès dépend du niveau d'effort fourni par l'agent. On note :
+- \(\pi_H\) la probabilité de succès si l'agent fournit un effort élevé,
+- \(\pi_B\) la probabilité de succès si l'agent fournit un effort faible,
+
+avec la condition :
+
+\[
+0 < \pi_B < \pi_H < 1
+\]
+
+Cette relation est résumée dans le tableau suivant :
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Effort de l'agent & Succès & Échec \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(H\) & \(\pi_H\) & \(1 - \pi_H\) \\
+\(B\) & \(\pi_B\) & \(1 - \pi_B\) \\
+\end{longtable}
+
+Le projet génère un profit pour le principal avant paiement du salaire de l'agent (le cas d'effort non observable). Ce profit dépend du résultat :
+
+\begin{itemize}
+\tightlist
+\item
+  \(\bar q\) en cas de succès,
+\item
+  \(q\) en cas d'échec,
+\end{itemize}
+
+avec \(q < \bar q\).
+
+La rémunération de l'agent est conditionnée au résultat observé. Le contrat prévoit :
+- un salaire \(\bar w\) en cas de succès,
+- un salaire \(w\) en cas d'échec.
+
+Les utilités du principal et de l'agent dépendent de ces éléments. Le principal cherche à maximiser son profit espéré net du salaire versé, tandis que l'agent compare l'utilité espérée du salaire à la désutilité de l'effort fourni. A savoir, pour le principal, on a
+
+\[
+U_P = \mathbb{E}[y] - w(y)
+\]
+et pour l'agent
+\[
+U_A = \mathbb{E}[u(w(y))] - c(e)
+\]
+
+\section{Formalisation en théorie des jeux}\label{formalisation-en-thuxe9orie-des-jeux}
+
+(les joueurs, les stratégies, JFE)
+
+Le modèle Principal--Agent avec aléa moral\textbf{(?????????????????????????? a voir)} peut être formalisé comme un jeu dynamique à information incomplète et imparfaite. Cette formalisation permet de préciser la structure stratégique de l'interaction entre le principal et l'agent, ainsi que le rôle du hasard dans la détermination du résultat.
+
+\begin{itemize}
+\tightlist
+\item
+  Nature du jeu
+  Le jeu est dynamique, car les décisions des joueurs se prennent de manière séquentielle. Le principal agit en premier en proposant un contrat, puis l'agent réagit en acceptant ou refusant ce contrat et en choisissant ensuite son niveau d'effort.
+\end{itemize}
+
+Le jeu est à information incomplète, car certaines actions pertinentes, en particulier l'effort de l'agent, ne sont pas observables par le principal. Il est également à information imparfaite, car le principal ne connaît pas l'action effectivement choisie par l'agent au moment où le résultat est réalisé.
+
+Enfin, le jeu fait intervenir un joueur ``Nature'', qui représente l'aléa affectant le résultat du projet. ``Nature'' ne poursuit aucun objectif propre et se contente de tirer le résultat selon des probabilités conditionnelles dépendant de l'effort fourni par l'agent.
+
+\subsection{Description formelle du jeu}\label{description-formelle-du-jeu}
+
+Le jeu comporte deux joueurs :
+
+\begin{itemize}
+\tightlist
+\item
+  le \textbf{Principal},
+\item
+  l'\textbf{Agent},
+\end{itemize}
+
+Avec ces deux joueurs, on a également la \textbf{Nature} qui intervient.
+
+La \textbf{stratégie du Principal} consiste à choisir un contrat :
+\[
+(\bar w, w),
+\]
+où \(\bar w\) est le salaire versé en cas de succès et \(w\) le salaire versé en cas d'échec.
+
+La stratégie de l'Agent est composée de deux décisions :
+- accepter ou refuser le contrat,
+- choisir un niveau d'effort \(e \in \{H,B\}\) si le contrat est accepté.
+
+La \textbf{Nature} ne choisit pas stratégiquement. Elle détermine le résultat selon des probabilités conditionnelles :
+\[
+\mathbb P(S\mid H)=\pi_H, \qquad \mathbb P(S\mid B)=\pi_B,
+\]
+avec \(0<\pi_B<\pi_H<1\).
+
+Il est important de noter les informations suivantes.
+
+\begin{itemize}
+\tightlist
+\item
+  Le principal observe le contrat proposé et le résultat final, mais n'observe pas l'effort de l'agent.
+\item
+  L'agent observe le contrat et connaît l'effort qu'il fournit.
+\item
+  Le résultat du projet est observé par les deux parties.
+\item
+  La Nature connaît l'effort mais ne poursuit aucun objectif.
+\item
+  On est en information incompète
+\end{itemize}
+
+\subsection{Définition des gains}\label{duxe9finition-des-gains}
+
+Le jeu peut être représenté sous forme d'un arbre dynamique.
+
+À la racine de l'arbre, le principal choisit un contrat \((\bar w, w)\). Ce choix est observé par l'agent.
+
+À l'étape suivante, l'agent décide soit d'accepter, soit de refuser le contrat. En cas de refus, le jeu s'arrête immédiatement et les gains sont nuls pour le principal, tandis que l'agent obtient son utilité de réserve \(u_r\).
+
+Si l'agent accepte le contrat, il choisit ensuite un niveau d'effort \(e \in \{H,B\}\). Ce choix n'est pas observé par le principal.
+
+Après le choix d'effort, la Nature intervient et détermine le résultat du projet. Si l'effort est \(H\), la Nature choisit le succès avec probabilité \(\pi_H\) et l'échec avec probabilité \(1-\pi_H\). Si l'effort est \(B\), le succès survient avec probabilité \(\pi_B\) et l'échec avec probabilité \(1-\pi_B\).
+
+Chaque chemin de l'arbre se termine par un nœud terminal, auquel sont associés les gains des joueurs.
+
+En cas de succès, les gains sont :
+\[
+u_P = \bar q - \bar w, \qquad u_A = u(\bar w) - d_e.
+\]
+
+En cas d'échec, les gains sont :
+\[
+u_P = q - w, \qquad u_A = u(w) - d_e.
+\]
+
+Ainsi, chaque issue finale du jeu est caractérisée par un triplet :
+- le contrat choisi par le principal,
+- l'effort choisi par l'agent,
+- le résultat tiré par la Nature,
+
+et les utilités correspondantes du principal et de l'agent.
+
+\subsection{Représentation sous forme extensive}\label{repruxe9sentation-sous-forme-extensive}
+
+Le jeu se présente comme suit:
+
+T = 0 : le principal propose un contrat
+
+T = 1 : l'agent accepte ou refuse
+
+T = 2 : l'agent choisit son effort
+
+T = 3 : Nature détermine le résultat
+
+T = 4 : paiements et utilités
+
+Cette représentation extensive met en évidence le caractère dynamique du jeu, le rôle central de l'asymétrie d'information et la manière dont les incitations doivent être construites à travers le contrat.
+
+\subsection{GRAPHIQUE ET TABLEAU ---}\label{graphique-et-tableau}
+
+\chapter{Résolution analytique}\label{ruxe9solution-analytique}
+
+La relation entre le principal et l'agent se déroule de manière séquentielle.
+
+Dans un premier temps, le principal choisit et propose un contrat à l'agent. Ce contrat spécifie les modalités de rémunération de l'agent en fonction des variables observables, en particulier le résultat de l'activité.
+
+Dans un second temps, l'agent décide d'accepter ou de refuser le contrat. S'il refuse, la relation s'arrête immédiatement. S'il accepte, le jeu se poursuit.
+
+Ensuite, l'agent choisit son niveau d'effort. Cet effort influence la probabilité de succès du projet, mais n'est pas observable par le principal.
+
+Le résultat de l'activité est ensuite déterminé de manière aléatoire. Il dépend à la fois du niveau d'effort fourni par l'agent et d'un facteur de hasard.
+
+Enfin, le salaire est versé à l'agent conformément aux termes du contrat, en fonction du résultat observé. Le principal perçoit le profit net du projet après paiement du salaire.
+
+Cette structure séquentielle met en évidence le rôle central de l'asymétrie d'information. Le principal doit anticiper le comportement de l'agent et concevoir un contrat qui l'incite à fournir l'effort souhaité, malgré l'impossibilité d'observer directement cet effort.
+
+Maintenant, on formalise le modèle Principal--Agent et on étudie successivement deux situations :
+- le cas du premier-best, qui correspond à une situation d'information symétrique,
+- le cas du second-best, qui correspond à une situation d'aléa moral.
+
+Le cas du premier-best sert de référence d'efficacité. Le second-best met en évidence les distorsions dues à l'asymétrie d'information.
+
+\section{Cadre de résolution}\label{cadre-de-ruxe9solution}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Principal} : Nous faisons ici l'hypothèse que le principal est neutre au risque, il cherche à maximiser son profit espéré :\\
+  \[
+  \Pi = \mathbb{E}[y - w].
+  \]
+\item
+  \textbf{Agent} : Il est supposé averse au risque et sa fonction d'utilité est donnée par :\\
+  \[
+  U_A = \mathbb{E}[u(w(y))] - d(e),
+  \] où \(u\) est croissante et concave (\(u' > 0, u'' < 0\)), et \(d(e)\) est le coût (désutilité) de l'effort.
+\item
+  \textbf{Effort} : L'agent choisit de faire un effort noté \(e \in \{H, B\}\) (\(H=haut, B=bas\)). Les coûts associés aux types d'efforts sont : \(d_H > d_B \geq 0\).
+\item
+  \textbf{Résultat} : Le resultat depend de la nature et peut être un succès (\(S\)) ou un échec (\(F\)). Les profits associés sont: \(q(S) = \bar{q}, \quad q(F) = q\), avec \(\bar{q} > q\).
+\item
+  \textbf{Probabilités} : \(\pi_H = \mathbb{P}(S|H), \quad \pi_B = \mathbb{P}(S|B)\), avec \(0 < \pi_B < \pi_H < 1\).
+\item
+  \textbf{Rémunération} : Les remunérations de l'agent dépendent de la nature du résultat et sont donnés par : \(w(S) = \bar{w}, \quad w(F) = w\).
+\item
+  \textbf{Utilité de réserve de l'agent} : \(u_r\).
+\end{itemize}
+
+\section{Cas du first best (information symétrique)}\label{cas-du-first-best-information-symuxe9trique}
+
+On parle de situation de premier-best lorsque le principal observe parfaitement l'effort fourni par l'agent. Dans ce cas, l'effort est vérifiable et peut être directement imposé par le contrat. Il n'existe donc pas de problème d'incitation.
+
+L'effort de l'agent peut prendre deux valeurs :
+\[
+e \in \{H,B\}
+\]
+où \(H\) désigne un effort élevé et \(B\) un effort faible.
+
+Le résultat du projet est aléatoire. Il peut être un succès ou un échec. Les probabilités de succès sont :
+\[
+\mathbb P(S\mid H)=\pi_H, \qquad \mathbb P(S\mid B)=\pi_B,
+\]
+avec \(0<\pi_B<\pi_H<1\).
+
+Le projet génère un profit pour le principal :
+\[
+q(S)=\bar q, \qquad q(F)=q, \qquad q<\bar q.
+\]
+
+Le contrat spécifie une rémunération conditionnelle au résultat :
+\[
+w(S)=\bar w, \qquad w(F)=w.
+\]
+
+Le principal est neutre au risque. Son utilité est égale au profit net du salaire versé :
+\[
+u_P(y)=q(y)-w(y).
+\]
+
+L'agent est averse au risque. Son utilité est donnée par :
+\[
+u_A(y,e)=u(w(y)) - d_e,
+\]
+où \(u(\cdot)\) est croissante et concave, et \(d_e\) représente la désutilité de l'effort, avec \(d_H>d_B\). L'agent dispose d'une utilité de réserve notée \(u_r\).
+
+Lorsque l'effort est observable, le principal choisit directement l'effort et le contrat. Son problème s'écrit :
+\[
+\max_{e\in\{H,B\},\,\bar w,\,w}
+\; \mathbb E[u_P\mid e]
+= \pi_e(\bar q-\bar w) + (1-\pi_e)(q-w)
+\]
+sous la contrainte de participation de l'agent :
+\[
+\pi_e u(\bar w) + (1-\pi_e)u(w) - d_e \ge u_r.
+\]
+
+À effort donné, le principal cherche à minimiser le coût salarial espéré tout en satisfaisant la participation. Comme l'agent est averse au risque, il est optimal de l'assurer complètement. Le contrat optimal en premier-best vérifie donc :
+\[
+\bar w = w.
+\]
+
+La contrainte de participation devient alors :
+\[
+u(w) - d_e \ge u_r,
+\]
+ce qui détermine le salaire minimal compatible avec l'acceptation du contrat.
+
+Le principal choisit ensuite l'effort qui maximise le surplus total. Cette situation est efficace : l'effort est optimal et l'agent est parfaitement assuré. Elle constitue la référence de premier rang, ou premier-best.
+
+\subsection{Fusionner les 2 demo}\label{fusionner-les-2-demo}
+
+Dans ce cas, le principal observe l'effort de l'agent. Il impose un niveau d'effort et un contrat de rémunération. Pour un effort donné \(e\), le problème est du principal est :
+
+\[
+\max_{\bar{w}, w} \mathbb{E}[y - w \mid e] = \pi_e (\bar{q} - \bar{w}) + (1-\pi_e)(q - w)
+\]
+
+sous la contrainte de participation (CP) de l'agent :
+
+\[
+\pi_e u(\bar{w}) + (1-\pi_e) u(w) - d_e \geq u_r.
+\]
+
+\textbf{Preuve de l'assurance complète} :\\
+Le principal est neutre au risque, l'agent est averse. Pour un coût salarial espéré donné, l'agent préfère un salaire certain. Le principal, neutre, est indifférent à la variabilité des salaires. Ainsi, à l'optimum la contrainte (CP) est saturée et on égalise les utilités marginales de l'agent dans les deux états, ce qui implique \(\bar{w} = w\).
+
+Formellement, on forme le Lagrangien :
+
+\[
+\mathcal{L} = \pi_e (\bar{q} - \bar{w}) + (1-\pi_e)(q - w) + \lambda \left[ \pi_e u(\bar{w}) + (1-\pi_e) u(w) - d_e - u_r \right].
+\]
+
+Les conditions de premier ordre (CPO) par rapport à \(\bar{w}\) et \(w\) donnent :
+
+\[
+\begin{aligned}
+-\pi_e + \lambda \pi_e u'(\bar{w}) &= 0 \quad \Rightarrow \quad u'(\bar{w}) = \frac{1}{\lambda}, \\
+-(1-\pi_e) + \lambda (1-\pi_e) u'(w) &= 0 \quad \Rightarrow \quad u'(w) = \frac{1}{\lambda}.
+\end{aligned}
+\]
+
+Ainsi, \(u'(\bar{w}) = u'(w)\), et puisque \(u\) est strictement concave, \(u'\) est strictement décroissante, donc \(\bar{w} = w\). Notons ce salaire unique \(w_e\).
+
+La CP devient :
+
+\[
+u(w_e) - d_e = u_r \quad \Rightarrow \quad w_e = u^{-1}(u_r + d_e).
+\]
+
+Le profit espéré du principal est alors :
+
+\[
+\Pi_e^{FB} = \pi_e \bar{q} + (1-\pi_e) q - w_e.
+\]
+
+Le principal choisit l'effort \(e^*\) qui maximise \(\Pi_e^{FB}\). L'allocation est efficace (first best) : l'agent est parfaitement assuré et l'effort est optimal du point de vue du principal.
+
+\section{Cas du second best (aléa moral)}\label{cas-du-second-best-aluxe9a-moral}
+
+On parle de situation de second-best lorsque l'effort de l'agent n'est pas observable par le principal. Dans ce cas, le principal ne peut pas conditionner le contrat sur l'effort, mais uniquement sur le résultat du projet.
+
+Le principal choisit un contrat \((\bar w,w)\). Après avoir accepté le contrat, l'agent choisit librement son niveau d'effort.
+
+L'utilité espérée de l'agent dépend du niveau d'effort choisi.
+
+S'il fournit un effort élevé \(H\), son utilité espérée est :
+\[
+EU_A(H)=\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H.
+\]
+
+S'il fournit un effort faible \(B\), son utilité espérée est :
+\[
+EU_A(B)=\pi_B u(\bar w) + (1-\pi_B)u(w) - d_B.
+\]
+
+Pour que le contrat fonctionne, deux contraintes doivent être satisfaites.
+
+La première est la contrainte de participation (CP). Elle garantit que l'agent accepte le contrat :
+\[
+\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H \ge u_r.
+\]
+
+La seconde est la contrainte d'incitation (CI). Elle garantit que l'agent choisit effectivement l'effort élevé :
+\[
+EU_A(H)\ge EU_A(B).
+\]
+
+Cette contrainte s'écrit :
+\[
+(\pi_H-\pi_B)\big[u(\bar w)-u(w)\big] \ge d_H-d_B.
+\]
+
+Elle montre que, pour inciter l'agent à fournir un effort élevé, le salaire en cas de succès doit être suffisamment supérieur au salaire en cas d'échec. Autrement dit, le contrat doit introduire une variabilité de la rémunération.
+
+Le profit espéré du principal lorsqu'il souhaite induire l'effort élevé est :
+\[
+EU_P(H)=\pi_H(\bar q-\bar w) + (1-\pi_H)(q-w).
+\]
+
+Le problème du principal en second-best consiste donc à maximiser ce profit sous les contraintes de participation et d'incitation :
+\[
+\max_{\bar w,w}\;\; \pi_H(\bar q-\bar w) + (1-\pi_H)(q-w)
+\]
+sous
+\[
+\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H \ge u_r,
+\]
+\[
+(\pi_H-\pi_B)\big[u(\bar w)-u(w)\big] \ge d_H-d_B.
+\]
+
+Le contrat obtenu est un contrat de second rang, ou second-best. Il est généralement moins efficace que le premier-best, car l'introduction d'incitations oblige à exposer l'agent au risque. La perte de surplus par rapport au premier-best est appelée coût d'agence.
+
+\subsection{Fusionner les 2 demo}\label{fusionner-les-2-demo-1}
+
+Dans ce cas, le principal ne peut observer l'effort de l'agent. Il propose un contrat \((\bar{w}, w)\) incitant l'agent à fournir un effort élevé \(H\) (cela arrange le principal). Le problème du principal est :
+
+\[
+\max_{\bar{w}, w} \pi_H (\bar{q} - \bar{w}) + (1-\pi_H)(q - w)
+\]
+
+sous les contraintes :
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Contrainte de participation (CP)} : \[
+  \pi_H u(\bar{w}) + (1-\pi_H) u(w) - d_H \geq u_r.
+  \]
+\item
+  \textbf{Contrainte d'incitation (CI)} : \[
+  \pi_H u(\bar{w}) + (1-\pi_H) u(w) - d_H \geq \pi_B u(\bar{w}) + (1-\pi_B) u(w) - d_B.
+  \]
+\end{itemize}
+
+La CI se réécrit :
+
+\[
+(\pi_H - \pi_B)[u(\bar{w}) - u(w)] \geq d_H - d_B.
+\]
+
+Puisque \(\pi_H > \pi_B\) et \(d_H > d_B\), le second membre de l'inéquation est positif, donc nécessairement \(u(\bar{w}) > u(w)\), donc \(\bar{w} > w\).
+
+\textbf{Saturation des contraintes (CP) et (CI)} :
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{CP est saturée} : si CP n'est pas saturée, on peut diminuer \(\bar{w}\) et \(w\) d'un même petit montant \(\varepsilon > 0\) (en gardant \(\bar{w} > w\)). Cela réduit le coût salarial (augmente le profit) tout en maintenant la CI (car \(u(\bar{w}) - u(w)\) reste inchangée à l'approximation du premier ordre). On peut donc réduire les salaires jusqu'à saturation de CP.
+\item
+  \textbf{CI est saturée} : supposons CI non saturée. On peut alors réduire l'écart \(u(\bar{w}) - u(w)\) tout en maintenant CP. Considérons des variations \(du_H = du(\bar{w})\) et \(du_L = du(w)\) telles que l'utilité espérée reste constante (pour CP) :\\
+  \[
+  \pi_H du_H + (1-\pi_H) du_L = 0.
+  \] La variation de la différence \(u(\bar{w}) - u(w)\) est \(du_H - du_L\). En choisissant \(du_H < 0\) (donc \(du_L > 0\)), on réduit cette différence. Montrons que cela réduit le coût salarial espéré. Le coût espéré est : \[
+  C = \pi_H u^{-1}(u_H) + (1-\pi_H) u^{-1}(u_L),
+  \] où \(u_H = u(\bar{w}), u_L = u(w)\). Sa différentielle est : \[
+  dC = \pi_H (u^{-1})'(u_H) du_H + (1-\pi_H) (u^{-1})'(u_L) du_L.
+  \] Avec \(du_L = -\frac{\pi_H}{1-\pi_H} du_H\), on obtient : \[
+  dC = \pi_H du_H \left[ (u^{-1})'(u_H) - (u^{-1})'(u_L) \right].
+  \] La fonction \(u^{-1}\) est convexe (car \(u\) concave), donc \((u^{-1})'\) est croissante. Puisque \(u_H > u_L\), on a \((u^{-1})'(u_H) > (u^{-1})'(u_L)\). Avec \(du_H < 0\), on a \(dC < 0\). Ainsi, réduire l'écart tout en maintenant CP réduit le coût, et on peut le faire tant que CI n'est pas saturée. Donc à l'optimum, CI est saturée.
+\end{itemize}
+
+\textbf{Résolution avec CP et CI saturées} :
+
+Posons \(u_H = u(\bar{w})\), \(u_L = u(w)\). Les deux contraintes deviennent :
+
+\[
+\begin{aligned}
+&\pi_H u_H + (1-\pi_H) u_L = u_r + d_H \quad \text{(CP)}, \\
+&(\pi_H - \pi_B)(u_H - u_L) = d_H - d_B \quad \text{(CI)}.
+\end{aligned}
+\]
+
+Notons \(\Delta = \frac{d_H - d_B}{\pi_H - \pi_B} > 0\). De la CI, \(u_H - u_L = \Delta\). En substituant dans CP :
+
+\[
+\pi_H (u_L + \Delta) + (1-\pi_H) u_L = u_r + d_H \quad \Rightarrow \quad u_L + \pi_H \Delta = u_r + d_H \quad \Rightarrow \quad u_L = u_r + d_H - \pi_H \Delta.
+\]
+
+Puis :
+
+\[
+u_H = u_L + \Delta = u_r + d_H + (1-\pi_H) \Delta.
+\]
+
+Les salaires optimaux sont :
+
+\[
+\bar{w} = u^{-1}\left( u_r + d_H + (1-\pi_H) \Delta \right), \quad w = u^{-1}\left( u_r + d_H - \pi_H \Delta \right).
+\]
+
+Le profit espéré du principal lorsqu'il induit l'effort élevé est :
+
+\[
+\Pi_H^{SB} = \pi_H \bar{q} + (1-\pi_H) q - \left[ \pi_H \bar{w} + (1-\pi_H) w \right].
+\]
+
+\textbf{Comparaison avec le first best pour} \(e=H\) :\\
+Dans le cas du first best, on aurait \(\bar{w} = w = w_H^{FB} = u^{-1}(u_r + d_H)\). Par convexité de \(u^{-1}\), on a :
+
+\[
+\pi_H u^{-1}(u_H) + (1-\pi_H) u^{-1}(u_L) > u^{-1}\left( \pi_H u_H + (1-\pi_H) u_L \right) = u^{-1}(u_r + d_H) = w_H^{FB}.
+\]
+
+Ainsi, le coût salarial espéré est plus élevé en second best, donc \(\Pi_H^{SB} < \Pi_H^{FB}\). La différence \(\Pi_H^{FB} - \Pi_H^{SB}\) est le \textbf{coût d'agence} dû à l'asymétrie d'information.
+
+\textbf{Choix de l'effort par le principal} :\\
+Le principal peut aussi induire l'effort bas \(B\). Dans ce cas, il peut proposer le contrat de first best pour \(B\) : un salaire fixe \(w_B^{FB} = u^{-1}(u_r + d_B)\). Ce contrat donne à l'agent aucune incitation à fournir un effort élevé (car l'utilité est la même quel que soit le résultat, et \(d_H > d_B\)). Donc le profit pour l'effort bas est le profit de first best :
+
+\[
+\Pi_B^{SB} = \Pi_B^{FB} = \pi_B \bar{q} + (1-\pi_B) q - w_B^{FB}.
+\]
+
+Le principal choisira d'induire l'effort élevé si et seulement si \(\Pi_H^{SB} \geq \Pi_B^{FB}\). Sinon, il induira l'effort bas et obtiendra le premier rang pour \(B\). L'asymétrie d'information peut donc conduire à une perte d'efficacité (second rang) soit par un coût d'agence, soit par un changement d'effort induit.
+
+\section{Justification de la présence d'un équilibre parfait bayésien}\label{justification-de-la-pruxe9sence-dun-uxe9quilibre-parfait-bayuxe9sien}
+
+La relation Principal--Agent peut être formalisée comme un jeu séquentiel à information incomplète :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Le \textbf{principal} choisit un contrat \((\bar w, w)\).
+\item
+  L'\textbf{agent} observe le contrat et décide :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    d'accepter ou de refuser le contrat ;
+  \item
+    s'il accepte, de choisir un effort \(e \in \{H,B\}\).
+  \end{itemize}
+\item
+  La \textbf{nature} détermine le résultat : \[
+  y \in \{S,F\}, \quad \mathbb P(S \mid e)=\pi_e.
+  \]
+\end{enumerate}
+
+L'effort de l'agent n'est pas observable par le principal et constitue l'information privée du jeu.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Rappel} :\\
+  Un équilibre parfait bayésien (EPB) est un triplet : \[
+  (\sigma_P, \sigma_A, \mu)
+  \] où :
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\sigma_P\) est une stratégie du principal ;
+\item
+  \(\sigma_A\) est une stratégie de l'agent ;
+\item
+  \(\mu\) est un système de croyances ;
+\end{enumerate}
+
+tel que :
+
+\begin{itemize}
+\item
+  les stratégies soient \textbf{séquentiellement rationnelles},
+\item
+  les croyances soient \textbf{cohérentes} avec les stratégies sur le chemin de l'équilibre.
+\end{itemize}
+
+\subsection{Premier-best et équilibre parfait bayésien}\label{premier-best-et-uxe9quilibre-parfait-bayuxe9sien}
+
+\begin{itemize}
+\item
+  \textbf{Stratégie du principal} : \[
+  \sigma_P^{FB} : \text{offrir le contrat } (\bar w, w) \text{ avec } \bar w=w.
+  \]
+\item
+  \textbf{Stratégie de l'agent} : \[
+  \sigma_A^{FB} :
+  \begin{cases}
+  \text{accepter le contrat}, \\
+  \text{choisir l’effort } e^{FB}.
+  \end{cases}
+  \]
+\item
+  \textbf{Optimalité séquentielle de l'agent}
+\end{itemize}
+
+L'agent maximise : \[
+U_A(e)=\pi_e u(w)+(1-\pi_e)u(w)-d_e=u(w)-d_e.
+\]
+
+Par définition de \(e^{FB}\), \[
+e^{FB} \in \arg\max_{e\in\{H,B\}} \{u(w)-d_e\}.
+\]
+
+La stratégie de l'agent est donc séquentiellement rationnelle.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Optimalité séquentielle du principal}
+\end{itemize}
+
+Sachant que l'agent choisit \(e^{FB}\), le principal maximise : \[
+\pi_{e^{FB}}(\bar q-w)+(1-\pi_{e^{FB}})(q-w),
+\] ce qui correspond exactement au programme de premier rang.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Croyances}
+\end{itemize}
+
+Les croyances du principal assignent probabilité unitaire à l'effort effectivement choisi par l'agent : \[
+\mu(e=e^{FB})=1.
+\]
+
+Ces croyances sont cohérentes avec les stratégies sur le chemin de l'équilibre.
+
+En conclusion,
+
+\[
+(\sigma_P^{FB}, \sigma_A^{FB}, \mu)
+\] constitue un \textbf{équilibre parfait bayésien} du jeu Principal--Agent.
+
+\subsection{Second-best et équilibre parfait bayésien}\label{second-best-et-uxe9quilibre-parfait-bayuxe9sien}
+
+On considère maintenant le cas d'aléa moral, où l'effort n'est pas observable.
+
+\begin{itemize}
+\item
+  \textbf{Stratégie du principal} : \[
+  \sigma_P^{SB} : \text{offrir le contrat optimal } (\bar w^*, w^*).
+  \]
+\item
+  \textbf{Stratégie de l'agent} : \[
+  \sigma_A^{SB} :
+  \begin{cases}
+  \text{accepter le contrat}, \\
+  \text{choisir l’effort } H.
+  \end{cases}
+  \]
+\item
+  \textbf{Optimalité séquentielle de l'agent}
+\end{itemize}
+
+L'agent compare : \[
+U_A(H)=\pi_H u(\bar w^*)+(1-\pi_H)u(w^*)-d_H,
+\] \[
+U_A(B)=\pi_B u(\bar w^*)+(1-\pi_B)u(w^*)-d_B.
+\]
+
+La contrainte d'incitation assure que : \[
+U_A(H) \ge U_A(B).
+\]
+
+La stratégie \(e=H\) est donc séquentiellement rationnelle.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Optimalité séquentielle du principal}
+\end{itemize}
+
+Anticipant que l'agent choisit \(H\), le principal choisit \((\bar w^*, w^*)\) comme solution du programme :
+
+\[
+\max_{\bar w,w}
+\; \pi_H(\bar q-\bar w)+(1-\pi_H)(q-w)
+\] sous les contraintes de participation et d'incitation.
+
+La stratégie du principal est donc optimale.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Croyances}
+\end{itemize}
+
+Les croyances du principal sont données par : \[
+\mu(e=H)=1.
+\]
+
+Ces croyances sont cohérentes avec les stratégies sur le chemin de l'équilibre, puisque le contrat est construit pour induire l'effort élevé.
+
+En conclusion,
+
+\[
+(\sigma_P^{SB}, \sigma_A^{SB}, \mu)
+\] constitue un \textbf{équilibre parfait bayésien} du jeu Principal--Agent.
+
+Les équilibres parfaits bayésiens caractérisant le premier-best et le second-best peuvent ne pas être uniques hors du chemin de l'équilibre. Toutefois, les allocations implémentées sur le chemin de l'équilibre sont robustes et correspondent exactement aux solutions des programmes d'optimisation du principal.
+
+\chapter{Résolution numérique}\label{ruxe9solution-numuxe9rique}
+
+Le modèle Principal-Agent étudie les relations de délégation où un principal confie une tâche à un agent, en présence d'asymétrie d'information. Le principal ne peut pas observer directement l'effort fourni par l'agent, ce qui crée un problème d'aléa moral (moral hazard). Cette situation est omniprésente dans les relations économiques : employeur-salarié, actionnaire-manager, assuré-assureur, etc.
+
+L'objectif de cette partie est de resoudre numériquement le modèle principal-agent. Les codes sont faits en \textbf{python}.
+
+Les importations et configurations suivantes sont nécessaires.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{from}\NormalTok{ scipy.optimize }\ImportTok{import}\NormalTok{ minimize}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\ImportTok{from}\NormalTok{ typing }\ImportTok{import}\NormalTok{ Dict, Tuple, List}
+
+\CommentTok{\# Configuration pour les graphiques}
+\NormalTok{plt.style.use(}\StringTok{\textquotesingle{}seaborn{-}v0\_8{-}darkgrid\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.rcParams[}\StringTok{\textquotesingle{}figure.figsize\textquotesingle{}}\NormalTok{] }\OperatorTok{=}\NormalTok{ (}\DecValTok{12}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\NormalTok{plt.rcParams[}\StringTok{\textquotesingle{}font.size\textquotesingle{}}\NormalTok{] }\OperatorTok{=} \DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+En vue de la résolution numérique, nous allons définir des classes sur python, dans lesquelles seront créées des fonctions.
+
+\chapter*{\texorpdfstring{Classe \texttt{PrincipalAgentModel}}{Classe PrincipalAgentModel}}\label{classe-principalagentmodel}
+\addcontentsline{toc}{chapter}{Classe \texttt{PrincipalAgentModel}}
+
+\section{Rôle général de la classe}\label{ruxf4le-guxe9nuxe9ral-de-la-classe}
+
+La classe \texttt{PrincipalAgentModel} implémente un modèle standard de \textbf{principal--agent avec aléa moral}. Elle regroupe l'ensemble des paramètres économiques du modèle (profits, probabilités, désutilités, utilité de réserve et aversion au risque) ainsi que les fonctions fondamentales permettant de calculer l'utilité de l'agent et le profit du principal. Cette classe constitue le \textbf{cœur du modèle}, sur lequel reposent toutes les résolutions (first-best, second-best et vérification de l'équilibre).
+
+\textbf{Arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{q\_bar} : profit du principal en cas de succès.
+\item
+  \texttt{q} : profit du principal en cas d'échec.
+\item
+  \texttt{pi\_H} : probabilité de succès lorsque l'agent fournit l'effort élevé.
+\item
+  \texttt{pi\_B} : probabilité de succès lorsque l'agent fournit l'effort faible.
+\item
+  \texttt{d\_H} : désutilité associée à l'effort élevé.
+\item
+  \texttt{d\_B} : désutilité associée à l'effort faible.
+\item
+  \texttt{u\_r} : utilité de réserve de l'agent.
+\item
+  \texttt{gamma} : coefficient d'aversion au risque de l'agent.
+\end{itemize}
+
+\textbf{Sortie}
+
+\begin{itemize}
+\tightlist
+\item
+  Aucune valeur retournée.
+\item
+  Les paramètres sont stockés comme attributs de l'objet.
+\end{itemize}
+
+\textbf{Interprétation économique}
+Ces paramètres définissent l'environnement informationnel et technologique du contrat. Les assertions garantissent que le modèle respecte les hypothèses standards de la théorie du principal--agent.
+
+\section{\texorpdfstring{Fonction \texttt{utility\_agent}}{Fonction utility\_agent}}\label{fonction-utility_agent}
+
+\textbf{Description}
+Cette fonction définit la \textbf{fonction d'utilité instantanée} de l'agent en fonction du salaire perçu.
+
+\textbf{Arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{w} : salaire reçu par l'agent.
+\end{itemize}
+
+\textbf{Sortie}
+
+\begin{itemize}
+\tightlist
+\item
+  Valeur de l'utilité instantanée ( u(w) ).
+\end{itemize}
+
+\textbf{Forme fonctionnelle}
+\[
+u(w) = w^\gamma
+\]
+
+\textbf{Interprétation économique}
+La concavité de la fonction (γ \textless{} 1) traduit l'aversion au risque de l'agent. Cette fonction est utilisée pour calculer l'utilité espérée associée à un contrat donné.
+
+\section{\texorpdfstring{Fonction \texttt{expected\_utility\_agent}}{Fonction expected\_utility\_agent}}\label{fonction-expected_utility_agent}
+
+\textbf{Description}
+Cette fonction calcule l'\textbf{utilité espérée nette de l'agent}, en tenant compte de l'incertitude sur le résultat et de la désutilité de l'effort.
+
+\textbf{Arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{w\_bar} : salaire en cas de succès.
+\item
+  \texttt{w} : salaire en cas d'échec.
+\item
+  \texttt{effort} : niveau d'effort choisi par l'agent (\texttt{\textquotesingle{}H\textquotesingle{}} ou \texttt{\textquotesingle{}B\textquotesingle{}}).
+\end{itemize}
+
+\textbf{Sortie}
+
+\begin{itemize}
+\tightlist
+\item
+  Utilité espérée nette de l'agent.
+\end{itemize}
+
+\textbf{Formule implémentée}
+\[
+U_A = \pi_e u(w̄) + (1-\pi_e)u(w) - d(e)
+\]
+
+\textbf{Interprétation économique}
+Cette fonction est centrale pour vérifier :
+
+\begin{itemize}
+\tightlist
+\item
+  la \textbf{contrainte de participation} (acceptation du contrat),
+\item
+  la \textbf{contrainte d'incitation} (choix optimal de l'effort).
+\end{itemize}
+
+\subsection{\texorpdfstring{Fonction \texttt{expected\_profit\_principal}}{Fonction expected\_profit\_principal}}\label{fonction-expected_profit_principal}
+
+\textbf{Description}
+Cette fonction calcule le \textbf{profit espéré du principal} en fonction du contrat proposé et de l'effort fourni.
+
+\textbf{Arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{w\_bar} : salaire versé en cas de succès.
+\item
+  \texttt{w} : salaire versé en cas d'échec.
+\item
+  \texttt{effort} : effort fourni par l'agent (\texttt{\textquotesingle{}H\textquotesingle{}} ou \texttt{\textquotesingle{}B\textquotesingle{}}).
+\end{itemize}
+
+\textbf{Sortie}
+
+\begin{itemize}
+\tightlist
+\item
+  Profit espéré du principal.
+\end{itemize}
+
+\textbf{Formule implémentée}
+{[}\Pi = \pi\_e (q̄ - w̄) + (1-\pi\_e)(q - w){]}
+
+\textbf{Interprétation économique}
+Cette fonction permet d'évaluer la rentabilité du contrat pour le principal sous chaque régime informationnel.
+
+\section{Code python associé}\label{code-python-associuxe9}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ PrincipalAgentModel:}
+    \CommentTok{"""}
+\CommentTok{    Modèle Principal{-}Agent avec aléa moral}
+\CommentTok{    }
+\CommentTok{    Notations conformes au document:}
+\CommentTok{    {-} q\_bar: profit en cas de succès}
+\CommentTok{    {-} q: profit en cas d\textquotesingle{}échec}
+\CommentTok{    {-} w\_bar: salaire en cas de succès}
+\CommentTok{    {-} w: salaire en cas d\textquotesingle{}échec}
+\CommentTok{    {-} pi\_H: probabilité de succès avec effort élevé H}
+\CommentTok{    {-} pi\_B: probabilité de succès avec effort faible B}
+\CommentTok{    {-} d\_H: désutilité de l\textquotesingle{}effort élevé}
+\CommentTok{    {-} d\_B: désutilité de l\textquotesingle{}effort faible}
+\CommentTok{    {-} u\_r: utilité de réserve de l\textquotesingle{}agent}
+\CommentTok{    """}
+    
+    \KeywordTok{def} \FunctionTok{\_\_init\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{, q\_bar}\OperatorTok{=}\DecValTok{100}\NormalTok{, q}\OperatorTok{=}\DecValTok{20}\NormalTok{, pi\_H}\OperatorTok{=}\FloatTok{0.8}\NormalTok{, pi\_B}\OperatorTok{=}\FloatTok{0.4}\NormalTok{, }
+\NormalTok{                 d\_H}\OperatorTok{=}\DecValTok{15}\NormalTok{, d\_B}\OperatorTok{=}\DecValTok{5}\NormalTok{, u\_r}\OperatorTok{=}\DecValTok{10}\NormalTok{, gamma}\OperatorTok{=}\FloatTok{0.5}\NormalTok{):}
+        \CommentTok{"""}
+\CommentTok{        Initialisation des paramètres du modèle}
+\CommentTok{        }
+\CommentTok{        Args:}
+\CommentTok{            q\_bar: profit en cas de succès}
+\CommentTok{            q: profit en cas d\textquotesingle{}échec}
+\CommentTok{            pi\_H: probabilité de succès avec effort élevé}
+\CommentTok{            pi\_B: probabilité de succès avec effort faible}
+\CommentTok{            d\_H: désutilité effort élevé}
+\CommentTok{            d\_B: désutilité effort faible}
+\CommentTok{            u\_r: utilité de réserve}
+\CommentTok{            gamma: coefficient d\textquotesingle{}aversion au risque (0 \textless{} gamma ≤ 1)}
+\CommentTok{        """}
+        \CommentTok{\# Vérifications des paramètres}
+        \ControlFlowTok{assert}\NormalTok{ q\_bar }\OperatorTok{\textgreater{}}\NormalTok{ q, }\StringTok{"Le profit en cas de succès doit être \textgreater{} profit en cas d\textquotesingle{}échec"}
+        \ControlFlowTok{assert} \DecValTok{0} \OperatorTok{\textless{}}\NormalTok{ pi\_B }\OperatorTok{\textless{}}\NormalTok{ pi\_H }\OperatorTok{\textless{}} \DecValTok{1}\NormalTok{, }\StringTok{"Condition: 0 \textless{} pi\_B \textless{} pi\_H \textless{} 1"}
+        \ControlFlowTok{assert}\NormalTok{ d\_H }\OperatorTok{\textgreater{}}\NormalTok{ d\_B }\OperatorTok{\textgreater{}=} \DecValTok{0}\NormalTok{, }\StringTok{"Le coût de l\textquotesingle{}effort élevé doit être \textgreater{} effort faible"}
+        \ControlFlowTok{assert} \DecValTok{0} \OperatorTok{\textless{}}\NormalTok{ gamma }\OperatorTok{\textless{}=} \DecValTok{1}\NormalTok{, }\StringTok{"Coefficient d\textquotesingle{}aversion au risque: 0 \textless{} gamma ≤ 1"}
+        
+        \VariableTok{self}\NormalTok{.q\_bar }\OperatorTok{=}\NormalTok{ q\_bar}
+        \VariableTok{self}\NormalTok{.q }\OperatorTok{=}\NormalTok{ q}
+        \VariableTok{self}\NormalTok{.pi\_H }\OperatorTok{=}\NormalTok{ pi\_H}
+        \VariableTok{self}\NormalTok{.pi\_B }\OperatorTok{=}\NormalTok{ pi\_B}
+        \VariableTok{self}\NormalTok{.d\_H }\OperatorTok{=}\NormalTok{ d\_H}
+        \VariableTok{self}\NormalTok{.d\_B }\OperatorTok{=}\NormalTok{ d\_B}
+        \VariableTok{self}\NormalTok{.u\_r }\OperatorTok{=}\NormalTok{ u\_r}
+        \VariableTok{self}\NormalTok{.gamma }\OperatorTok{=}\NormalTok{ gamma}
+        
+    \KeywordTok{def}\NormalTok{ utility\_agent(}\VariableTok{self}\NormalTok{, w: }\BuiltInTok{float}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
+        \CommentTok{"""}
+\CommentTok{        Fonction d\textquotesingle{}utilité de l\textquotesingle{}agent: u(w) = w\^{}gamma}
+\CommentTok{        }
+\CommentTok{        Args:}
+\CommentTok{            w: salaire}
+\CommentTok{        Returns:}
+\CommentTok{            Utilité de l\textquotesingle{}agent}
+\CommentTok{        """}
+        \ControlFlowTok{return}\NormalTok{ w}\OperatorTok{**}\VariableTok{self}\NormalTok{.gamma }\ControlFlowTok{if}\NormalTok{ w }\OperatorTok{\textgreater{}=} \DecValTok{0} \ControlFlowTok{else} \OperatorTok{{-}}\NormalTok{np.inf}
+    
+    \KeywordTok{def}\NormalTok{ expected\_utility\_agent(}\VariableTok{self}\NormalTok{, w\_bar: }\BuiltInTok{float}\NormalTok{, w: }\BuiltInTok{float}\NormalTok{, effort: }\BuiltInTok{str}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
+        \CommentTok{"""}
+\CommentTok{        Utilité espérée de l\textquotesingle{}agent: E[u(w(y))] {-} d\_e}
+\CommentTok{        }
+\CommentTok{        Args:}
+\CommentTok{            w\_bar: salaire en cas de succès}
+\CommentTok{            w: salaire en cas d\textquotesingle{}échec}
+\CommentTok{            effort: \textquotesingle{}H\textquotesingle{} (élevé) ou \textquotesingle{}B\textquotesingle{} (faible)}
+\CommentTok{        Returns:}
+\CommentTok{            Utilité espérée de l\textquotesingle{}agent}
+\CommentTok{        """}
+\NormalTok{        pi }\OperatorTok{=} \VariableTok{self}\NormalTok{.pi\_H }\ControlFlowTok{if}\NormalTok{ effort }\OperatorTok{==} \StringTok{\textquotesingle{}H\textquotesingle{}} \ControlFlowTok{else} \VariableTok{self}\NormalTok{.pi\_B}
+\NormalTok{        d }\OperatorTok{=} \VariableTok{self}\NormalTok{.d\_H }\ControlFlowTok{if}\NormalTok{ effort }\OperatorTok{==} \StringTok{\textquotesingle{}H\textquotesingle{}} \ControlFlowTok{else} \VariableTok{self}\NormalTok{.d\_B}
+        
+        \ControlFlowTok{return}\NormalTok{ pi }\OperatorTok{*} \VariableTok{self}\NormalTok{.utility\_agent(w\_bar) }\OperatorTok{+}\NormalTok{ (}\DecValTok{1} \OperatorTok{{-}}\NormalTok{ pi) }\OperatorTok{*} \VariableTok{self}\NormalTok{.utility\_agent(w) }\OperatorTok{{-}}\NormalTok{ d}
+    
+    \KeywordTok{def}\NormalTok{ expected\_profit\_principal(}\VariableTok{self}\NormalTok{, w\_bar: }\BuiltInTok{float}\NormalTok{, w: }\BuiltInTok{float}\NormalTok{, effort: }\BuiltInTok{str}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{float}\NormalTok{:}
+        \CommentTok{"""}
+\CommentTok{        Profit espéré du principal: E[q(y) {-} w(y)]}
+\CommentTok{        }
+\CommentTok{        Args:}
+\CommentTok{            w\_bar: salaire en cas de succès}
+\CommentTok{            w: salaire en cas d\textquotesingle{}échec}
+\CommentTok{            effort: \textquotesingle{}H\textquotesingle{} ou \textquotesingle{}B\textquotesingle{}}
+\CommentTok{        Returns:}
+\CommentTok{            Profit espéré du principal}
+\CommentTok{        """}
+\NormalTok{        pi }\OperatorTok{=} \VariableTok{self}\NormalTok{.pi\_H }\ControlFlowTok{if}\NormalTok{ effort }\OperatorTok{==} \StringTok{\textquotesingle{}H\textquotesingle{}} \ControlFlowTok{else} \VariableTok{self}\NormalTok{.pi\_B}
+        
+        \ControlFlowTok{return}\NormalTok{ pi }\OperatorTok{*}\NormalTok{ (}\VariableTok{self}\NormalTok{.q\_bar }\OperatorTok{{-}}\NormalTok{ w\_bar) }\OperatorTok{+}\NormalTok{ (}\DecValTok{1} \OperatorTok{{-}}\NormalTok{ pi) }\OperatorTok{*}\NormalTok{ (}\VariableTok{self}\NormalTok{.q }\OperatorTok{{-}}\NormalTok{ w)}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter*{\texorpdfstring{Résolution du first-best : Fonction \texttt{solve\_first\_best}}{Résolution du first-best : Fonction solve\_first\_best}}\label{ruxe9solution-du-first-best-fonction-solve_first_best}
+\addcontentsline{toc}{chapter}{Résolution du first-best : Fonction \texttt{solve\_first\_best}}
+
+\section{Description générale}\label{description-guxe9nuxe9rale}
+
+La fonction \texttt{solve\_first\_best} résout le problème du principal dans le cas \textbf{first-best}, c'est-à-dire lorsque l'effort de l'agent est parfaitement observable. Dans ce contexte, le principal peut imposer directement le niveau d'effort et offrir une \textbf{assurance complète} à l'agent.
+
+\section{Arguments}\label{arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{model} : instance de la classe \texttt{PrincipalAgentModel}.
+\item
+  \texttt{target\_effort} : effort à imposer (\texttt{\textquotesingle{}H\textquotesingle{}} ou \texttt{\textquotesingle{}B\textquotesingle{}}).
+\end{itemize}
+
+\section{Sorties}\label{sorties}
+
+La fonction retourne un dictionnaire contenant :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{effort} : effort imposé,
+\item
+  \texttt{w\_bar} : salaire en cas de succès,
+\item
+  \texttt{w} : salaire en cas d'échec,
+\item
+  \texttt{profit\_principal} : profit espéré du principal,
+\item
+  \texttt{utility\_agent} : utilité nette de l'agent,
+\item
+  \texttt{type} : type de régime (\texttt{First-Best}).
+\end{itemize}
+
+\section{Logique économique}\label{logique-uxe9conomique}
+
+Dans le first-best :
+
+\begin{itemize}
+\tightlist
+\item
+  le principal impose l'effort optimal,
+\item
+  la contrainte de participation est \textbf{saturée},
+\item
+  le salaire est identique dans tous les états (( w̄ = w )),
+\item
+  l'agent reçoit exactement son utilité de réserve.
+\end{itemize}
+
+L'utilité de l'agent ne varie donc pas et reste égale à ( u\_r ), tandis que le salaire s'ajuste pour compenser la désutilité de l'effort.
+
+\section{Code associé}\label{code-associuxe9}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ solve\_first\_best(model: PrincipalAgentModel, target\_effort: }\BuiltInTok{str} \OperatorTok{=} \StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{, verbose}\OperatorTok{=}\VariableTok{True}\NormalTok{) }\OperatorTok{{-}\textgreater{}}\NormalTok{ Dict:}
+    \CommentTok{"""}
+\CommentTok{    Résolution du cas first{-}best (effort observable)}
+\CommentTok{    }
+\CommentTok{    Le principal peut imposer directement l\textquotesingle{}effort et assurer complètement}
+\CommentTok{    l\textquotesingle{}agent (w\_bar = w) car il est averse au risque.}
+\CommentTok{    }
+\CommentTok{    Args:}
+\CommentTok{        model: instance du modèle}
+\CommentTok{        target\_effort: \textquotesingle{}H\textquotesingle{} ou \textquotesingle{}B\textquotesingle{} {-} effort à imposer}
+\CommentTok{    Returns:}
+\CommentTok{        dict avec contrat optimal et profits}
+\CommentTok{    """}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"} \OperatorTok{+} \StringTok{"{-}"}\OperatorTok{*}\DecValTok{50}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Résolution du first best (Information Symétrique)"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"{-}"}\OperatorTok{*}\DecValTok{50}\NormalTok{)}
+
+\NormalTok{    d }\OperatorTok{=}\NormalTok{ model.d\_H }\ControlFlowTok{if}\NormalTok{ target\_effort }\OperatorTok{==} \StringTok{\textquotesingle{}H\textquotesingle{}} \ControlFlowTok{else}\NormalTok{ model.d\_B}
+\NormalTok{    pi }\OperatorTok{=}\NormalTok{ model.pi\_H }\ControlFlowTok{if}\NormalTok{ target\_effort }\OperatorTok{==} \StringTok{\textquotesingle{}H\textquotesingle{}} \ControlFlowTok{else}\NormalTok{ model.pi\_B}
+    
+    \CommentTok{\# Salaire optimal: w\_bar = w (assurance complète)}
+    \CommentTok{\# Contrainte de participation saturée: u(w) {-} d = u\_r}
+\NormalTok{    w\_optimal }\OperatorTok{=}\NormalTok{ (model.u\_r }\OperatorTok{+}\NormalTok{ d)}\OperatorTok{**}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{model.gamma)}
+\NormalTok{    w\_bar\_optimal }\OperatorTok{=}\NormalTok{ w\_optimal}
+    
+    \CommentTok{\# Profit espéré du principal}
+\NormalTok{    profit\_principal }\OperatorTok{=}\NormalTok{ model.expected\_profit\_principal(}
+\NormalTok{        w\_bar\_optimal, w\_optimal, target\_effort}
+\NormalTok{    )}
+    
+    \CommentTok{\# Utilité de l\textquotesingle{}agent}
+\NormalTok{    utility\_agent }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(}
+\NormalTok{        w\_bar\_optimal, w\_optimal, target\_effort}
+\NormalTok{    )}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Effort imposé: }\SpecialCharTok{\{}\NormalTok{target\_effort}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Probabilité de succès: π\_}\SpecialCharTok{\{}\NormalTok{target\_effort}\SpecialCharTok{\}}\SpecialStringTok{ = }\SpecialCharTok{\{}\NormalTok{pi}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Contrat optimal (assurance complète):"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  w̄ (succès) = w (échec) = }\SpecialCharTok{\{}\NormalTok{w\_optimal}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Résultats:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Profit espéré Principal: }\SpecialCharTok{\{}\NormalTok{profit\_principal}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Utilité Agent: }\SpecialCharTok{\{}\NormalTok{utility\_agent}\SpecialCharTok{:.2f\}}\SpecialStringTok{ (= u\_r = }\SpecialCharTok{\{}\NormalTok{model}\SpecialCharTok{.}\NormalTok{u\_r}\SpecialCharTok{:.2f\}}\SpecialStringTok{)"}\NormalTok{)}
+    
+    \CommentTok{\# Comparaison des efforts}
+    \ControlFlowTok{if}\NormalTok{ target\_effort }\OperatorTok{==} \StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{:}
+\NormalTok{        w\_B }\OperatorTok{=}\NormalTok{ (model.u\_r }\OperatorTok{+}\NormalTok{ model.d\_B)}\OperatorTok{**}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{model.gamma)}
+\NormalTok{        profit\_B }\OperatorTok{=}\NormalTok{ model.expected\_profit\_principal(w\_B, w\_B, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{)}
+        
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Comparaison:"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Si effort H imposé: Profit = }\SpecialCharTok{\{}\NormalTok{profit\_principal}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Si effort B imposé: Profit = }\SpecialCharTok{\{}\NormalTok{profit\_B}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+        
+        \ControlFlowTok{if}\NormalTok{ profit\_principal }\OperatorTok{\textgreater{}}\NormalTok{ profit\_B:}
+            \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f" Le principal préfère imposer l\textquotesingle{}effort H"}\NormalTok{)}
+        \ControlFlowTok{else}\NormalTok{:}
+            \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f" Le principal préfère imposer l\textquotesingle{}effort B"}\NormalTok{)}
+    
+    \ControlFlowTok{return}\NormalTok{ \{}
+        \StringTok{\textquotesingle{}effort\textquotesingle{}}\NormalTok{: target\_effort,}
+        \StringTok{\textquotesingle{}w\_bar\textquotesingle{}}\NormalTok{: w\_bar\_optimal,}
+        \StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{: w\_optimal,}
+        \StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{: profit\_principal,}
+        \StringTok{\textquotesingle{}utility\_agent\textquotesingle{}}\NormalTok{: utility\_agent,}
+        \StringTok{\textquotesingle{}type\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}First{-}Best\textquotesingle{}}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter*{\texorpdfstring{Résolution du second-best : Fonction \texttt{solve\_second\_best}}{Résolution du second-best : Fonction solve\_second\_best}}\label{ruxe9solution-du-second-best-fonction-solve_second_best}
+\addcontentsline{toc}{chapter}{Résolution du second-best : Fonction \texttt{solve\_second\_best}}
+
+\section{Description générale}\label{description-guxe9nuxe9rale-1}
+
+La fonction \texttt{solve\_second\_best} résout le problème du principal dans le cas \textbf{second-best}, où l'effort de l'agent n'est pas observable. Le principal doit alors concevoir un contrat incitatif respectant simultanément la contrainte de participation et la contrainte d'incitation.
+
+\section{Arguments}\label{arguments-1}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{model} : instance de \texttt{PrincipalAgentModel}.
+\end{itemize}
+
+\section{Sorties}\label{sorties-1}
+
+La fonction retourne un dictionnaire contenant :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{w\_bar} : salaire en cas de succès,
+\item
+  \texttt{w} : salaire en cas d'échec,
+\item
+  \texttt{profit\_principal} : profit espéré du principal,
+\item
+  \texttt{utility\_agent\_H} : utilité de l'agent s'il choisit l'effort élevé,
+\item
+  \texttt{utility\_agent\_B} : utilité de l'agent s'il choisit l'effort faible,
+\item
+  \texttt{CP} : valeur de la contrainte de participation,
+\item
+  \texttt{CI} : valeur de la contrainte d'incitation,
+\item
+  \texttt{type} : type de régime (\texttt{Second-Best}).
+\end{itemize}
+
+\section{Logique économique}\label{logique-uxe9conomique-1}
+
+Dans le second-best :
+
+\begin{itemize}
+\tightlist
+\item
+  le principal introduit une \textbf{variabilité des salaires} (( w̄ \textgreater{} w)),
+\item
+  l'agent supporte un risque pour être incité à fournir l'effort élevé,
+\item
+  les contraintes sont généralement \textbf{saturées},
+\item
+  un \textbf{coût d'agence} apparaît par rapport au first-best.
+\end{itemize}
+
+\section{Code associé}\label{code-associuxe9-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ solve\_second\_best(model: PrincipalAgentModel, verbose}\OperatorTok{=}\VariableTok{True}\NormalTok{) }\OperatorTok{{-}\textgreater{}}\NormalTok{ Dict:}
+    \CommentTok{"""}
+\CommentTok{    Résolution du cas second{-}best (aléa moral {-} effort non observable)}
+\CommentTok{    }
+\CommentTok{    Le principal doit satisfaire:}
+\CommentTok{    1. Contrainte de Participation (CP): EU\_A(H) ≥ u\_r}
+\CommentTok{    2. Contrainte d\textquotesingle{}Incitation (CI): EU\_A(H) ≥ EU\_A(B)}
+\CommentTok{    }
+\CommentTok{    Args:}
+\CommentTok{        model: instance du modèle}
+\CommentTok{    Returns:}
+\CommentTok{        dict avec contrat optimal et profits}
+\CommentTok{    """}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"} \OperatorTok{+} \StringTok{"{-}"}\OperatorTok{*}\DecValTok{40}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Résolution du second best (Aléa Moral)"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"{-}"}\OperatorTok{*}\DecValTok{40}\NormalTok{)}
+
+    \KeywordTok{def}\NormalTok{ objective(x):}
+        \CommentTok{"""Fonction à minimiser: {-}Profit du Principal"""}
+\NormalTok{        w\_bar, w }\OperatorTok{=}\NormalTok{ x}
+        \ControlFlowTok{if}\NormalTok{ w\_bar }\OperatorTok{\textless{}} \DecValTok{0} \KeywordTok{or}\NormalTok{ w }\OperatorTok{\textless{}} \DecValTok{0}\NormalTok{:}
+            \ControlFlowTok{return} \FloatTok{1e10}
+        \ControlFlowTok{return} \OperatorTok{{-}}\NormalTok{model.expected\_profit\_principal(w\_bar, w, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+    
+    \KeywordTok{def}\NormalTok{ constraint\_participation(x):}
+        \CommentTok{"""Contrainte de Participation (CP): EU\_A(H) {-} u\_r ≥ 0"""}
+\NormalTok{        w\_bar, w }\OperatorTok{=}\NormalTok{ x}
+        \ControlFlowTok{return}\NormalTok{ model.expected\_utility\_agent(w\_bar, w, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{) }\OperatorTok{{-}}\NormalTok{ model.u\_r}
+    
+    \KeywordTok{def}\NormalTok{ constraint\_incentive(x):}
+        \CommentTok{"""Contrainte d\textquotesingle{}Incitation (CI): EU\_A(H) {-} EU\_A(B) ≥ 0"""}
+\NormalTok{        w\_bar, w }\OperatorTok{=}\NormalTok{ x}
+\NormalTok{        eu\_H }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar, w, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{        eu\_B }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar, w, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{)}
+        \ControlFlowTok{return}\NormalTok{ eu\_H }\OperatorTok{{-}}\NormalTok{ eu\_B}
+    
+    \CommentTok{\# Contraintes}
+\NormalTok{    constraints }\OperatorTok{=}\NormalTok{ [}
+\NormalTok{        \{}\StringTok{\textquotesingle{}type\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}ineq\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}fun\textquotesingle{}}\NormalTok{: constraint\_participation\},}
+\NormalTok{        \{}\StringTok{\textquotesingle{}type\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}ineq\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}fun\textquotesingle{}}\NormalTok{: constraint\_incentive\}}
+\NormalTok{    ]}
+    
+    \CommentTok{\# Point initial}
+\NormalTok{    w\_init }\OperatorTok{=}\NormalTok{ (model.u\_r }\OperatorTok{+}\NormalTok{ model.d\_H)}\OperatorTok{**}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{model.gamma)}
+\NormalTok{    x0 }\OperatorTok{=}\NormalTok{ [w\_init }\OperatorTok{*} \FloatTok{1.5}\NormalTok{, w\_init }\OperatorTok{*} \FloatTok{0.8}\NormalTok{]}
+    
+    \CommentTok{\# Optimisation}
+\NormalTok{    result }\OperatorTok{=}\NormalTok{ minimize(}
+\NormalTok{        objective,}
+\NormalTok{        x0,}
+\NormalTok{        method}\OperatorTok{=}\StringTok{\textquotesingle{}SLSQP\textquotesingle{}}\NormalTok{,}
+\NormalTok{        bounds}\OperatorTok{=}\NormalTok{[(}\DecValTok{0}\NormalTok{, }\VariableTok{None}\NormalTok{), (}\DecValTok{0}\NormalTok{, }\VariableTok{None}\NormalTok{)],}
+\NormalTok{        constraints}\OperatorTok{=}\NormalTok{constraints,}
+\NormalTok{        options}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}ftol\textquotesingle{}}\NormalTok{: }\FloatTok{1e{-}9}\NormalTok{, }\StringTok{\textquotesingle{}maxiter\textquotesingle{}}\NormalTok{: }\DecValTok{1000}\NormalTok{\}}
+\NormalTok{    )}
+    
+    \ControlFlowTok{if} \KeywordTok{not}\NormalTok{ result.success:}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{"Attention: L\textquotesingle{}optimisation n\textquotesingle{}a pas convergé!"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Message: }\SpecialCharTok{\{}\NormalTok{result}\SpecialCharTok{.}\NormalTok{message}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+    
+\NormalTok{    w\_bar\_opt, w\_opt }\OperatorTok{=}\NormalTok{ result.x}
+    
+    \CommentTok{\# Calcul des résultats}
+\NormalTok{    profit\_principal }\OperatorTok{=}\NormalTok{ model.expected\_profit\_principal(w\_bar\_opt, w\_opt, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{    utility\_agent\_H }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar\_opt, w\_opt, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{    utility\_agent\_B }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar\_opt, w\_opt, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{)}
+    
+    \CommentTok{\# Vérification des contraintes}
+\NormalTok{    cp\_slack }\OperatorTok{=}\NormalTok{ utility\_agent\_H }\OperatorTok{{-}}\NormalTok{ model.u\_r}
+\NormalTok{    ci\_slack }\OperatorTok{=}\NormalTok{ utility\_agent\_H }\OperatorTok{{-}}\NormalTok{ utility\_agent\_B}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Contrat optimal:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  w̄ (succès) = }\SpecialCharTok{\{}\NormalTok{w\_bar\_opt}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  w (échec)  = }\SpecialCharTok{\{}\NormalTok{w\_opt}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Écart w̄ {-} w = }\SpecialCharTok{\{}\NormalTok{w\_bar\_opt }\OperatorTok{{-}}\NormalTok{ w\_opt}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Résultats:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Profit espéré Principal: }\SpecialCharTok{\{}\NormalTok{profit\_principal}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Utilité Agent (si e=H): }\SpecialCharTok{\{}\NormalTok{utility\_agent\_H}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Utilité Agent (si e=B): }\SpecialCharTok{\{}\NormalTok{utility\_agent\_B}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Vérification des contraintes:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  CP (≥ 0): }\SpecialCharTok{\{}\NormalTok{cp\_slack}\SpecialCharTok{:.4f\}}\SpecialStringTok{ }\SpecialCharTok{\{}\StringTok{\textquotesingle{} contrainte saturée\textquotesingle{}} \ControlFlowTok{if} \BuiltInTok{abs}\NormalTok{(cp\_slack) }\OperatorTok{\textless{}} \FloatTok{0.01} \ControlFlowTok{else} \StringTok{\textquotesingle{}✓\textquotesingle{}}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  CI (≥ 0): }\SpecialCharTok{\{}\NormalTok{ci\_slack}\SpecialCharTok{:.4f\}}\SpecialStringTok{ }\SpecialCharTok{\{}\StringTok{\textquotesingle{} contrainte saturée\textquotesingle{}} \ControlFlowTok{if} \BuiltInTok{abs}\NormalTok{(ci\_slack) }\OperatorTok{\textless{}} \FloatTok{0.01} \ControlFlowTok{else} \StringTok{\textquotesingle{}✓\textquotesingle{}}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Interprétation:"}\NormalTok{)}
+    \ControlFlowTok{if}\NormalTok{ w\_bar\_opt }\OperatorTok{\textgreater{}}\NormalTok{ w\_opt:}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  L\textquotesingle{}agent est incité à fournir l\textquotesingle{}effort élevé H"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Mais il supporte du risque (w̄ ≠ w)"}\NormalTok{)}
+    
+    \ControlFlowTok{return}\NormalTok{ \{}
+        \StringTok{\textquotesingle{}effort\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{,}
+        \StringTok{\textquotesingle{}w\_bar\textquotesingle{}}\NormalTok{: w\_bar\_opt,}
+        \StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{: w\_opt,}
+        \StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{: profit\_principal,}
+        \StringTok{\textquotesingle{}utility\_agent\textquotesingle{}}\NormalTok{: utility\_agent\_H,}
+        \StringTok{\textquotesingle{}type\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}Second{-}Best\textquotesingle{}}\NormalTok{,}
+        \StringTok{\textquotesingle{}cp\_slack\textquotesingle{}}\NormalTok{: cp\_slack,}
+        \StringTok{\textquotesingle{}ci\_slack\textquotesingle{}}\NormalTok{: ci\_slack}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter*{Vérification de l'équilibre parfait bayésien}\label{vuxe9rification-de-luxe9quilibre-parfait-bayuxe9sien}
+\addcontentsline{toc}{chapter}{Vérification de l'équilibre parfait bayésien}
+
+\section{Fonction de vérification du PBE}\label{fonction-de-vuxe9rification-du-pbe}
+
+\subsection{Description générale}\label{description-guxe9nuxe9rale-2}
+
+La fonction de vérification du PBE teste si le contrat issu du second-best constitue un \textbf{équilibre bayésien parfait}. Elle vérifie successivement la rationalité de l'agent, la cohérence des croyances du principal et l'absence de déviation profitable.
+
+\subsection{Code associé}\label{code-associuxe9-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ verify\_perfect\_bayesian\_equilibrium(model: PrincipalAgentModel, }
+\NormalTok{                                       contract: Dict) }\OperatorTok{{-}\textgreater{}}\NormalTok{ Dict:}
+    \CommentTok{"""}
+\CommentTok{    Vérifie que la solution constitue un Équilibre Bayésien Parfait (PBE)}
+\CommentTok{    }
+\CommentTok{    Un PBE requiert:}
+\CommentTok{    1. Optimalité séquentielle: chaque joueur optimise à chaque nœud de décision}
+\CommentTok{    2. Croyances bayésiennes: cohérentes avec les stratégies d\textquotesingle{}équilibre}
+\CommentTok{    3. Pas de déviation profitable}
+\CommentTok{    }
+\CommentTok{    Args:}
+\CommentTok{        model: instance du modèle}
+\CommentTok{        contract: dictionnaire avec w\_bar et w}
+\CommentTok{    Returns:}
+\CommentTok{        dict avec résultats de vérification}
+\CommentTok{    """}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"} \OperatorTok{+} \StringTok{"{-}"}\OperatorTok{*}\DecValTok{50}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Vérification de l\textquotesingle{}équilibre bayésien parfait (PBE)"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"{-}"}\OperatorTok{*}\DecValTok{50}\NormalTok{)}
+    
+\NormalTok{    w\_bar }\OperatorTok{=}\NormalTok{ contract[}\StringTok{\textquotesingle{}w\_bar\textquotesingle{}}\NormalTok{]}
+\NormalTok{    w }\OperatorTok{=}\NormalTok{ contract[}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}
+    
+    \CommentTok{\# ==== 1. RATIONALITÉ SÉQUENTIELLE DE L\textquotesingle{}AGENT ====}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{1. Vérification de la rationalité de l\textquotesingle{}Agent:"}\NormalTok{)}
+    
+    \CommentTok{\# Utilités pour chaque effort}
+\NormalTok{    eu\_H }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar, w, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{    eu\_B }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar, w, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{)}
+\NormalTok{    eu\_reject }\OperatorTok{=}\NormalTok{ model.u\_r  }\CommentTok{\# Utilité si refus}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"   EU\_A(accepter, e=H) = }\SpecialCharTok{\{}\NormalTok{eu\_H}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"   EU\_A(accepter, e=B) = }\SpecialCharTok{\{}\NormalTok{eu\_B}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"   EU\_A(refuser)       = }\SpecialCharTok{\{}\NormalTok{eu\_reject}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# Décision de participation}
+\NormalTok{    accept\_contract }\OperatorTok{=} \BuiltInTok{max}\NormalTok{(eu\_H, eu\_B) }\OperatorTok{\textgreater{}=}\NormalTok{ eu\_reject}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{   → L\textquotesingle{}agent }\SpecialCharTok{\{}\StringTok{\textquotesingle{}Accepte\textquotesingle{}} \ControlFlowTok{if}\NormalTok{ accept\_contract }\ControlFlowTok{else} \StringTok{\textquotesingle{}Refuse\textquotesingle{}}\SpecialCharTok{\}}\SpecialStringTok{ le contrat"}\NormalTok{)}
+    
+    \CommentTok{\# Choix d\textquotesingle{}effort optimal}
+    \ControlFlowTok{if}\NormalTok{ accept\_contract:}
+\NormalTok{        optimal\_effort }\OperatorTok{=} \StringTok{\textquotesingle{}H\textquotesingle{}} \ControlFlowTok{if}\NormalTok{ eu\_H }\OperatorTok{\textgreater{}=}\NormalTok{ eu\_B }\ControlFlowTok{else} \StringTok{\textquotesingle{}B\textquotesingle{}}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Si accepté, effort optimal: }\SpecialCharTok{\{}\NormalTok{optimal\_effort}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+        
+\NormalTok{        ic\_satisfied }\OperatorTok{=}\NormalTok{ eu\_H }\OperatorTok{\textgreater{}=}\NormalTok{ eu\_B}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Contrainte d\textquotesingle{}incitation: }\SpecialCharTok{\{}\StringTok{\textquotesingle{}SATISFAITE\textquotesingle{}} \ControlFlowTok{if}\NormalTok{ ic\_satisfied }\ControlFlowTok{else} \StringTok{\textquotesingle{}VIOLÉE\textquotesingle{}}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# ==== 2. CROYANCES DU PRINCIPAL ====}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{2. Croyances du Principal (après observation du résultat):"}\NormalTok{)}
+    
+    \CommentTok{\# Probabilités a priori}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"   Croyances a priori (avant observation):"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     P(e=H | contrat proposé) = 1 (anticipé)"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     P(e=B | contrat proposé) = 0"}\NormalTok{)}
+    
+    \CommentTok{\# Mise à jour bayésienne après observation du succès}
+    \ControlFlowTok{if}\NormalTok{ accept\_contract }\KeywordTok{and}\NormalTok{ optimal\_effort }\OperatorTok{==} \StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{:}
+        \CommentTok{\# Probabilité de succès observé sachant e=H}
+\NormalTok{        p\_success\_given\_H }\OperatorTok{=}\NormalTok{ model.pi\_H}
+        \CommentTok{\# Probabilité de succès observé sachant e=B}
+\NormalTok{        p\_success\_given\_B }\OperatorTok{=}\NormalTok{ model.pi\_B}
+        
+        \CommentTok{\# Règle de Bayes: P(H|S) = P(S|H)*P(H) / P(S)}
+        \CommentTok{\# Si le principal anticipe correctement e=H}
+\NormalTok{        prob\_H\_given\_success }\OperatorTok{=}\NormalTok{ (p\_success\_given\_H }\OperatorTok{*} \FloatTok{1.0}\NormalTok{) }\OperatorTok{/}\NormalTok{ p\_success\_given\_H}
+\NormalTok{        prob\_H\_given\_failure }\OperatorTok{=}\NormalTok{ ((}\DecValTok{1}\OperatorTok{{-}}\NormalTok{p\_success\_given\_H) }\OperatorTok{*} \FloatTok{1.0}\NormalTok{) }\OperatorTok{/}\NormalTok{ (}\DecValTok{1}\OperatorTok{{-}}\NormalTok{p\_success\_given\_H)}
+        
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{   Mise à jour bayésienne:"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     P(e=H | Succès observé) = }\SpecialCharTok{\{}\NormalTok{prob\_H\_given\_success}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     P(e=H | Échec observé)  = }\SpecialCharTok{\{}\NormalTok{prob\_H\_given\_failure}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     Croyances cohérentes avec stratégie d\textquotesingle{}équilibre"}\NormalTok{)}
+    
+    \CommentTok{\# ==== 3. OPTIMALITÉ DU PRINCIPAL ====}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{3. Vérification de l\textquotesingle{}optimalité du Principal:"}\NormalTok{)}
+    
+\NormalTok{    profit\_equilibrium }\OperatorTok{=}\NormalTok{ model.expected\_profit\_principal(w\_bar, w, optimal\_effort }\ControlFlowTok{if}\NormalTok{ accept\_contract }\ControlFlowTok{else} \StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"   Profit à l\textquotesingle{}équilibre: }\SpecialCharTok{\{}\NormalTok{profit\_equilibrium}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# Test de déviations possibles}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{   Test de déviations:"}\NormalTok{)}
+    
+    \CommentTok{\# Déviation 1: offrir un contrat qui induit e=B}
+\NormalTok{    w\_B\_deviation }\OperatorTok{=}\NormalTok{ (model.u\_r }\OperatorTok{+}\NormalTok{ model.d\_B)}\OperatorTok{**}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{model.gamma)}
+\NormalTok{    profit\_deviation\_B }\OperatorTok{=}\NormalTok{ model.expected\_profit\_principal(w\_B\_deviation, w\_B\_deviation, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     Déviation vers e=B: Profit = }\SpecialCharTok{\{}\NormalTok{profit\_deviation\_B}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# Déviation 2: ne pas proposer de contrat}
+\NormalTok{    profit\_no\_contract }\OperatorTok{=} \DecValTok{0}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     Ne pas contracter: Profit = }\SpecialCharTok{\{}\NormalTok{profit\_no\_contract}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+\NormalTok{    no\_profitable\_deviation }\OperatorTok{=}\NormalTok{ (profit\_equilibrium }\OperatorTok{\textgreater{}=}\NormalTok{ profit\_deviation\_B) }\KeywordTok{and}\NormalTok{ (profit\_equilibrium }\OperatorTok{\textgreater{}=}\NormalTok{ profit\_no\_contract)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{   Pas de déviation profitable: }\SpecialCharTok{\{}\StringTok{\textquotesingle{}OUI\textquotesingle{}} \ControlFlowTok{if}\NormalTok{ no\_profitable\_deviation }\ControlFlowTok{else} \StringTok{\textquotesingle{}NON\textquotesingle{}}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# ==== 4. }\AlertTok{TEST}\CommentTok{ DE ROBUSTESSE ====}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{4. Tests de robustesse:"}\NormalTok{)}
+    
+    \CommentTok{\# Test 1: Si le principal augmente w\_bar}
+\NormalTok{    w\_bar\_test }\OperatorTok{=}\NormalTok{ w\_bar }\OperatorTok{*} \FloatTok{1.1}
+\NormalTok{    eu\_H\_test }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar\_test, w, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{    eu\_B\_test }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar\_test, w, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{)}
+\NormalTok{    profit\_test }\OperatorTok{=}\NormalTok{ model.expected\_profit\_principal(w\_bar\_test, w, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"   Si w̄ augmente de 10\%:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     CI reste satisfaite: }\SpecialCharTok{\{}\NormalTok{eu\_H\_test }\OperatorTok{\textgreater{}=}\NormalTok{ eu\_B\_test}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     Profit Principal: }\SpecialCharTok{\{}\NormalTok{profit\_test}\SpecialCharTok{:.4f\}}\SpecialStringTok{ }\SpecialCharTok{\{}\StringTok{\textquotesingle{}\textless{}\textquotesingle{}} \ControlFlowTok{if}\NormalTok{ profit\_test }\OperatorTok{\textless{}}\NormalTok{ profit\_equilibrium }\ControlFlowTok{else} \StringTok{\textquotesingle{}≥\textquotesingle{}}\SpecialCharTok{\}}\SpecialStringTok{ }\SpecialCharTok{\{}\NormalTok{profit\_equilibrium}\SpecialCharTok{:.4f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# Test 2: Si le principal diminue w\_bar}
+\NormalTok{    w\_bar\_test2 }\OperatorTok{=}\NormalTok{ w\_bar }\OperatorTok{*} \FloatTok{0.9}
+\NormalTok{    eu\_H\_test2 }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar\_test2, w, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{    eu\_B\_test2 }\OperatorTok{=}\NormalTok{ model.expected\_utility\_agent(w\_bar\_test2, w, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{)}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{   Si w̄ diminue de 10\%:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     CI satisfaite: }\SpecialCharTok{\{}\NormalTok{eu\_H\_test2 }\OperatorTok{\textgreater{}=}\NormalTok{ eu\_B\_test2}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"     CP satisfaite: }\SpecialCharTok{\{}\NormalTok{eu\_H\_test2 }\OperatorTok{\textgreater{}=}\NormalTok{ model}\SpecialCharTok{.}\NormalTok{u\_r}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# ==== CONCLUSION ====}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"} \OperatorTok{+} \StringTok{"{-}"}\OperatorTok{*}\DecValTok{50}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Conclusion sur l\textquotesingle{}Équilibre Bayésien Parfait:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"{-}"}\OperatorTok{*}\DecValTok{50}\NormalTok{)}
+    
+\NormalTok{    is\_pbe }\OperatorTok{=}\NormalTok{ accept\_contract }\KeywordTok{and}\NormalTok{ ic\_satisfied }\KeywordTok{and}\NormalTok{ no\_profitable\_deviation}
+    
+    \ControlFlowTok{if}\NormalTok{ is\_pbe:}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{"PBE vérifié"}\NormalTok{)    }
+        \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Le contrat proposé constitue un PBE car:"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{"  1. L\textquotesingle{}agent accepte et choisit rationnellement e=H"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{"  2. Les croyances du principal sont cohérentes"}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{"  3. Aucun joueur ne peut dévier de manière profitable"}\NormalTok{)}
+    \ControlFlowTok{else}\NormalTok{:}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{"Pas de PBE"}\NormalTok{)}
+    
+    \ControlFlowTok{return}\NormalTok{ \{}
+        \StringTok{\textquotesingle{}is\_pbe\textquotesingle{}}\NormalTok{: is\_pbe,}
+        \StringTok{\textquotesingle{}agent\_accepts\textquotesingle{}}\NormalTok{: accept\_contract,}
+        \StringTok{\textquotesingle{}optimal\_effort\textquotesingle{}}\NormalTok{: optimal\_effort }\ControlFlowTok{if}\NormalTok{ accept\_contract }\ControlFlowTok{else} \VariableTok{None}\NormalTok{,}
+        \StringTok{\textquotesingle{}ic\_satisfied\textquotesingle{}}\NormalTok{: ic\_satisfied }\ControlFlowTok{if}\NormalTok{ accept\_contract }\ControlFlowTok{else} \VariableTok{False}\NormalTok{,}
+        \StringTok{\textquotesingle{}no\_profitable\_deviation\textquotesingle{}}\NormalTok{: no\_profitable\_deviation,}
+        \StringTok{\textquotesingle{}equilibrium\_profit\textquotesingle{}}\NormalTok{: profit\_equilibrium,}
+        \StringTok{\textquotesingle{}eu\_H\textquotesingle{}}\NormalTok{: eu\_H,}
+        \StringTok{\textquotesingle{}eu\_B\textquotesingle{}}\NormalTok{: eu\_B}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter*{Comparaison et analyse des deux situations}\label{comparaison-et-analyse-des-deux-situations}
+\addcontentsline{toc}{chapter}{Comparaison et analyse des deux situations}
+
+\section{Analyse de sensibilité}\label{analyse-de-sensibilituxe9}
+
+\subsection{Objectif général}\label{objectif-guxe9nuxe9ral}
+
+L'analyse de sensibilité vise à étudier la robustesse des résultats du modèle principal--agent face aux variations de certains paramètres clés. Elle permet de comprendre comment les \textbf{incitations}, le \textbf{coût d'agence} et la \textbf{rentabilité du principal} réagissent lorsque l'environnement économique change. Deux paramètres centraux sont analysés :
+
+\begin{itemize}
+\tightlist
+\item
+  l'aversion au risque de l'agent (γ),
+\item
+  la productivité de l'effort faible (π\_B).
+\end{itemize}
+
+\section{Sensibilité à l'aversion au risque de l'agent (γ)}\label{sensibilituxe9-uxe0-laversion-au-risque-de-lagent-ux3b3}
+
+\subsection{Description}\label{description}
+
+Le paramètre γ mesure le degré d'aversion au risque de l'agent. Plus γ est faible, plus l'agent est averse au risque ; à l'inverse, lorsque γ se rapproche de 1, l'agent devient neutre au risque. L'analyse consiste à faire varier γ sur un intervalle donné et à résoudre successivement les problèmes first-best et second-best pour chaque valeur.
+
+\subsection{Logique économique}\label{logique-uxe9conomique-2}
+
+Lorsque l'agent est très averse au risque (γ faible), le principal doit offrir une forte assurance pour satisfaire la contrainte de participation. Cela conduit à des salaires élevés et peut fortement réduire, voire annuler, le profit du principal. Dans ce cas, inciter l'agent à fournir un effort élevé devient coûteux.
+
+À mesure que γ augmente :
+
+\begin{itemize}
+\tightlist
+\item
+  l'agent supporte mieux le risque,
+\item
+  l'écart entre le salaire en cas de succès et d'échec diminue,
+\item
+  le coût d'agence décroît progressivement.
+\end{itemize}
+
+\subsection{Résultats observés}\label{ruxe9sultats-observuxe9s}
+
+\begin{itemize}
+\tightlist
+\item
+  Pour des valeurs faibles de γ, le profit du principal peut devenir négatif et le principal préfère parfois imposer l'effort faible.
+\item
+  Lorsque γ augmente, le contrat incitatif devient moins coûteux.
+\item
+  À la limite γ = 1 (agent neutre au risque), le second-best coïncide avec le first-best et le coût d'agence devient nul.
+\end{itemize}
+
+\subsection{Interprétation économique}\label{interpruxe9tation-uxe9conomique}
+
+Cette analyse confirme un résultat fondamental de la théorie du principal--agent : \textbf{le coût d'agence est d'autant plus élevé que l'agent est averse au risque}. Lorsque l'agent est neutre au risque, il est possible de l'inciter sans perte d'efficacité, ce qui élimine toute inefficience liée à l'asymétrie d'information.
+
+\section{Sensibilité à la probabilité de succès sous effort faible (π\_B)}\label{sensibilituxe9-uxe0-la-probabilituxe9-de-succuxe8s-sous-effort-faible-ux3c0_b}
+
+\subsection{Description}\label{description-1}
+
+La probabilité π\_B mesure l'efficacité de l'effort faible. L'analyse de sensibilité consiste à augmenter progressivement π\_B tout en maintenant π\_H constant, afin d'évaluer comment la proximité entre les deux niveaux d'effort affecte la structure du contrat et le choix du principal.
+
+\subsection{Logique économique}\label{logique-uxe9conomique-3}
+
+Lorsque π\_B est faible, l'effort élevé apporte un gain productif important par rapport à l'effort faible. Le principal est alors prêt à supporter un coût d'incitation pour encourager l'effort élevé. En revanche, lorsque π\_B augmente, la différence entre les deux efforts se réduit, ce qui diminue l'intérêt économique d'inciter l'agent à fournir l'effort élevé.
+
+\subsection{Résultats observés}\label{ruxe9sultats-observuxe9s-1}
+
+\begin{itemize}
+\tightlist
+\item
+  À mesure que π\_B augmente, l'écart salarial ( w̄ - w ) nécessaire pour inciter l'effort élevé augmente.
+\item
+  Le profit du principal diminue, reflétant une hausse du coût d'agence.
+\item
+  Au-delà d'un certain seuil, le principal préfère abandonner l'effort élevé et choisir directement l'effort faible.
+\item
+  Dans certains cas extrêmes, la contrainte d'incitation devient plus contraignante que la contrainte de participation, ce qui conduit à une \textbf{rente informationnelle} pour l'agent.
+\end{itemize}
+
+\subsection{Interprétation économique}\label{interpruxe9tation-uxe9conomique-1}
+
+Cette analyse montre que \textbf{l'incitation à l'effort élevé n'est rentable que si l'effort faible est suffisamment inefficace}. Lorsque les performances des deux efforts deviennent proches, l'asymétrie d'information engendre une inefficience trop importante, et le principal renonce à l'effort élevé.
+
+\section{Coût d'agence et enseignements généraux}\label{couxfbt-dagence-et-enseignements-guxe9nuxe9raux}
+
+\subsection{Définition}\label{duxe9finition}
+
+Le coût d'agence est défini comme la différence de profit entre le régime first-best et le régime second-best :
+
+\[
+\text{Coût d’agence} = \Pi^{FB} - \Pi^{SB}
+\]
+
+\subsection{Résultats globaux}\label{ruxe9sultats-globaux}
+
+\begin{itemize}
+\item
+  Le coût d'agence augmente lorsque :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    l'agent est très averse au risque,
+  \item
+    l'effort faible devient plus productif.
+  \end{itemize}
+\item
+  Le coût d'agence tend vers zéro lorsque :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    l'agent est neutre au risque,
+  \item
+    l'effort élevé domine largement l'effort faible.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Interprétation synthétique}\label{interpruxe9tation-synthuxe9tique}
+
+L'analyse de sensibilité met en évidence le compromis central du modèle principal--agent : \textbf{inciter un agent sous asymétrie d'information implique nécessairement un coût}, dont l'ampleur dépend à la fois des préférences de l'agent et de la technologie de production.
+
+\subsection{Code associé}\label{code-associuxe9-3}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ compare\_regimes(model: PrincipalAgentModel) }\OperatorTok{{-}\textgreater{}}\NormalTok{ Tuple[Dict, Dict, }\BuiltInTok{float}\NormalTok{]:}
+    \CommentTok{"""}
+\CommentTok{    Compare les résultats First{-}Best vs Second{-}Best}
+\CommentTok{    }
+\CommentTok{    Args:}
+\CommentTok{        model: instance du modèle}
+\CommentTok{    Returns:}
+\CommentTok{        tuple (first\_best, second\_best, agency\_cost)}
+\CommentTok{    """}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"} \OperatorTok{+} \StringTok{"="}\OperatorTok{*}\DecValTok{50}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Comparaison des régimes First{-}Best vs Second{-}Best"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"="}\OperatorTok{*}\DecValTok{50}\NormalTok{)}
+    
+\NormalTok{    fb }\OperatorTok{=}\NormalTok{ solve\_first\_best(model, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{    sb }\OperatorTok{=}\NormalTok{ solve\_second\_best(model)}
+    
+    \CommentTok{\# Coût d\textquotesingle{}agence}
+\NormalTok{    agency\_cost }\OperatorTok{=}\NormalTok{ fb[}\StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{] }\OperatorTok{{-}}\NormalTok{ sb[}\StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{]}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Coût d\textquotesingle{}agence (perte due à l\textquotesingle{}asymétrie d\textquotesingle{}information):"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Profit FB {-} Profit SB = }\SpecialCharTok{\{}\NormalTok{agency\_cost}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  Perte relative: }\SpecialCharTok{\{}\DecValTok{100} \OperatorTok{*}\NormalTok{ agency\_cost }\OperatorTok{/}\NormalTok{ fb[}\StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.2f\}}\SpecialStringTok{\%"}\NormalTok{)}
+    
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Écart de salaire:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  FB: w̄ {-} w = }\SpecialCharTok{\{}\NormalTok{fb[}\StringTok{\textquotesingle{}w\_bar\textquotesingle{}}\NormalTok{] }\OperatorTok{{-}}\NormalTok{ fb[}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.2f\}}\SpecialStringTok{ (assurance complète)"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"  SB: w̄ {-} w = }\SpecialCharTok{\{}\NormalTok{sb[}\StringTok{\textquotesingle{}w\_bar\textquotesingle{}}\NormalTok{] }\OperatorTok{{-}}\NormalTok{ sb[}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.2f\}}\SpecialStringTok{ (incitation)"}\NormalTok{)}
+    
+    \ControlFlowTok{return}\NormalTok{ fb, sb, agency\_cost}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Analyse de sensibilité}\label{analyse-de-sensibilituxe9-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ sensitivity\_analysis(model: PrincipalAgentModel):}
+    \CommentTok{"""}
+\CommentTok{    Analyse de sensibilité: impact des paramètres sur le coût d\textquotesingle{}agence}
+\CommentTok{    }
+\CommentTok{    Args:}
+\CommentTok{        model: instance du modèle}
+\CommentTok{    Returns:}
+\CommentTok{        figure matplotlib}
+\CommentTok{    """}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"} \OperatorTok{+} \StringTok{"="}\OperatorTok{*}\DecValTok{40}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Analyse de sensibilité du coût d\textquotesingle{}agence"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"="}\OperatorTok{*}\DecValTok{40}\NormalTok{)}
+    
+    \CommentTok{\# Sauvegarder paramètres originaux}
+\NormalTok{    original\_gamma }\OperatorTok{=}\NormalTok{ model.gamma}
+\NormalTok{    original\_pi\_B }\OperatorTok{=}\NormalTok{ model.pi\_B}
+    
+    \CommentTok{\# Analyse 1: Impact de l\textquotesingle{}aversion au risque (gamma)}
+\NormalTok{    gammas }\OperatorTok{=}\NormalTok{ np.linspace(}\FloatTok{0.3}\NormalTok{, }\FloatTok{1.0}\NormalTok{, }\DecValTok{8}\NormalTok{)}
+\NormalTok{    agency\_costs\_gamma }\OperatorTok{=}\NormalTok{ []}
+    
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{1. Impact de l\textquotesingle{}aversion au risque (γ):"}\NormalTok{)}
+    \ControlFlowTok{for}\NormalTok{ g }\KeywordTok{in}\NormalTok{ gammas:}
+\NormalTok{        model.gamma }\OperatorTok{=}\NormalTok{ g}
+\NormalTok{        fb }\OperatorTok{=}\NormalTok{ solve\_first\_best(model, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{        sb }\OperatorTok{=}\NormalTok{ solve\_second\_best(model)}
+\NormalTok{        ac }\OperatorTok{=}\NormalTok{ fb[}\StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{] }\OperatorTok{{-}}\NormalTok{ sb[}\StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{]}
+\NormalTok{        agency\_costs\_gamma.append(ac)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"   γ = }\SpecialCharTok{\{}\NormalTok{g}\SpecialCharTok{:.2f\}}\SpecialStringTok{: Coût d\textquotesingle{}agence = }\SpecialCharTok{\{}\NormalTok{ac}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# Analyse 2: Impact de pi\_B}
+\NormalTok{    model.gamma }\OperatorTok{=}\NormalTok{ original\_gamma}
+\NormalTok{    pi\_Bs }\OperatorTok{=}\NormalTok{ np.linspace(}\FloatTok{0.2}\NormalTok{, }\FloatTok{0.7}\NormalTok{, }\DecValTok{8}\NormalTok{)}
+\NormalTok{    agency\_costs\_pi }\OperatorTok{=}\NormalTok{ []}
+    
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{2. Impact de π\_B (effort faible):"}\NormalTok{)}
+    \ControlFlowTok{for}\NormalTok{ pi\_b }\KeywordTok{in}\NormalTok{ pi\_Bs:}
+        \ControlFlowTok{if}\NormalTok{ pi\_b }\OperatorTok{\textless{}}\NormalTok{ model.pi\_H:}
+\NormalTok{            model.pi\_B }\OperatorTok{=}\NormalTok{ pi\_b}
+\NormalTok{            fb }\OperatorTok{=}\NormalTok{ solve\_first\_best(model, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+\NormalTok{            sb }\OperatorTok{=}\NormalTok{ solve\_second\_best(model)}
+\NormalTok{            ac }\OperatorTok{=}\NormalTok{ fb[}\StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{] }\OperatorTok{{-}}\NormalTok{ sb[}\StringTok{\textquotesingle{}profit\_principal\textquotesingle{}}\NormalTok{]}
+\NormalTok{            agency\_costs\_pi.append(ac)}
+            \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"   π\_B = }\SpecialCharTok{\{}\NormalTok{pi\_b}\SpecialCharTok{:.2f\}}\SpecialStringTok{: Coût d\textquotesingle{}agence = }\SpecialCharTok{\{}\NormalTok{ac}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
+    
+    \CommentTok{\# Restaurer paramètres}
+\NormalTok{    model.gamma }\OperatorTok{=}\NormalTok{ original\_gamma}
+\NormalTok{    model.pi\_B }\OperatorTok{=}\NormalTok{ original\_pi\_B}
+    
+    \CommentTok{\# Graphiques}
+\NormalTok{    fig, (ax1, ax2) }\OperatorTok{=}\NormalTok{ plt.subplots(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{14}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+    
+\NormalTok{    ax1.plot(gammas, agency\_costs\_gamma, }\StringTok{\textquotesingle{}b{-}o\textquotesingle{}}\NormalTok{, linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{, markersize}\OperatorTok{=}\DecValTok{8}\NormalTok{)}
+\NormalTok{    ax1.set\_xlabel(}\StringTok{\textquotesingle{}Coefficient d}\CharTok{\textbackslash{}\textquotesingle{}}\StringTok{aversion au risque (γ)\textquotesingle{}}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{12}\NormalTok{)}
+\NormalTok{    ax1.set\_ylabel(}\StringTok{\textquotesingle{}Coût d}\CharTok{\textbackslash{}\textquotesingle{}}\StringTok{agence\textquotesingle{}}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{12}\NormalTok{)}
+\NormalTok{    ax1.set\_title(}\StringTok{\textquotesingle{}Impact de l}\CharTok{\textbackslash{}\textquotesingle{}}\StringTok{aversion au risque\textquotesingle{}}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{13}\NormalTok{, fontweight}\OperatorTok{=}\StringTok{\textquotesingle{}bold\textquotesingle{}}\NormalTok{)}
+\NormalTok{    ax1.grid(}\VariableTok{True}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.3}\NormalTok{)}
+\NormalTok{    ax1.axhline(y}\OperatorTok{=}\DecValTok{0}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}r\textquotesingle{}}\NormalTok{, linestyle}\OperatorTok{=}\StringTok{\textquotesingle{}{-}{-}\textquotesingle{}}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.5}\NormalTok{)}
+    
+\NormalTok{    ax2.plot(pi\_Bs[:}\BuiltInTok{len}\NormalTok{(agency\_costs\_pi)], agency\_costs\_pi, }\StringTok{\textquotesingle{}g{-}o\textquotesingle{}}\NormalTok{, linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{, markersize}\OperatorTok{=}\DecValTok{8}\NormalTok{)}
+\NormalTok{    ax2.set\_xlabel(}\StringTok{\textquotesingle{}Probabilité de succès avec effort faible (π\_B)\textquotesingle{}}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{12}\NormalTok{)}
+\NormalTok{    ax2.set\_ylabel(}\StringTok{\textquotesingle{}Coût d}\CharTok{\textbackslash{}\textquotesingle{}}\StringTok{agence\textquotesingle{}}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{12}\NormalTok{)}
+\NormalTok{    ax2.set\_title(}\StringTok{\textquotesingle{}Impact de la difficulté de surveillance\textquotesingle{}}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{13}\NormalTok{, fontweight}\OperatorTok{=}\StringTok{\textquotesingle{}bold\textquotesingle{}}\NormalTok{)}
+\NormalTok{    ax2.grid(}\VariableTok{True}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.3}\NormalTok{)}
+\NormalTok{    ax2.axhline(y}\OperatorTok{=}\DecValTok{0}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}r\textquotesingle{}}\NormalTok{, linestyle}\OperatorTok{=}\StringTok{\textquotesingle{}{-}{-}\textquotesingle{}}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.5}\NormalTok{)}
+    
+\NormalTok{    plt.tight\_layout()}
+    
+    \ControlFlowTok{return}\NormalTok{ fig}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter*{Exemple d'utilisation}\label{exemple-dutilisation}
+\addcontentsline{toc}{chapter}{Exemple d'utilisation}
+
+Dans cette partie, nous faire un eutilisation des fonctions définies.
+En outre, une \href{https://mod-le-principal-agent-hykg8w7fj7rdknnk6vdfv3.streamlit.app}{application};
+permettant de résoudre le problème a été déployée. Elle permet aux utilisateurs de remplir les données issues relatives à leur problème pour obtenir ensuite les solutions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Création du modèle}
+\NormalTok{model }\OperatorTok{=}\NormalTok{ PrincipalAgentModel(}
+\NormalTok{    q\_bar}\OperatorTok{=}\DecValTok{600}\NormalTok{,    }\CommentTok{\# Profit si succès}
+\NormalTok{    q}\OperatorTok{=}\DecValTok{100}\NormalTok{,         }\CommentTok{\# Profit si échec}
+\NormalTok{    pi\_H}\OperatorTok{=}\FloatTok{0.7}\NormalTok{,     }\CommentTok{\# pi\_B=0.7 Proba succès si effort faible  pi\_H=0.7 donne le PBE}
+\NormalTok{    pi\_B}\OperatorTok{=}\FloatTok{0.3}\NormalTok{,     }\CommentTok{\# pi\_B=0.3 Proba succès si effort faible  pi\_B=0.3 donne le PBE}
+\NormalTok{    d\_H}\OperatorTok{=}\DecValTok{5}\NormalTok{,        }\CommentTok{\# Coût effort élevé}
+\NormalTok{    d\_B}\OperatorTok{=}\DecValTok{2}\NormalTok{,        }\CommentTok{\# Coût effort faible}
+\NormalTok{    u\_r}\OperatorTok{=}\DecValTok{10}\NormalTok{,       }\CommentTok{\# Utilité de réserve}
+\NormalTok{    gamma}\OperatorTok{=}\FloatTok{0.5}     \CommentTok{\# Aversion au risque}
+\NormalTok{)}
+
+\CommentTok{\# 2. Résoudre First{-}Best}
+\NormalTok{fb }\OperatorTok{=}\NormalTok{ solve\_first\_best(model, }\StringTok{\textquotesingle{}H\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# 3. Résoudre Second{-}Best}
+\NormalTok{sb }\OperatorTok{=}\NormalTok{ solve\_second\_best(model)}
+
+\CommentTok{\# 4. Vérifier l\textquotesingle{}équilibre bayésien}
+\NormalTok{pbe\_results }\OperatorTok{=}\NormalTok{ verify\_perfect\_bayesian\_equilibrium(model, sb)}
+
+\CommentTok{\# 5. Comparer les régimes}
+\NormalTok{fb, sb, agency\_cost }\OperatorTok{=}\NormalTok{ compare\_regimes(model)}
+
+\CommentTok{\# 6. Analyse de sensibilité}
+\NormalTok{fig }\OperatorTok{=}\NormalTok{ sensitivity\_analysis(model)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 106.00
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 297.56
+  w (échec)  = 95.06
+  Écart w̄ - w = 202.50
+
+Résultats:
+  Profit espéré Principal: 213.19
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+
+--------------------------------------------------
+Vérification de l'équilibre bayésien parfait (PBE)
+--------------------------------------------------
+
+1. Vérification de la rationalité de l'Agent:
+   EU_A(accepter, e=H) = 10.0000
+   EU_A(accepter, e=B) = 10.0000
+   EU_A(refuser)       = 10.0000
+
+   → L'agent Refuse le contrat
+
+2. Croyances du Principal (après observation du résultat):
+   Croyances a priori (avant observation):
+     P(e=H | contrat proposé) = 1 (anticipé)
+     P(e=B | contrat proposé) = 0
+
+3. Vérification de l'optimalité du Principal:
+   Profit à l'équilibre: 94.1875
+
+   Test de déviations:
+     Déviation vers e=B: Profit = 106.0000
+     Ne pas contracter: Profit = 0.0000
+
+   Pas de déviation profitable: NON
+
+4. Tests de robustesse:
+   Si w̄ augmente de 10%:
+     CI reste satisfaite: True
+     Profit Principal: 192.3581 ≥ 94.1875
+
+   Si w̄ diminue de 10%:
+     CI satisfaite: False
+     CP satisfaite: False
+
+--------------------------------------------------
+Conclusion sur l'Équilibre Bayésien Parfait:
+--------------------------------------------------
+Pas de PBE
+
+==================================================
+Comparaison des régimes First-Best vs Second-Best
+==================================================
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 106.00
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 297.56
+  w (échec)  = 95.06
+  Écart w̄ - w = 202.50
+
+Résultats:
+  Profit espéré Principal: 213.19
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+
+Coût d'agence (perte due à l'asymétrie d'information):
+  Profit FB - Profit SB = 11.81
+  Perte relative: 5.25%
+
+Écart de salaire:
+  FB: w̄ - w = 0.00 (assurance complète)
+  SB: w̄ - w = 202.50 (incitation)
+
+========================================
+Analyse de sensibilité du coût d'agence
+========================================
+
+1. Impact de l'aversion au risque (γ):
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 8323.47
+
+Résultats:
+  Profit espéré Principal: -7873.47
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = -7873.47
+  Si effort B imposé: Profit = -3706.13
+ Le principal préfère imposer l'effort B
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 13262.65
+  w (échec)  = 1980.08
+  Écart w̄ - w = 11282.57
+
+Résultats:
+  Profit espéré Principal: -9427.88
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.30: Coût d'agence = 1554.41
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 871.42
+
+Résultats:
+  Profit espéré Principal: -421.42
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = -421.42
+  Si effort B imposé: Profit = -248.83
+ Le principal préfère imposer l'effort B
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 1235.87
+  w (échec)  = 296.83
+  Écart w̄ - w = 939.04
+
+Résultats:
+  Profit espéré Principal: -504.16
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.40: Coût d'agence = 82.74
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 106.00
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 297.56
+  w (échec)  = 95.06
+  Écart w̄ - w = 202.50
+
+Résultats:
+  Profit espéré Principal: 213.19
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.50: Coût d'agence = 11.81
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 91.23
+
+Résultats:
+  Profit espéré Principal: 358.77
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 358.77
+  Si effort B imposé: Profit = 187.10
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 115.16
+  w (échec)  = 44.50
+  Écart w̄ - w = 70.67
+
+Résultats:
+  Profit espéré Principal: 356.04
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.60: Coût d'agence = 2.73
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 47.88
+
+Résultats:
+  Profit espéré Principal: 402.12
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 402.12
+  Si effort B imposé: Profit = 215.19
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 58.46
+  w (échec)  = 25.87
+  Écart w̄ - w = 32.58
+
+Résultats:
+  Profit espéré Principal: 401.32
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.70: Coût d'agence = 0.81
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 29.52
+
+Résultats:
+  Profit espéré Principal: 420.48
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 420.48
+  Si effort B imposé: Profit = 227.67
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 35.15
+  w (échec)  = 17.23
+  Écart w̄ - w = 17.93
+
+Résultats:
+  Profit espéré Principal: 420.22
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.80: Coût d'agence = 0.26
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 20.27
+
+Résultats:
+  Profit espéré Principal: 429.73
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 429.73
+  Si effort B imposé: Profit = 234.18
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 23.67
+  w (échec)  = 12.56
+  Écart w̄ - w = 11.11
+
+Résultats:
+  Profit espéré Principal: 429.66
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 0.90: Coût d'agence = 0.07
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 15.00
+
+Résultats:
+  Profit espéré Principal: 435.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 435.00
+  Si effort B imposé: Profit = 238.00
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 17.25
+  w (échec)  = 9.75
+  Écart w̄ - w = 7.50
+
+Résultats:
+  Profit espéré Principal: 435.00
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   γ = 1.00: Coût d'agence = -0.00
+
+2. Impact de π_B (effort faible):
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 56.00
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 282.24
+  w (échec)  = 116.64
+  Écart w̄ - w = 165.60
+
+Résultats:
+  Profit espéré Principal: 217.44
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.20: Coût d'agence = 7.56
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 91.71
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 292.41
+  w (échec)  = 102.01
+  Écart w̄ - w = 190.40
+
+Résultats:
+  Profit espéré Principal: 214.71
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.27: Coût d'agence = 10.29
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 127.43
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 306.95
+  w (échec)  = 83.17
+  Écart w̄ - w = 223.78
+
+Résultats:
+  Profit espéré Principal: 210.18
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.34: Coût d'agence = 14.82
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 163.14
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 329.42
+  w (échec)  = 58.52
+  Écart w̄ - w = 270.90
+
+Résultats:
+  Profit espéré Principal: 201.85
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): -0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.41: Coût d'agence = 23.15
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 198.86
+ Le principal préfère imposer l'effort H
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 368.64
+  w (échec)  = 27.04
+  Écart w̄ - w = 341.60
+
+Résultats:
+  Profit espéré Principal: 183.84
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.49: Coût d'agence = 41.16
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 234.57
+ Le principal préfère imposer l'effort B
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 453.69
+  w (échec)  = 0.09
+  Écart w̄ - w = 453.60
+
+Résultats:
+  Profit espéré Principal: 132.39
+  Utilité Agent (si e=H): 10.00
+  Utilité Agent (si e=B): 10.00
+
+Vérification des contraintes:
+  CP (≥ 0): 0.0000  contrainte saturée
+  CI (≥ 0): 0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.56: Coût d'agence = 92.61
+
+--------------------------------------------------
+Résolution du first best (Information Symétrique)
+--------------------------------------------------
+
+Effort imposé: H
+Probabilité de succès: π_H = 0.70
+
+Contrat optimal (assurance complète):
+  w̄ (succès) = w (échec) = 225.00
+
+Résultats:
+  Profit espéré Principal: 225.00
+  Utilité Agent: 10.00 (= u_r = 10.00)
+
+Comparaison:
+  Si effort H imposé: Profit = 225.00
+  Si effort B imposé: Profit = 270.29
+ Le principal préfère imposer l'effort B
+
+----------------------------------------
+Résolution du second best (Aléa Moral)
+----------------------------------------
+
+Contrat optimal:
+  w̄ (succès) = 1764.00
+  w (échec)  = 0.00
+  Écart w̄ - w = 1764.00
+
+Résultats:
+  Profit espéré Principal: -784.80
+  Utilité Agent (si e=H): 24.40
+  Utilité Agent (si e=B): 24.40
+
+Vérification des contraintes:
+  CP (≥ 0): 14.4000 ✓
+  CI (≥ 0): -0.0000  contrainte saturée
+
+Interprétation:
+  L'agent est incité à fournir l'effort élevé H
+  Mais il supporte du risque (w̄ ≠ w)
+   π_B = 0.63: Coût d'agence = 1009.80
+\end{verbatim}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{images/output_22_1.png}}
+\caption{png}
+\end{figure}
+
+\bibliography{book.bib,packages.bib}
+
+\end{document}

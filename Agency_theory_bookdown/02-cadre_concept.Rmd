@@ -1,6 +1,12 @@
 # Cadre conceptuel
-(parler un peu de la théorie de la firme et dire qu'il y a un lien avec les contrats incomplets)
-...
+
+## Fondements théoriques
+
+La théorie de l’agence se comprend d’abord comme une réponse à un fait majeur du capitalisme moderne : dans les grandes entreprises, **ceux qui possèdent ne dirigent pas toujours**. C’est précisément ce que mettent en lumière Berle & Means dans ***The Modern Corporation and Private Property  (1932) *** : la séparation entre actionnaires et dirigeants ouvre mécaniquement la porte à des **intérêts divergents** (priorités, effort, prise de risque) et à un problème central de **surveillance**. Autrement dit, dès que la décision est déléguée, une question s’impose : comment s’assurer que l’agent agira réellement dans l’intérêt du principal, alors même que ce dernier ne peut pas tout observer ?
+
+Pour comprendre pourquoi ce problème devient si important, il faut revenir à la raison d’être de l’entreprise. Dans ***The Nature of the Firm (1937, Economica)***, Coase explique que la firme existe parce que le recours au marché est coûteux : négocier, rédiger, contrôler et faire appliquer des contrats en permanence génère des **coûts de transaction**. Cependant, si l’entreprise réduit certains coûts du marché, elle ne supprime pas les frictions ; elle les **déplace** vers l’intérieur. En interne, la coordination repose sur la hiérarchie, la mesure de la performance, la supervision—et donc sur une multitude de relations de délégation. Ainsi, plus l’organisation grandit, plus le problème “principal–agent” devient structurel.
+
+C’est dans ce cadre que Jensen & Meckling proposent la formulation devenue canonique avec ***Theory of the Firm: Managerial Behavior, Agency Costs and Ownership Structure (1976, Journal of Financial Economics)*** : l’entreprise est un **nœud de contrats**, et les dysfonctionnements ne relèvent pas d’une “mauvaise volonté”, mais de **coûts d’agence** (surveillance, engagement, perte résiduelle quand l’alignement reste imparfait). Dès lors, toute la question devient un problème de **design** : quelles règles de gouvernance, quelle structure de propriété, et surtout quels contrats permettent de rapprocher les intérêts ? La réponse se précise encore avec Holmström dans ***Moral Hazard and Observability (1979, The Bell Journal of Economics) *** : lorsque l’effort n’est pas observable (ou pas contractible), on ne peut pas obtenir le “first best” ; le contrat optimal arbitre alors entre **assurer** l’agent contre le risque et **l’inciter** via une rémunération dépendante du résultat. C’est cette tension—fluide, omniprésente et réaliste—qui explique à la fois l’émergence de la théorie de l’agence et son importance dans la compréhension de la firme moderne.
 
 
 ## Les acteurs du modèle
@@ -20,32 +26,28 @@ Dans le modèle standard, le principal est supposé neutre au risque. Son object
 où \(y\) représente le résultat de l’activité et \(w\) la rémunération versée à l’agent.
 
 
- L’agent est l’exécutant de la tâche. Il choisit un niveau d’effort \(e\) qui influence la distribution du résultat.  
-L’effort est coûteux pour l’agent et génère une désutilité. L’agent est généralement supposé potentiellement averse au risque.
+ L’agent est l’exécutant de la tâche. Il choisit un niveau d’effort \(e\) qui influence la distribution du résultat.L’effort est coûteux pour l’agent et génère une désutilité. L’agent est généralement supposé potentiellement averse au risque.
 
 
 
 ## Le contrat d'agence 
 
-
- Le contrat est un engagement ex ante entre le principal et l’agent.  
 Il spécifie une règle de rémunération \(w(y)\), conditionnée uniquement sur des variables observables, en particulier le résultat de l’activité.  
 Le contrat ne peut pas dépendre directement de l’effort lorsque celui-ci n’est pas observable.
 
-Le contrat Principal–Agent est un engagement conclu ex ante, c’est-à-dire avant la réalisation de l’activité et avant que l’agent ne choisisse son niveau d’effort. Il définit une règle de rémunération de l’agent en fonction des variables observables, en particulier le résultat du projet.
+Le contrat Principal–Agent est un engagement conclu ex ante entre le principal et l’agent, c’est-à-dire avant la réalisation de l’activité et avant que l’agent ne choisisse son niveau d’effort. Il définit une règle de rémunération de l’agent en fonction des variables.
 
 Lorsque l’effort est observable, le principal peut conditionner le contrat directement sur le niveau d’effort et imposer l’effort optimal. Dans ce cas, le contrat permet d’atteindre une allocation efficace.
 
 En revanche, lorsque l’effort n’est pas observable, le contrat ne peut dépendre que du résultat du projet. Cette limitation empêche le principal de contrôler directement le comportement de l’agent. Le salaire conditionnel au résultat devient alors l’unique instrument dont dispose le principal pour influencer l’effort de l’agent.
 
-Le principal doit donc concevoir un contrat qui rende l’effort élevé préférable pour l’agent, compte tenu de ses préférences et du coût de l’effort. Toutefois, rendre la rémunération dépendante du résultat expose l’agent au risque lié à l’aléa du projet. Ce point est particulièrement important lorsque l’agent est averse au risque.
+Le principal peut donc concevoir un contrat qui rende l’effort élevé préférable pour l’agent, compte tenu de ses préférences et du coût de l’effort. Toutefois, rendre la rémunération dépendante du résultat expose l’agent au risque lié à l’aléa du projet c'est à dire l'agent peut réaliser le projet avec un effort élevé et pourtant le projet n'aboutit pas du fait de l'aléa de la nature et sa rémunération va en dépendre. Ce point est particulièrement important lorsque l’agent est averse au risque.
 
 Le principal est ainsi confronté à un arbitrage fondamental entre incitations et assurance. Une rémunération très variable renforce les incitations à fournir un effort élevé, mais expose davantage l’agent au risque. À l’inverse, une rémunération plus stable protège mieux l’agent contre le risque, mais affaiblit les incitations.
 
 Lorsque l’effort est non observable, cet arbitrage conduit généralement à un contrat moins efficace que dans le cas d’information complète. L’impossibilité de contrôler directement l’effort engendre une perte de surplus par rapport au benchmark d’effort observable. Cette perte est appelée coût d’agence et constitue un élément central de l’analyse du modèle Principal–Agent.
 
 ## L'asymétrie d'information  
-
 
 Le principal ne peut pas observer l’effort fourni par l’agent.  
 Il observe uniquement le résultat, qui dépend à la fois de l’effort et d’un aléa.  
@@ -61,7 +63,7 @@ La sélection adverse correspond à une situation dans laquelle l’agent détie
 
 Dans ce contexte, le principal ne peut pas proposer un contrat unique sans risquer d’attirer uniquement les agents les moins favorables. Il est donc confronté à un problème de screening, dont l’objectif est d’identifier indirectement le type de l’agent.
 
-Pour résoudre ce problème, le principal propose un menu de contrats, c’est-à-dire plusieurs contrats différents parmi lesquels l’agent doit choisir. Chaque type d’agent est incité à sélectionner le contrat qui lui correspond le mieux. Ce mécanisme est appelé auto-sélection.
+Pour résoudre ce problème, le principal propose un menu de contrats, c’est-à-dire plusieurs contrats différents parmi lesquels l’agent doit choisir. Chaque type d’agent est incité à sélectionner le contrat qui lui correspond le mieux. Ce mécanisme est appelé auto-sélection
 
 Cependant, pour inciter l’agent à révéler honnêtement son information privée, le principal doit généralement lui laisser un surplus supplémentaire par rapport à la situation d’information complète. Ce surplus est appelé rente informationnelle. L’existence de cette rente implique que le contrat optimal sous sélection adverse est généralement moins efficace que dans un contexte sans asymétrie d’information.
 
@@ -76,9 +78,19 @@ Cette situation engendre un problème d’incitation. Le principal doit concevoi
 La présence d’aléa moral conduit généralement à une distorsion par rapport à la situation de premier rang, dans laquelle l’effort serait observable. Le contrat optimal sous aléa moral implique souvent une perte d’efficacité, appelée coût d’agence, qui résulte de l’impossibilité de contrôler directement l’effort de l’agent.
 
 
-
 ## Les contrats incomplets
-(en mettant en exergue le lien)
+
+Le **contrat d’agence** est précisément le terrain où apparaissent les **contrats incomplets** : dans la relation Principal–Agent, le principal ne peut ni observer parfaitement l’action de l’agent ni la rendre entièrement **vérifiable** et “contractible”. Des dimensions essentielles (effort, créativité, engagement) peuvent être perçues en pratique, mais restent difficiles à prouver juridiquement, ce qui empêche d’écrire un contrat exhaustif. Cette incomplétude oblige alors le principal à utiliser des **indicateurs imparfaits** pour inciter et à conserver un **droit résiduel de contrôle** (décider de ce que le contrat n’a pas prévu), si bien que la gouvernance combine règles formelles et mécanismes informels (autorité, confiance).
+
+Un **contrat incomplet** est donc un accord qui ne peut pas détailler toutes les obligations ni toutes les contingences futures ; il laisse nécessairement (ou volontairement) certaines décisions pour plus tard, ce qui apporte de la flexibilité mais aussi des risques stratégiques. L’exemple typique est un contrat de travail (p. ex. un ingénieur logiciel) : on peut fixer salaire, durée, mission générale, mais pas décrire parfaitement toutes les tâches, la créativité attendue, la qualité du code dans tous les cas, ni anticiper tous les problèmes techniques imprévus.
+
+L’incomplétude s’explique principalement par les élements suivants.
+
+- (i) la **rationalité limitée** : on ne peut pas prévoir tous les états du monde ni rédiger toutes les actions optimales pour chacun d’eux ; 
+- (ii) des **coûts de rédaction** qui explosent quand on veut tout spécifier ; 
+- (iii) la **non-vérifiabilité** (différence entre observable et prouvable devant un tribunal) qui rend non contractibles des variables comme qualité/effort ;
+- (iv) l’**indescriptibilité** de certaines qualités (ex. “bonne pédagogie”) impossibles à formaliser juridiquement avec précision.
+
 
 
 

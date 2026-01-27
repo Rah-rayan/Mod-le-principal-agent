@@ -1,3 +1,7 @@
-`r if (knitr::is_html_output()) '
-# References {-}
-'`
+# References / Citations {-}
+
+
+* Berle, A. & Means, G. ***The Modern Corporation and Private Property*** (1932).
+* Coase, R. ***The Nature of the Firm*** (1937, *Economica*).
+* Jensen, M. & Meckling, W. ***Theory of the Firm: Managerial Behavior, Agency Costs and Ownership Structure*** (1976, *Journal of Financial Economics*).
+* Holmström, B. ***Moral Hazard and Observability*** (1979, *The Bell Journal of Economics*).

@@ -1,11 +1,11 @@
-# **MODELE PRINCIPAL-AGENT**
+# Résolution numérique
 
 
 Le modèle Principal-Agent étudie les relations de délégation où un principal  confie une tâche à un agent, en présence d'asymétrie d'information. Le principal  ne peut pas observer directement l'effort fourni par l'agent, ce qui crée un  problème d'aléa moral (moral hazard). Cette situation est omniprésente dans les relations économiques : employeur-salarié, actionnaire-manager, assuré-assureur, etc.
 
-L'objectif de ce notebook est de resoudre numériquement le modèle principal-agent.
+L'objectif de cette partie est de resoudre numériquement le modèle principal-agent. Les codes sont faits en **python**.
 
-##  Import et configuration
+Les importations et configurations suivantes sont nécessaires.
 
 
 ```python
@@ -20,11 +20,11 @@ plt.rcParams['figure.figsize'] = (12, 6)
 plt.rcParams['font.size'] = 10
 ```
 
-### Classe principale du modèle
+En vue de la résolution numérique, nous allons définir des classes sur python, dans lesquelles seront créées des fonctions.
 
-# 📘 Classe `PrincipalAgentModel`
+# Classe `PrincipalAgentModel` { .unnumbered}
 
-### Rôle général de la classe
+## Rôle général de la classe
 
 La classe `PrincipalAgentModel` implémente un modèle standard de **principal–agent avec aléa moral**. Elle regroupe l’ensemble des paramètres économiques du modèle (profits, probabilités, désutilités, utilité de réserve et aversion au risque) ainsi que les fonctions fondamentales permettant de calculer l’utilité de l’agent et le profit du principal. Cette classe constitue le **cœur du modèle**, sur lequel reposent toutes les résolutions (first-best, second-best et vérification de l’équilibre).
 
@@ -48,7 +48,7 @@ La classe `PrincipalAgentModel` implémente un modèle standard de **principal�
 Ces paramètres définissent l’environnement informationnel et technologique du contrat. Les assertions garantissent que le modèle respecte les hypothèses standards de la théorie du principal–agent.
 
 
-### Fonction `utility_agent`
+## Fonction `utility_agent`
 
 **Description**
 Cette fonction définit la **fonction d’utilité instantanée** de l’agent en fonction du salaire perçu.
@@ -70,7 +70,7 @@ $$
 La concavité de la fonction (γ < 1) traduit l’aversion au risque de l’agent. Cette fonction est utilisée pour calculer l’utilité espérée associée à un contrat donné.
 
 
-### Fonction `expected_utility_agent`
+## Fonction `expected_utility_agent`
 
 **Description**
 Cette fonction calcule l’**utilité espérée nette de l’agent**, en tenant compte de l’incertitude sur le résultat et de la désutilité de l’effort.
@@ -117,6 +117,8 @@ Cette fonction calcule le **profit espéré du principal** en fonction du contra
 **Interprétation économique**
 Cette fonction permet d’évaluer la rentabilité du contrat pour le principal sous chaque régime informationnel.
 
+
+## Code python associé
 
 ```python
 class PrincipalAgentModel:
@@ -208,21 +210,20 @@ class PrincipalAgentModel:
         return pi * (self.q_bar - w_bar) + (1 - pi) * (self.q - w)
 ```
 
-### Résolution du first-best
 
-# 📗 Fonction `solve_first_best`
+# Résolution du first-best : Fonction `solve_first_best` { .unnumbered}
 
-### Description générale
+## Description générale
 
 La fonction `solve_first_best` résout le problème du principal dans le cas **first-best**, c’est-à-dire lorsque l’effort de l’agent est parfaitement observable. Dans ce contexte, le principal peut imposer directement le niveau d’effort et offrir une **assurance complète** à l’agent.
 
-### Arguments
+## Arguments
 
 * `model` : instance de la classe `PrincipalAgentModel`.
 * `target_effort` : effort à imposer (`'H'` ou `'B'`).
 
 
-### Sorties
+## Sorties
 
 La fonction retourne un dictionnaire contenant :
 
@@ -233,7 +234,7 @@ La fonction retourne un dictionnaire contenant :
 * `utility_agent` : utilité nette de l’agent,
 * `type` : type de régime (`First-Best`).
 
-### Logique économique
+## Logique économique
 
 Dans le first-best :
 
@@ -244,6 +245,7 @@ Dans le first-best :
 
 L’utilité de l’agent ne varie donc pas et reste égale à ( u_r ), tandis que le salaire s’ajuste pour compenser la désutilité de l’effort.
 
+## Code associé
 
 ```python
 def solve_first_best(model: PrincipalAgentModel, target_effort: str = 'H', verbose=True) -> Dict:
@@ -313,19 +315,18 @@ def solve_first_best(model: PrincipalAgentModel, target_effort: str = 'H', verbo
     }
 ```
 
-### Résolution du second-best
 
-# 📙 Fonction `solve_second_best`
+# Résolution du second-best : Fonction `solve_second_best` { .unnumbered}
 
-### Description générale
+## Description générale
 
 La fonction `solve_second_best` résout le problème du principal dans le cas **second-best**, où l’effort de l’agent n’est pas observable. Le principal doit alors concevoir un contrat incitatif respectant simultanément la contrainte de participation et la contrainte d’incitation.
 
-### Arguments
+## Arguments
 
 * `model` : instance de `PrincipalAgentModel`.
 
-### Sorties
+## Sorties
 
 La fonction retourne un dictionnaire contenant :
 
@@ -338,7 +339,7 @@ La fonction retourne un dictionnaire contenant :
 * `CI` : valeur de la contrainte d’incitation,
 * `type` : type de régime (`Second-Best`).
 
-### Logique économique
+## Logique économique
 
 Dans le second-best :
 
@@ -347,6 +348,8 @@ Dans le second-best :
 * les contraintes sont généralement **saturées**,
 * un **coût d’agence** apparaît par rapport au first-best.
 
+
+## Code associé
 
 ```python
 def solve_second_best(model: PrincipalAgentModel, verbose=True) -> Dict:
@@ -451,14 +454,15 @@ def solve_second_best(model: PrincipalAgentModel, verbose=True) -> Dict:
     }
 ```
 
-### Vérification de l'équilibre parfairt bayésien
+# Vérification de l'équilibre parfait bayésien { .unnumbered}
 
-# 📕 Fonction de vérification du PBE
+## Fonction de vérification du PBE
 
 ### Description générale
 
 La fonction de vérification du PBE teste si le contrat issu du second-best constitue un **équilibre bayésien parfait**. Elle vérifie successivement la rationalité de l’agent, la cohérence des croyances du principal et l’absence de déviation profitable.
 
+### Code associé 
 
 ```python
 def verify_perfect_bayesian_equilibrium(model: PrincipalAgentModel, 
@@ -604,11 +608,11 @@ def verify_perfect_bayesian_equilibrium(model: PrincipalAgentModel,
     }
 ```
 
-### Comparaison et analyse des deux situations
+# Comparaison et analyse des deux situations { .unnumbered}
 
-#  Analyse de sensibilité
+##  Analyse de sensibilité
 
-## Objectif général
+### Objectif général
 
 L’analyse de sensibilité vise à étudier la robustesse des résultats du modèle principal–agent face aux variations de certains paramètres clés. Elle permet de comprendre comment les **incitations**, le **coût d’agence** et la **rentabilité du principal** réagissent lorsque l’environnement économique change. Deux paramètres centraux sont analysés :
 
@@ -698,6 +702,7 @@ $$
 
 L’analyse de sensibilité met en évidence le compromis central du modèle principal–agent : **inciter un agent sous asymétrie d’information implique nécessairement un coût**, dont l’ampleur dépend à la fois des préférences de l’agent et de la technologie de production.
 
+### Code associé
 
 ```python
 def compare_regimes(model: PrincipalAgentModel) -> Tuple[Dict, Dict, float]:
@@ -731,7 +736,6 @@ def compare_regimes(model: PrincipalAgentModel) -> Tuple[Dict, Dict, float]:
 ```
 
 ### Analyse de sensibilité
-
 
 ```python
 def sensitivity_analysis(model: PrincipalAgentModel):
@@ -805,8 +809,11 @@ def sensitivity_analysis(model: PrincipalAgentModel):
     return fig
 ```
 
-### Exemple d'utilisation
+# Exemple d'utilisation { .unnumbered}
 
+Dans cette partie, nous faire un eutilisation des fonctions définies.
+En outre, une [application](https://mod-le-principal-agent-hykg8w7fj7rdknnk6vdfv3.streamlit.app);
+ permettant de résoudre le problème a été déployée. Elle permet aux utilisateurs de remplir les données issues relatives à leur problème pour obtenir ensuite les solutions.
 
 ```python
 # 1. Création du modèle
@@ -1613,6 +1620,6 @@ plt.show()
 
 
     
-![png](output_22_1.png)
+![png](images/output_22_1.png)
     
 

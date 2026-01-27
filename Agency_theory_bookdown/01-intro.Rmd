@@ -1,4 +1,4 @@
-# Introduction
+# Introduction { . unnumbered}
 
 
 Les relations économiques reposent très souvent sur des situations dans lesquelles une personne ou une organisation, appelée **le principal**, délègue une tâche à une autre, appelée **l’agent**. Cette délégation est au cœur du fonctionnement des entreprises, des administrations publiques et, plus largement, de nombreuses interactions économiques et sociales. Un employeur confie une mission à un salarié, un actionnaire délègue la gestion de son entreprise à un manager, un assuré confie la gestion d’un risque à un assureur, ou encore un client mandate un professionnel pour exécuter une tâche en son nom.
@@ -15,3 +15,7 @@ C’est cette tension entre incitation et assurance, ainsi que les inefficacité
 
 Le modèle Principal–Agent s’inscrit naturellement dans le cadre de la théorie des jeux dynamiques à information incomplète. La relation entre le principal et l’agent se déroule dans le temps : le principal propose un contrat, l’agent décide de l’accepter ou de le refuser, choisit ensuite son effort, puis un résultat aléatoire se réalise avant que les paiements ne soient effectués. À chaque étape, les décisions sont prises sur la base d’informations partielles, et les anticipations sur le comportement futur jouent un rôle central.
 
+La vidéo suivante illustre explique le modèle.
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FtcQgPa8lJ4?si=SQI87MtU6dDdRax5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
