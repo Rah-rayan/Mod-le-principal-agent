@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 📘 Classe PrincipalAgentModel | Le modèle principal agent ou The Agency Theory</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 📘 Classe PrincipalAgentModel | Le modèle principal agent ou The Agency Theory" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 📘 Classe PrincipalAgentModel | Le modèle principal agent ou The Agency Theory" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modele-principal-agent.html"/>
+<link rel="next" href="fonction-solve_first_best.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="cadre-conceptuel.html"><a href="cadre-conceptuel.html"><i class="fa fa-check"></i><b>2</b> Cadre conceptuel</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="07-Principal_Agent.html"><a href="#les-acteurs-du-mod%C3%A8le"><i class="fa fa-check"></i><b>2.1</b> Les acteurs du modèle</a></li>
+<li class="chapter" data-level="2.2" data-path="cadre-conceptuel.html"><a href="cadre-conceptuel.html#le-contrat-dagence"><i class="fa fa-check"></i><b>2.2</b> Le contrat d’agence</a></li>
+<li class="chapter" data-level="2.3" data-path="07-Principal_Agent.html"><a href="#lasym%C3%A9trie-dinformation"><i class="fa fa-check"></i><b>2.3</b> L’asymétrie d’information</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="07-Principal_Agent.html"><a href="#s%C3%A9lection-adverse-information-cach%C3%A9e-ex-ante"><i class="fa fa-check"></i><b>2.3.1</b> Sélection adverse (information cachée ex ante)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="07-Principal_Agent.html"><a href="#al%C3%A9a-moral-action-cach%C3%A9e-ex-post"><i class="fa fa-check"></i><b>2.3.2</b> Aléa moral (action cachée ex post)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="cadre-conceptuel.html"><a href="cadre-conceptuel.html#les-contrats-incomplets"><i class="fa fa-check"></i><b>2.4</b> Les contrats incomplets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="07-Principal_Agent.html"><a href="#formalisation-du-probl%C3%A8me"><i class="fa fa-check"></i><b>3</b> Formalisation du problème</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="07-Principal_Agent.html"><a href="#fonction-dutilit%C3%A9-et-attitude-face-au-risque"><i class="fa fa-check"></i><b>3.1</b> Fonction d’utilité et attitude face au risque</a></li>
+<li class="chapter" data-level="3.2" data-path="07-Principal_Agent.html"><a href="#variables-cl%C3%A9-et-hypoth%C3%A8ses-du-mod%C3%A8le"><i class="fa fa-check"></i><b>3.2</b> Variables clé et hypothèses du modèle</a></li>
+<li class="chapter" data-level="3.3" data-path="07-Principal_Agent.html"><a href="#formalisation-en-th%C3%A9orie-des-jeux"><i class="fa fa-check"></i><b>3.3</b> Formalisation en théorie des jeux</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="07-Principal_Agent.html"><a href="#r%C3%A9solution-analytique"><i class="fa fa-check"></i><b>4</b> Résolution analytique</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="07-Principal_Agent.html"><a href="#cadre-de-r%C3%A9solution"><i class="fa fa-check"></i><b>4.1</b> Cadre de résolution</a></li>
+<li class="chapter" data-level="4.2" data-path="07-Principal_Agent.html"><a href="#cas-du-first-best-information-sym%C3%A9trique"><i class="fa fa-check"></i><b>4.2</b> Cas du first best (information symétrique)</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="résolution-analytique.html"><a href="résolution-analytique.html"><i class="fa fa-check"></i><b>4.2.1</b> Fusionner les 2 demo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="07-Principal_Agent.html"><a href="#cas-du-second-best-al%C3%A9a-moral"><i class="fa fa-check"></i><b>4.3</b> Cas du second best (aléa moral)</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="résolution-analytique.html"><a href="résolution-analytique.html#fusionner-les-2-demo-1"><i class="fa fa-check"></i><b>4.3.1</b> Fusionner les 2 demo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="07-Principal_Agent.html"><a href="#justification-de-la-pr%C3%A9sence-dun-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>4.4</b> Justification de la présence d’un équilibre parfait bayésien</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="07-Principal_Agent.html"><a href="#premier-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>4.4.1</b> Premier-best et équilibre parfait bayésien</a></li>
+<li class="chapter" data-level="4.4.2" data-path="07-Principal_Agent.html"><a href="#second-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>4.4.2</b> Second-best et équilibre parfait bayésien</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="07-Principal_Agent.html"><a href="#r%C3%A9solution-logicielle"><i class="fa fa-check"></i><b>5</b> Résolution “logicielle”</a></li>
+<li class="chapter" data-level="6" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>6</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
+<li class="chapter" data-level="6.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
+<li class="chapter" data-level="6.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modele-principal-agent.html"><a href="modele-principal-agent.html"><i class="fa fa-check"></i><b>7</b> <strong>MODELE PRINCIPAL-AGENT</strong></a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="modele-principal-agent.html"><a href="modele-principal-agent.html#import-et-configuration"><i class="fa fa-check"></i><b>7.0.1</b> Import et configuration</a></li>
+<li class="chapter" data-level="7.0.2" data-path="07-Principal_Agent.html"><a href="#classe-principale-du-mod%C3%A8le"><i class="fa fa-check"></i><b>7.0.2</b> Classe principale du modèle</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="classe-principalagentmodel.html"><a href="classe-principalagentmodel.html"><i class="fa fa-check"></i><b>8</b> 📘 Classe <code>PrincipalAgentModel</code></a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="07-Principal_Agent.html"><a href="#r%C3%B4le-g%C3%A9n%C3%A9ral-de-la-classe"><i class="fa fa-check"></i><b>8.0.1</b> Rôle général de la classe</a></li>
+<li class="chapter" data-level="8.0.2" data-path="classe-principalagentmodel.html"><a href="classe-principalagentmodel.html#fonction-utility_agent"><i class="fa fa-check"></i><b>8.0.2</b> Fonction <code>utility_agent</code></a></li>
+<li class="chapter" data-level="8.0.3" data-path="classe-principalagentmodel.html"><a href="classe-principalagentmodel.html#fonction-expected_utility_agent"><i class="fa fa-check"></i><b>8.0.3</b> Fonction <code>expected_utility_agent</code></a></li>
+<li class="chapter" data-level="8.0.4" data-path="classe-principalagentmodel.html"><a href="classe-principalagentmodel.html#fonction-expected_profit_principal"><i class="fa fa-check"></i><b>8.0.4</b> Fonction <code>expected_profit_principal</code></a></li>
+<li class="chapter" data-level="8.0.5" data-path="07-Principal_Agent.html"><a href="#r%C3%A9solution-du-first-best"><i class="fa fa-check"></i><b>8.0.5</b> Résolution du first-best</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="fonction-solve_first_best.html"><a href="fonction-solve_first_best.html"><i class="fa fa-check"></i><b>9</b> 📗 Fonction <code>solve_first_best</code></a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="07-Principal_Agent.html"><a href="#description-g%C3%A9n%C3%A9rale"><i class="fa fa-check"></i><b>9.0.1</b> Description générale</a></li>
+<li class="chapter" data-level="9.0.2" data-path="fonction-solve_first_best.html"><a href="fonction-solve_first_best.html#arguments"><i class="fa fa-check"></i><b>9.0.2</b> Arguments</a></li>
+<li class="chapter" data-level="9.0.3" data-path="fonction-solve_first_best.html"><a href="fonction-solve_first_best.html#sorties"><i class="fa fa-check"></i><b>9.0.3</b> Sorties</a></li>
+<li class="chapter" data-level="9.0.4" data-path="07-Principal_Agent.html"><a href="#logique-%C3%A9conomique"><i class="fa fa-check"></i><b>9.0.4</b> Logique économique</a></li>
+<li class="chapter" data-level="9.0.5" data-path="07-Principal_Agent.html"><a href="#r%C3%A9solution-du-second-best"><i class="fa fa-check"></i><b>9.0.5</b> Résolution du second-best</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="fonction-solve_second_best.html"><a href="fonction-solve_second_best.html"><i class="fa fa-check"></i><b>10</b> 📙 Fonction <code>solve_second_best</code></a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="07-Principal_Agent.html"><a href="#description-g%C3%A9n%C3%A9rale-1"><i class="fa fa-check"></i><b>10.0.1</b> Description générale</a></li>
+<li class="chapter" data-level="10.0.2" data-path="fonction-solve_second_best.html"><a href="fonction-solve_second_best.html#arguments-1"><i class="fa fa-check"></i><b>10.0.2</b> Arguments</a></li>
+<li class="chapter" data-level="10.0.3" data-path="fonction-solve_second_best.html"><a href="fonction-solve_second_best.html#sorties-1"><i class="fa fa-check"></i><b>10.0.3</b> Sorties</a></li>
+<li class="chapter" data-level="10.0.4" data-path="07-Principal_Agent.html"><a href="#logique-%C3%A9conomique-1"><i class="fa fa-check"></i><b>10.0.4</b> Logique économique</a></li>
+<li class="chapter" data-level="10.0.5" data-path="07-Principal_Agent.html"><a href="#v%C3%A9rification-de-l%C3%A9quilibre-parfairt-bay%C3%A9sien"><i class="fa fa-check"></i><b>10.0.5</b> Vérification de l’équilibre parfairt bayésien</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="07-Principal_Agent.html"><a href="#fonction-de-v%C3%A9rification-du-pbe"><i class="fa fa-check"></i><b>11</b> 📕 Fonction de vérification du PBE</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="07-Principal_Agent.html"><a href="#description-g%C3%A9n%C3%A9rale-2"><i class="fa fa-check"></i><b>11.0.1</b> Description générale</a></li>
+<li class="chapter" data-level="11.0.2" data-path="fonction-de-vérification-du-pbe.html"><a href="fonction-de-vérification-du-pbe.html"><i class="fa fa-check"></i><b>11.0.2</b> Comparaison et analyse des deux situations</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="07-Principal_Agent.html"><a href="#analyse-de-sensibilit%C3%A9"><i class="fa fa-check"></i><b>12</b> Analyse de sensibilité</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="07-Principal_Agent.html"><a href="#objectif-g%C3%A9n%C3%A9ral"><i class="fa fa-check"></i><b>12.1</b> Objectif général</a></li>
+<li class="chapter" data-level="12.2" data-path="07-Principal_Agent.html"><a href="#sensibilit%C3%A9-%C3%A0-laversion-au-risque-de-lagent-%CE%B3"><i class="fa fa-check"></i><b>12.2</b> Sensibilité à l’aversion au risque de l’agent (γ)</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="analyse-de-sensibilité.html"><a href="analyse-de-sensibilité.html"><i class="fa fa-check"></i><b>12.2.1</b> Description</a></li>
+<li class="chapter" data-level="12.2.2" data-path="07-Principal_Agent.html"><a href="#logique-%C3%A9conomique-2"><i class="fa fa-check"></i><b>12.2.2</b> Logique économique</a></li>
+<li class="chapter" data-level="12.2.3" data-path="07-Principal_Agent.html"><a href="#r%C3%A9sultats-observ%C3%A9s"><i class="fa fa-check"></i><b>12.2.3</b> Résultats observés</a></li>
+<li class="chapter" data-level="12.2.4" data-path="07-Principal_Agent.html"><a href="#interpr%C3%A9tation-%C3%A9conomique"><i class="fa fa-check"></i><b>12.2.4</b> Interprétation économique</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="07-Principal_Agent.html"><a href="#sensibilit%C3%A9-%C3%A0-la-probabilit%C3%A9-de-succ%C3%A8s-sous-effort-faible-%CF%80_b"><i class="fa fa-check"></i><b>12.3</b> Sensibilité à la probabilité de succès sous effort faible (π_B)</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="analyse-de-sensibilité.html"><a href="analyse-de-sensibilité.html#description-1"><i class="fa fa-check"></i><b>12.3.1</b> Description</a></li>
+<li class="chapter" data-level="12.3.2" data-path="07-Principal_Agent.html"><a href="#logique-%C3%A9conomique-3"><i class="fa fa-check"></i><b>12.3.2</b> Logique économique</a></li>
+<li class="chapter" data-level="12.3.3" data-path="07-Principal_Agent.html"><a href="#r%C3%A9sultats-observ%C3%A9s-1"><i class="fa fa-check"></i><b>12.3.3</b> Résultats observés</a></li>
+<li class="chapter" data-level="12.3.4" data-path="07-Principal_Agent.html"><a href="#interpr%C3%A9tation-%C3%A9conomique-1"><i class="fa fa-check"></i><b>12.3.4</b> Interprétation économique</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="07-Principal_Agent.html"><a href="#co%C3%BBt-dagence-et-enseignements-g%C3%A9n%C3%A9raux"><i class="fa fa-check"></i><b>12.4</b> Coût d’agence et enseignements généraux</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="07-Principal_Agent.html"><a href="#d%C3%A9finition"><i class="fa fa-check"></i><b>12.4.1</b> Définition</a></li>
+<li class="chapter" data-level="12.4.2" data-path="07-Principal_Agent.html"><a href="#r%C3%A9sultats-globaux"><i class="fa fa-check"></i><b>12.4.2</b> Résultats globaux</a></li>
+<li class="chapter" data-level="12.4.3" data-path="07-Principal_Agent.html"><a href="#interpr%C3%A9tation-synth%C3%A9tique"><i class="fa fa-check"></i><b>12.4.3</b> Interprétation synthétique</a></li>
+<li class="chapter" data-level="12.4.4" data-path="07-Principal_Agent.html"><a href="#analyse-de-sensibilit%C3%A9-1"><i class="fa fa-check"></i><b>12.4.4</b> Analyse de sensibilité</a></li>
+<li class="chapter" data-level="12.4.5" data-path="analyse-de-sensibilité.html"><a href="analyse-de-sensibilité.html#exemple-dutilisation"><i class="fa fa-check"></i><b>12.4.5</b> Exemple d’utilisation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Le modèle principal agent ou The Agency Theory</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="classe-principalagentmodel" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> 📘 Classe <code>PrincipalAgentModel</code><a href="#classe-principalagentmodel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rôle-général-de-la-classe" class="section level3 hasAnchor" number="8.0.1">
+<h3><span class="header-section-number">8.0.1</span> Rôle général de la classe<a href="#r%C3%B4le-g%C3%A9n%C3%A9ral-de-la-classe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La classe <code>PrincipalAgentModel</code> implémente un modèle standard de <strong>principal–agent avec aléa moral</strong>. Elle regroupe l’ensemble des paramètres économiques du modèle (profits, probabilités, désutilités, utilité de réserve et aversion au risque) ainsi que les fonctions fondamentales permettant de calculer l’utilité de l’agent et le profit du principal. Cette classe constitue le <strong>cœur du modèle</strong>, sur lequel reposent toutes les résolutions (first-best, second-best et vérification de l’équilibre).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>q_bar</code> : profit du principal en cas de succès.</li>
+<li><code>q</code> : profit du principal en cas d’échec.</li>
+<li><code>pi_H</code> : probabilité de succès lorsque l’agent fournit l’effort élevé.</li>
+<li><code>pi_B</code> : probabilité de succès lorsque l’agent fournit l’effort faible.</li>
+<li><code>d_H</code> : désutilité associée à l’effort élevé.</li>
+<li><code>d_B</code> : désutilité associée à l’effort faible.</li>
+<li><code>u_r</code> : utilité de réserve de l’agent.</li>
+<li><code>gamma</code> : coefficient d’aversion au risque de l’agent.</li>
+</ul>
+<p><strong>Sortie</strong></p>
+<ul>
+<li>Aucune valeur retournée.</li>
+<li>Les paramètres sont stockés comme attributs de l’objet.</li>
+</ul>
+<p><strong>Interprétation économique</strong>
+Ces paramètres définissent l’environnement informationnel et technologique du contrat. Les assertions garantissent que le modèle respecte les hypothèses standards de la théorie du principal–agent.</p>
+</div>
+<div id="fonction-utility_agent" class="section level3 hasAnchor" number="8.0.2">
+<h3><span class="header-section-number">8.0.2</span> Fonction <code>utility_agent</code><a href="classe-principalagentmodel.html#fonction-utility_agent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Description</strong>
+Cette fonction définit la <strong>fonction d’utilité instantanée</strong> de l’agent en fonction du salaire perçu.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>w</code> : salaire reçu par l’agent.</li>
+</ul>
+<p><strong>Sortie</strong></p>
+<ul>
+<li>Valeur de l’utilité instantanée ( u(w) ).</li>
+</ul>
+<p><strong>Forme fonctionnelle</strong>
+<span class="math display">\[
+u(w) = w^\gamma
+\]</span></p>
+<p><strong>Interprétation économique</strong>
+La concavité de la fonction (γ &lt; 1) traduit l’aversion au risque de l’agent. Cette fonction est utilisée pour calculer l’utilité espérée associée à un contrat donné.</p>
+</div>
+<div id="fonction-expected_utility_agent" class="section level3 hasAnchor" number="8.0.3">
+<h3><span class="header-section-number">8.0.3</span> Fonction <code>expected_utility_agent</code><a href="classe-principalagentmodel.html#fonction-expected_utility_agent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Description</strong>
+Cette fonction calcule l’<strong>utilité espérée nette de l’agent</strong>, en tenant compte de l’incertitude sur le résultat et de la désutilité de l’effort.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>w_bar</code> : salaire en cas de succès.</li>
+<li><code>w</code> : salaire en cas d’échec.</li>
+<li><code>effort</code> : niveau d’effort choisi par l’agent (<code>'H'</code> ou <code>'B'</code>).</li>
+</ul>
+<p><strong>Sortie</strong></p>
+<ul>
+<li>Utilité espérée nette de l’agent.</li>
+</ul>
+<p><strong>Formule implémentée</strong>
+<span class="math display">\[
+U_A = \pi_e u(w̄) + (1-\pi_e)u(w) - d(e)
+\]</span></p>
+<p><strong>Interprétation économique</strong>
+Cette fonction est centrale pour vérifier :</p>
+<ul>
+<li>la <strong>contrainte de participation</strong> (acceptation du contrat),</li>
+<li>la <strong>contrainte d’incitation</strong> (choix optimal de l’effort).</li>
+</ul>
+</div>
+<div id="fonction-expected_profit_principal" class="section level3 hasAnchor" number="8.0.4">
+<h3><span class="header-section-number">8.0.4</span> Fonction <code>expected_profit_principal</code><a href="classe-principalagentmodel.html#fonction-expected_profit_principal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Description</strong>
+Cette fonction calcule le <strong>profit espéré du principal</strong> en fonction du contrat proposé et de l’effort fourni.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>w_bar</code> : salaire versé en cas de succès.</li>
+<li><code>w</code> : salaire versé en cas d’échec.</li>
+<li><code>effort</code> : effort fourni par l’agent (<code>'H'</code> ou <code>'B'</code>).</li>
+</ul>
+<p><strong>Sortie</strong></p>
+<ul>
+<li>Profit espéré du principal.</li>
+</ul>
+<p><strong>Formule implémentée</strong>
+[= _e (q̄ - w̄) + (1-_e)(q - w)]</p>
+<p><strong>Interprétation économique</strong>
+Cette fonction permet d’évaluer la rentabilité du contrat pour le principal sous chaque régime informationnel.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="classe-principalagentmodel.html#cb3-1" tabindex="-1"></a><span class="kw">class</span> PrincipalAgentModel:</span>
+<span id="cb3-2"><a href="classe-principalagentmodel.html#cb3-2" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb3-3"><a href="classe-principalagentmodel.html#cb3-3" tabindex="-1"></a><span class="co">    Modèle Principal-Agent avec aléa moral</span></span>
+<span id="cb3-4"><a href="classe-principalagentmodel.html#cb3-4" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-5"><a href="classe-principalagentmodel.html#cb3-5" tabindex="-1"></a><span class="co">    Notations conformes au document:</span></span>
+<span id="cb3-6"><a href="classe-principalagentmodel.html#cb3-6" tabindex="-1"></a><span class="co">    - q_bar: profit en cas de succès</span></span>
+<span id="cb3-7"><a href="classe-principalagentmodel.html#cb3-7" tabindex="-1"></a><span class="co">    - q: profit en cas d&#39;échec</span></span>
+<span id="cb3-8"><a href="classe-principalagentmodel.html#cb3-8" tabindex="-1"></a><span class="co">    - w_bar: salaire en cas de succès</span></span>
+<span id="cb3-9"><a href="classe-principalagentmodel.html#cb3-9" tabindex="-1"></a><span class="co">    - w: salaire en cas d&#39;échec</span></span>
+<span id="cb3-10"><a href="classe-principalagentmodel.html#cb3-10" tabindex="-1"></a><span class="co">    - pi_H: probabilité de succès avec effort élevé H</span></span>
+<span id="cb3-11"><a href="classe-principalagentmodel.html#cb3-11" tabindex="-1"></a><span class="co">    - pi_B: probabilité de succès avec effort faible B</span></span>
+<span id="cb3-12"><a href="classe-principalagentmodel.html#cb3-12" tabindex="-1"></a><span class="co">    - d_H: désutilité de l&#39;effort élevé</span></span>
+<span id="cb3-13"><a href="classe-principalagentmodel.html#cb3-13" tabindex="-1"></a><span class="co">    - d_B: désutilité de l&#39;effort faible</span></span>
+<span id="cb3-14"><a href="classe-principalagentmodel.html#cb3-14" tabindex="-1"></a><span class="co">    - u_r: utilité de réserve de l&#39;agent</span></span>
+<span id="cb3-15"><a href="classe-principalagentmodel.html#cb3-15" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb3-16"><a href="classe-principalagentmodel.html#cb3-16" tabindex="-1"></a>    </span>
+<span id="cb3-17"><a href="classe-principalagentmodel.html#cb3-17" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, q_bar<span class="op">=</span><span class="dv">100</span>, q<span class="op">=</span><span class="dv">20</span>, pi_H<span class="op">=</span><span class="fl">0.8</span>, pi_B<span class="op">=</span><span class="fl">0.4</span>, </span>
+<span id="cb3-18"><a href="classe-principalagentmodel.html#cb3-18" tabindex="-1"></a>                 d_H<span class="op">=</span><span class="dv">15</span>, d_B<span class="op">=</span><span class="dv">5</span>, u_r<span class="op">=</span><span class="dv">10</span>, gamma<span class="op">=</span><span class="fl">0.5</span>):</span>
+<span id="cb3-19"><a href="classe-principalagentmodel.html#cb3-19" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb3-20"><a href="classe-principalagentmodel.html#cb3-20" tabindex="-1"></a><span class="co">        Initialisation des paramètres du modèle</span></span>
+<span id="cb3-21"><a href="classe-principalagentmodel.html#cb3-21" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb3-22"><a href="classe-principalagentmodel.html#cb3-22" tabindex="-1"></a><span class="co">        Args:</span></span>
+<span id="cb3-23"><a href="classe-principalagentmodel.html#cb3-23" tabindex="-1"></a><span class="co">            q_bar: profit en cas de succès</span></span>
+<span id="cb3-24"><a href="classe-principalagentmodel.html#cb3-24" tabindex="-1"></a><span class="co">            q: profit en cas d&#39;échec</span></span>
+<span id="cb3-25"><a href="classe-principalagentmodel.html#cb3-25" tabindex="-1"></a><span class="co">            pi_H: probabilité de succès avec effort élevé</span></span>
+<span id="cb3-26"><a href="classe-principalagentmodel.html#cb3-26" tabindex="-1"></a><span class="co">            pi_B: probabilité de succès avec effort faible</span></span>
+<span id="cb3-27"><a href="classe-principalagentmodel.html#cb3-27" tabindex="-1"></a><span class="co">            d_H: désutilité effort élevé</span></span>
+<span id="cb3-28"><a href="classe-principalagentmodel.html#cb3-28" tabindex="-1"></a><span class="co">            d_B: désutilité effort faible</span></span>
+<span id="cb3-29"><a href="classe-principalagentmodel.html#cb3-29" tabindex="-1"></a><span class="co">            u_r: utilité de réserve</span></span>
+<span id="cb3-30"><a href="classe-principalagentmodel.html#cb3-30" tabindex="-1"></a><span class="co">            gamma: coefficient d&#39;aversion au risque (0 &lt; gamma ≤ 1)</span></span>
+<span id="cb3-31"><a href="classe-principalagentmodel.html#cb3-31" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb3-32"><a href="classe-principalagentmodel.html#cb3-32" tabindex="-1"></a>        <span class="co"># Vérifications des paramètres</span></span>
+<span id="cb3-33"><a href="classe-principalagentmodel.html#cb3-33" tabindex="-1"></a>        <span class="cf">assert</span> q_bar <span class="op">&gt;</span> q, <span class="st">&quot;Le profit en cas de succès doit être &gt; profit en cas d&#39;échec&quot;</span></span>
+<span id="cb3-34"><a href="classe-principalagentmodel.html#cb3-34" tabindex="-1"></a>        <span class="cf">assert</span> <span class="dv">0</span> <span class="op">&lt;</span> pi_B <span class="op">&lt;</span> pi_H <span class="op">&lt;</span> <span class="dv">1</span>, <span class="st">&quot;Condition: 0 &lt; pi_B &lt; pi_H &lt; 1&quot;</span></span>
+<span id="cb3-35"><a href="classe-principalagentmodel.html#cb3-35" tabindex="-1"></a>        <span class="cf">assert</span> d_H <span class="op">&gt;</span> d_B <span class="op">&gt;=</span> <span class="dv">0</span>, <span class="st">&quot;Le coût de l&#39;effort élevé doit être &gt; effort faible&quot;</span></span>
+<span id="cb3-36"><a href="classe-principalagentmodel.html#cb3-36" tabindex="-1"></a>        <span class="cf">assert</span> <span class="dv">0</span> <span class="op">&lt;</span> gamma <span class="op">&lt;=</span> <span class="dv">1</span>, <span class="st">&quot;Coefficient d&#39;aversion au risque: 0 &lt; gamma ≤ 1&quot;</span></span>
+<span id="cb3-37"><a href="classe-principalagentmodel.html#cb3-37" tabindex="-1"></a>        </span>
+<span id="cb3-38"><a href="classe-principalagentmodel.html#cb3-38" tabindex="-1"></a>        <span class="va">self</span>.q_bar <span class="op">=</span> q_bar</span>
+<span id="cb3-39"><a href="classe-principalagentmodel.html#cb3-39" tabindex="-1"></a>        <span class="va">self</span>.q <span class="op">=</span> q</span>
+<span id="cb3-40"><a href="classe-principalagentmodel.html#cb3-40" tabindex="-1"></a>        <span class="va">self</span>.pi_H <span class="op">=</span> pi_H</span>
+<span id="cb3-41"><a href="classe-principalagentmodel.html#cb3-41" tabindex="-1"></a>        <span class="va">self</span>.pi_B <span class="op">=</span> pi_B</span>
+<span id="cb3-42"><a href="classe-principalagentmodel.html#cb3-42" tabindex="-1"></a>        <span class="va">self</span>.d_H <span class="op">=</span> d_H</span>
+<span id="cb3-43"><a href="classe-principalagentmodel.html#cb3-43" tabindex="-1"></a>        <span class="va">self</span>.d_B <span class="op">=</span> d_B</span>
+<span id="cb3-44"><a href="classe-principalagentmodel.html#cb3-44" tabindex="-1"></a>        <span class="va">self</span>.u_r <span class="op">=</span> u_r</span>
+<span id="cb3-45"><a href="classe-principalagentmodel.html#cb3-45" tabindex="-1"></a>        <span class="va">self</span>.gamma <span class="op">=</span> gamma</span>
+<span id="cb3-46"><a href="classe-principalagentmodel.html#cb3-46" tabindex="-1"></a>        </span>
+<span id="cb3-47"><a href="classe-principalagentmodel.html#cb3-47" tabindex="-1"></a>    <span class="kw">def</span> utility_agent(<span class="va">self</span>, w: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb3-48"><a href="classe-principalagentmodel.html#cb3-48" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb3-49"><a href="classe-principalagentmodel.html#cb3-49" tabindex="-1"></a><span class="co">        Fonction d&#39;utilité de l&#39;agent: u(w) = w^gamma</span></span>
+<span id="cb3-50"><a href="classe-principalagentmodel.html#cb3-50" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb3-51"><a href="classe-principalagentmodel.html#cb3-51" tabindex="-1"></a><span class="co">        Args:</span></span>
+<span id="cb3-52"><a href="classe-principalagentmodel.html#cb3-52" tabindex="-1"></a><span class="co">            w: salaire</span></span>
+<span id="cb3-53"><a href="classe-principalagentmodel.html#cb3-53" tabindex="-1"></a><span class="co">        Returns:</span></span>
+<span id="cb3-54"><a href="classe-principalagentmodel.html#cb3-54" tabindex="-1"></a><span class="co">            Utilité de l&#39;agent</span></span>
+<span id="cb3-55"><a href="classe-principalagentmodel.html#cb3-55" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb3-56"><a href="classe-principalagentmodel.html#cb3-56" tabindex="-1"></a>        <span class="cf">return</span> w<span class="op">**</span><span class="va">self</span>.gamma <span class="cf">if</span> w <span class="op">&gt;=</span> <span class="dv">0</span> <span class="cf">else</span> <span class="op">-</span>np.inf</span>
+<span id="cb3-57"><a href="classe-principalagentmodel.html#cb3-57" tabindex="-1"></a>    </span>
+<span id="cb3-58"><a href="classe-principalagentmodel.html#cb3-58" tabindex="-1"></a>    <span class="kw">def</span> expected_utility_agent(<span class="va">self</span>, w_bar: <span class="bu">float</span>, w: <span class="bu">float</span>, effort: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb3-59"><a href="classe-principalagentmodel.html#cb3-59" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb3-60"><a href="classe-principalagentmodel.html#cb3-60" tabindex="-1"></a><span class="co">        Utilité espérée de l&#39;agent: E[u(w(y))] - d_e</span></span>
+<span id="cb3-61"><a href="classe-principalagentmodel.html#cb3-61" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb3-62"><a href="classe-principalagentmodel.html#cb3-62" tabindex="-1"></a><span class="co">        Args:</span></span>
+<span id="cb3-63"><a href="classe-principalagentmodel.html#cb3-63" tabindex="-1"></a><span class="co">            w_bar: salaire en cas de succès</span></span>
+<span id="cb3-64"><a href="classe-principalagentmodel.html#cb3-64" tabindex="-1"></a><span class="co">            w: salaire en cas d&#39;échec</span></span>
+<span id="cb3-65"><a href="classe-principalagentmodel.html#cb3-65" tabindex="-1"></a><span class="co">            effort: &#39;H&#39; (élevé) ou &#39;B&#39; (faible)</span></span>
+<span id="cb3-66"><a href="classe-principalagentmodel.html#cb3-66" tabindex="-1"></a><span class="co">        Returns:</span></span>
+<span id="cb3-67"><a href="classe-principalagentmodel.html#cb3-67" tabindex="-1"></a><span class="co">            Utilité espérée de l&#39;agent</span></span>
+<span id="cb3-68"><a href="classe-principalagentmodel.html#cb3-68" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb3-69"><a href="classe-principalagentmodel.html#cb3-69" tabindex="-1"></a>        pi <span class="op">=</span> <span class="va">self</span>.pi_H <span class="cf">if</span> effort <span class="op">==</span> <span class="st">&#39;H&#39;</span> <span class="cf">else</span> <span class="va">self</span>.pi_B</span>
+<span id="cb3-70"><a href="classe-principalagentmodel.html#cb3-70" tabindex="-1"></a>        d <span class="op">=</span> <span class="va">self</span>.d_H <span class="cf">if</span> effort <span class="op">==</span> <span class="st">&#39;H&#39;</span> <span class="cf">else</span> <span class="va">self</span>.d_B</span>
+<span id="cb3-71"><a href="classe-principalagentmodel.html#cb3-71" tabindex="-1"></a>        </span>
+<span id="cb3-72"><a href="classe-principalagentmodel.html#cb3-72" tabindex="-1"></a>        <span class="cf">return</span> pi <span class="op">*</span> <span class="va">self</span>.utility_agent(w_bar) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> pi) <span class="op">*</span> <span class="va">self</span>.utility_agent(w) <span class="op">-</span> d</span>
+<span id="cb3-73"><a href="classe-principalagentmodel.html#cb3-73" tabindex="-1"></a>    </span>
+<span id="cb3-74"><a href="classe-principalagentmodel.html#cb3-74" tabindex="-1"></a>    <span class="kw">def</span> expected_profit_principal(<span class="va">self</span>, w_bar: <span class="bu">float</span>, w: <span class="bu">float</span>, effort: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb3-75"><a href="classe-principalagentmodel.html#cb3-75" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb3-76"><a href="classe-principalagentmodel.html#cb3-76" tabindex="-1"></a><span class="co">        Profit espéré du principal: E[q(y) - w(y)]</span></span>
+<span id="cb3-77"><a href="classe-principalagentmodel.html#cb3-77" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb3-78"><a href="classe-principalagentmodel.html#cb3-78" tabindex="-1"></a><span class="co">        Args:</span></span>
+<span id="cb3-79"><a href="classe-principalagentmodel.html#cb3-79" tabindex="-1"></a><span class="co">            w_bar: salaire en cas de succès</span></span>
+<span id="cb3-80"><a href="classe-principalagentmodel.html#cb3-80" tabindex="-1"></a><span class="co">            w: salaire en cas d&#39;échec</span></span>
+<span id="cb3-81"><a href="classe-principalagentmodel.html#cb3-81" tabindex="-1"></a><span class="co">            effort: &#39;H&#39; ou &#39;B&#39;</span></span>
+<span id="cb3-82"><a href="classe-principalagentmodel.html#cb3-82" tabindex="-1"></a><span class="co">        Returns:</span></span>
+<span id="cb3-83"><a href="classe-principalagentmodel.html#cb3-83" tabindex="-1"></a><span class="co">            Profit espéré du principal</span></span>
+<span id="cb3-84"><a href="classe-principalagentmodel.html#cb3-84" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb3-85"><a href="classe-principalagentmodel.html#cb3-85" tabindex="-1"></a>        pi <span class="op">=</span> <span class="va">self</span>.pi_H <span class="cf">if</span> effort <span class="op">==</span> <span class="st">&#39;H&#39;</span> <span class="cf">else</span> <span class="va">self</span>.pi_B</span>
+<span id="cb3-86"><a href="classe-principalagentmodel.html#cb3-86" tabindex="-1"></a>        </span>
+<span id="cb3-87"><a href="classe-principalagentmodel.html#cb3-87" tabindex="-1"></a>        <span class="cf">return</span> pi <span class="op">*</span> (<span class="va">self</span>.q_bar <span class="op">-</span> w_bar) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> pi) <span class="op">*</span> (<span class="va">self</span>.q <span class="op">-</span> w)</span></code></pre></div>
+</div>
+<div id="résolution-du-first-best" class="section level3 hasAnchor" number="8.0.5">
+<h3><span class="header-section-number">8.0.5</span> Résolution du first-best<a href="#r%C3%A9solution-du-first-best" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modele-principal-agent.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fonction-solve_first_best.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/07-Principal_Agent.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+# Formalisation du problème
+
+Dans cette partie, nous allons passer à la formalisation mathématique du problème.
+
+## Fonction d'utilité et attitude face au risque  
+
+- Fonction d’utilité du principal
+
+La fonction d’utilité du principal est égale à son profit. Étant neutre au risque, il maximise l’espérance de ce profit :
+
+\[
+U_P = \mathbb{E}[y - w(y)]
+\]
+
+- Fonction d’utilité de l’agent
+
+L’utilité de l’agent dépend de la rémunération reçue et de l’effort fourni. Elle est donnée par :
+
+\[
+U_A = \mathbb{E}[u(w(y))] - d(e)
+\]
+
+où \(u(\cdot)\) est une fonction croissante du salaire et \(d(e)\) représente la désutilité de l’effort.
+
+- Aversion au risque de l’agent
+
+Lorsque l’agent est averse au risque, la fonction \(u(\cdot)\) est concave.  
+Cela implique que l’agent préfère une rémunération certaine à une rémunération aléatoire de même espérance.  
+Cette aversion au risque limite l’intensité des incitations que le principal peut introduire dans le contrat.
+
+- Désutilité de l’effort
+
+La fonction de coût de l’effort vérifie généralement :
+
+\[
+d'(e) > 0 \quad \text{et} \quad d''(e) \ge 0
+\]
+
+Un effort plus élevé améliore la performance attendue mais réduit l’utilité de l’agent.
+
+- Rôle du partage du risque
+
+Le contrat détermine la manière dont le risque lié à l’aléa est réparti entre le principal et l’agent.  
+Un salaire fixe assure complètement l’agent mais ne fournit pas d’incitation à l’effort.  
+Un salaire dépendant du résultat incite davantage l’agent mais lui fait supporter une partie du risque.
+
+Le modèle Principal–Agent consiste précisément à analyser cet arbitrage entre incitation et partage du risque.
+
+
+## Variables clé et hypothèses du modèle  
+
+L’analyse du modèle Principal–Agent repose sur un ensemble d’hypothèses simples visant à mettre en évidence les mécanismes essentiels liés à l’asymétrie d’information, et en particulier au problème d’aléa moral.
+
+L’effort fourni par l’agent joue un rôle central dans le modèle. Deux situations doivent être distinguées. Dans un premier cas, dit benchmark, l’effort est observable et vérifiable par le principal. Celui-ci peut alors imposer directement le niveau d’effort souhaité dans le contrat. Dans un second cas, plus réaliste, l’effort n’est pas observable. Cette inobservabilité est à l’origine du problème d’aléa moral, car le principal ne peut plus conditionner le contrat directement sur l’effort.
+
+Le résultat de l’activité est aléatoire. Il dépend à la fois du niveau d’effort choisi par l’agent et de facteurs de hasard échappant au contrôle des deux parties. Ce rôle du hasard est généralement modélisé par un joueur Nature, qui détermine l’issue du projet selon des probabilités conditionnelles.
+
+Dans un cadre simple, l’effort peut prendre deux valeurs :
+- un effort élevé, noté \(e = H\),
+- un effort faible, noté \(e = B\).
+
+De même, le résultat du projet est binaire :
+- succès,
+- échec.
+
+La probabilité de succès dépend du niveau d’effort fourni par l’agent. On note :
+- \(\pi_H\) la probabilité de succès si l’agent fournit un effort élevé,
+- \(\pi_B\) la probabilité de succès si l’agent fournit un effort faible,
+
+avec la condition :
+
+\[
+0 < \pi_B < \pi_H < 1
+\]
+
+Cette relation est résumée dans le tableau suivant :
+
+| Effort de l’agent | Succès | Échec |
+|------------------|--------|-------|
+| \(H\) | \(\pi_H\) | \(1 - \pi_H\) |
+| \(B\) | \(\pi_B\) | \(1 - \pi_B\) |
+
+Le projet génère un profit pour le principal avant paiement du salaire de l’agent. Ce profit dépend du résultat :
+- \(\bar q\) en cas de succès,
+- \(q\) en cas d’échec,
+
+avec \(q < \bar q\).
+
+La rémunération de l’agent est conditionnée au résultat observé. Le contrat prévoit :
+- un salaire \(\bar w\) en cas de succès,
+- un salaire \(w\) en cas d’échec.
+
+Les utilités du principal et de l’agent dépendent de ces éléments. Le principal cherche à maximiser son profit espéré net du salaire versé, tandis que l’agent compare l’utilité espérée du salaire à la désutilité de l’effort fourni. A savoir, pour le principal,
+
+
+\[
+U_P = \mathbb{E}[y - w(y)]
+\]
+et pour l'agent 
+\[
+U_A = \mathbb{E}[u(w(y))] - c(e)
+\]
+
+
+
+## Formalisation en théorie des jeux  
+(les joueurs, les stratégies, JFE)
+
+
+Le modèle Principal–Agent avec aléa moral peut être formalisé comme un jeu dynamique à information incomplète et imparfaite. Cette formalisation permet de préciser la structure stratégique de l’interaction entre le principal et l’agent, ainsi que le rôle du hasard dans la détermination du résultat.
+
+
+
+- Nature du jeu
+
+Le jeu est dynamique, car les décisions des joueurs se prennent de manière séquentielle. Le principal agit en premier en proposant un contrat, puis l’agent réagit en acceptant ou refusant ce contrat et en choisissant ensuite son niveau d’effort.
+
+Le jeu est à information incomplète, car certaines actions pertinentes, en particulier l’effort de l’agent, ne sont pas observables par le principal. Il est également à information imparfaite, car le principal ne connaît pas l’action effectivement choisie par l’agent au moment où le résultat est réalisé.
+
+Enfin, le jeu fait intervenir un joueur Nature, qui représente l’aléa affectant le résultat du projet. Nature ne poursuit aucun objectif propre et se contente de tirer le résultat selon des probabilités conditionnelles dépendant de l’effort fourni par l’agent.
+
+
+
+- Description formelle du jeu
+
+**Joueurs**
+
+Le jeu comporte deux joueurs :
+
+- le **Principal**,
+
+- l’**Agent**,
+
+Avec ces deux joueurs, on a également  la **Nature** qui intervient.
+
+**Stratégies**
+
+La stratégie du Principal consiste à choisir un contrat :
+\[
+(\bar w, w),
+\]
+où \(\bar w\) est le salaire versé en cas de succès et \(w\) le salaire versé en cas d’échec.
+
+La stratégie de l’Agent est composée de deux décisions :
+- accepter ou refuser le contrat,
+- choisir un niveau d’effort \(e \in \{H,B\}\) si le contrat est accepté.
+
+La **Nature** ne choisit pas stratégiquement. Elle détermine le résultat selon des probabilités conditionnelles :
+\[
+\mathbb P(S\mid H)=\pi_H, \qquad \mathbb P(S\mid B)=\pi_B,
+\]
+avec \(0<\pi_B<\pi_H<1\).
+
+**Information**
+
+- Le principal observe le contrat proposé et le résultat final, mais n’observe pas l’effort de l’agent.
+- L’agent observe le contrat et connaît l’effort qu’il fournit.
+- Le résultat du projet est observé par les deux parties.
+- La Nature connaît l’effort mais ne poursuit aucun objectif.
+On est en information incompète
+
+- Représentation du jeu sous forme extensive
+
+Le jeu peut être représenté sous forme d’un arbre dynamique.
+
+À la racine de l’arbre, le principal choisit un contrat \((\bar w, w)\). Ce choix est observé par l’agent.
+
+À l’étape suivante, l’agent décide soit d’accepter, soit de refuser le contrat. En cas de refus, le jeu s’arrête immédiatement et les gains sont nuls pour le principal, tandis que l’agent obtient son utilité de réserve \(u_r\).
+
+Si l’agent accepte le contrat, il choisit ensuite un niveau d’effort \(e \in \{H,B\}\). Ce choix n’est pas observé par le principal.
+
+Après le choix d’effort, la Nature intervient et détermine le résultat du projet. Si l’effort est \(H\), la Nature choisit le succès avec probabilité \(\pi_H\) et l’échec avec probabilité \(1-\pi_H\). Si l’effort est \(B\), le succès survient avec probabilité \(\pi_B\) et l’échec avec probabilité \(1-\pi_B\).
+
+Chaque chemin de l’arbre se termine par un nœud terminal, auquel sont associés les gains des joueurs.
+
+En cas de succès, les gains sont :
+\[
+u_P = \bar q - \bar w, \qquad u_A = u(\bar w) - d_e.
+\]
+
+En cas d’échec, les gains sont :
+\[
+u_P = q - w, \qquad u_A = u(w) - d_e.
+\]
+
+Ainsi, chaque issue finale du jeu est caractérisée par un triplet :
+- le contrat choisi par le principal,
+- l’effort choisi par l’agent,
+- le résultat tiré par la Nature,
+
+et les utilités correspondantes du principal et de l’agent.
+
+Le jeu se présente comme suit:
+
+
+T = 0 : le principal propose un contrat
+
+T = 1 : l’agent accepte ou refuse
+
+T = 2 : l’agent choisit son effort
+
+T = 3 : Nature détermine le résultat
+
+T = 4 : paiements et utilités
+
+Cette représentation extensive met en évidence le caractère dynamique du jeu, le rôle central de l’asymétrie d’information et la manière dont les incitations doivent être construites à travers le contrat.
+
+
+GRAPHIQUE ---
+
+
+

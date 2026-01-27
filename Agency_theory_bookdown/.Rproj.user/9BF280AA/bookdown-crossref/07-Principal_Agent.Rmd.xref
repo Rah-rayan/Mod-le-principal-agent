@@ -1,0 +1,43 @@
+h1:modele-principal-agent 
+h2:import-et-configuration Import et configuration
+h3:classe-principale-du-modèle Classe principale du modèle
+h1:classe-principalagentmodel 📘 Classe 
+h3:rôle-général-de-la-classe Rôle général de la classe
+h3:fonction-utility_agent Fonction 
+h3:fonction-expected_utility_agent Fonction 
+h3:fonction-expected_profit_principal Fonction 
+h3:résolution-du-first-best Résolution du first-best
+h1:fonction-solve_first_best 📗 Fonction 
+h3:description-générale Description générale
+h3:arguments Arguments
+h3:sorties Sorties
+h3:logique-économique Logique économique
+h3:résolution-du-second-best Résolution du second-best
+h1:fonction-solve_second_best 📙 Fonction 
+h3:description-générale-1 Description générale
+h3:arguments-1 Arguments
+h3:sorties-1 Sorties
+h3:logique-économique-1 Logique économique
+h3:vérification-de-léquilibre-parfairt-bayésien Vérification de l’équilibre parfairt bayésien
+h1:fonction-de-vérification-du-pbe 📕 Fonction de vérification du PBE
+h3:description-générale-2 Description générale
+h3:comparaison-et-analyse-des-deux-situations Comparaison et analyse des deux situations
+h1:analyse-de-sensibilité Analyse de sensibilité
+h2:objectif-général Objectif général
+h2:sensibilité-à-laversion-au-risque-de-lagent-γ Sensibilité à l’aversion au risque de l’agent (γ)
+h3:description Description
+h3:logique-économique-2 Logique économique
+h3:résultats-observés Résultats observés
+h3:interprétation-économique Interprétation économique
+h2:sensibilité-à-la-probabilité-de-succès-sous-effort-faible-π_b Sensibilité à la probabilité de succès sous effort faible (π_B)
+h3:description-1 Description
+h3:logique-économique-3 Logique économique
+h3:résultats-observés-1 Résultats observés
+h3:interprétation-économique-1 Interprétation économique
+h2:coût-dagence-et-enseignements-généraux Coût d’agence et enseignements généraux
+h3:définition Définition
+h3:résultats-globaux Résultats globaux
+h3:interprétation-synthétique Interprétation synthétique
+h3:analyse-de-sensibilité-1 Analyse de sensibilité
+h3:exemple-dutilisation Exemple d’utilisation
+
