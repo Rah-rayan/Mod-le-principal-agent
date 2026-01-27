@@ -308,7 +308,7 @@ code {
 # Classe du modèle 
 class PrincipalAgentModel:
     """
-    Modèle Principal-Agent avec aléa moral
+    Modèle Principal-Agent 
     """
     
     def __init__(self, q_bar=100, q=20, pi_H=0.79, pi_B=0.30, 
@@ -575,7 +575,7 @@ def sensitivity_analysis(
 # ============= INTERFACE STREAMLIT =============
 
 def main():
-    st.title(" Modèle Principal-Agent avec Aléa Moral")
+    st.title(" Modèle Principal-Agent")
     st.markdown("---")
     
     # Sidebar pour les paramètres
@@ -868,7 +868,7 @@ def main():
                 """)
             
             with col2:
-                st.subheader(" Second-Best (Aléa Moral)")
+                st.subheader(" Second-Best ")
                 st.write(f"""
                 **Caractéristiques :**
                 - Effort induit : **{sb['effort']}**
