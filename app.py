@@ -12,7 +12,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Style CSS personnalisé - Thème noir et blanc élégant
+# Style CSS personnalisé
 st.markdown("""
 <style>
 /* Fond principal */
@@ -305,14 +305,14 @@ code {
 </style>
 """, unsafe_allow_html=True)
 
-# Classe du modèle (identique à votre code)
+# Classe du modèle 
 class PrincipalAgentModel:
     """
     Modèle Principal-Agent avec aléa moral
     """
     
-    def __init__(self, q_bar=100, q=20, pi_H=0.8, pi_B=0.4, 
-                 d_H=15, d_B=5, u_r=10, gamma=0.5):
+    def __init__(self, q_bar=100, q=20, pi_H=0.79, pi_B=0.30, 
+                 d_H=5, d_B=2, u_r=10, gamma=0.5):
         """Initialisation des paramètres du modèle"""
         # Vérifications des paramètres
         assert q_bar > q, "Le profit en cas de succès doit être > profit en cas d'échec"
@@ -443,89 +443,134 @@ def solve_second_best(model: PrincipalAgentModel) -> Dict:
         'success': result.success
     }
 
-
 def verify_perfect_bayesian_equilibrium(model: PrincipalAgentModel, contract: Dict) -> Dict:
-    """Vérifie que la solution constitue un Équilibre Bayésien Parfait (PBE)"""
-    
-    w_bar = contract['w_bar']
-    w = contract['w']
-    
-    # Utilités pour chaque effort
+    """
+    Vérifie si un contrat donné constitue un Équilibre Bayésien Parfait (PBE).
+
+    Critères vérifiés :
+      - Participation de l'agent (CP)
+      - Contrainte d'incitation (CI)
+      - Absence de déviation profitable pour le principal
+
+    Args:
+        model: instance de PrincipalAgentModel
+        contract: dict contenant au moins 'w_bar' et 'w'
+
+    Returns:
+        dict avec indicateurs et valeurs numériques utiles pour l'interface
+    """
+    # Récupération des salaires
+    w_bar = float(contract.get('w_bar', 0.0))
+    w = float(contract.get('w', 0.0))
+
+    # Utilités attendues
     eu_H = model.expected_utility_agent(w_bar, w, 'H')
     eu_B = model.expected_utility_agent(w_bar, w, 'B')
     eu_reject = model.u_r
-    
-    # Décision de participation
-    accept_contract = max(eu_H, eu_B) >= eu_reject
-    
-    # Choix d'effort optimal
-    if accept_contract:
+
+    # Participation
+    agent_accepts = max(eu_H, eu_B) >= eu_reject
+
+    # Effort optimal si accepte
+    if agent_accepts:
         optimal_effort = 'H' if eu_H >= eu_B else 'B'
-        ic_satisfied = eu_H >= eu_B
+        ic_satisfied = (eu_H >= eu_B)
     else:
         optimal_effort = None
         ic_satisfied = False
-    
-    # Optimalité du Principal
-    profit_equilibrium = model.expected_profit_principal(w_bar, w, optimal_effort if accept_contract else 'B')
-    
-    # Test de déviations
-    w_B_deviation = (model.u_r + model.d_B)**(1/model.gamma)
+
+    # Profit du principal dans l'état anticipé
+    profit_equilibrium = model.expected_profit_principal(
+        w_bar, w, optimal_effort if optimal_effort is not None else 'B'
+    )
+
+    # Déviations testées
+    w_B_deviation = (model.u_r + model.d_B)**(1.0 / model.gamma)
     profit_deviation_B = model.expected_profit_principal(w_B_deviation, w_B_deviation, 'B')
-    profit_no_contract = 0
-    
+    profit_no_contract = 0.0
+
     no_profitable_deviation = (profit_equilibrium >= profit_deviation_B) and (profit_equilibrium >= profit_no_contract)
-    
-    is_pbe = accept_contract and ic_satisfied and no_profitable_deviation
-    
+
+    is_pbe = agent_accepts and ic_satisfied and no_profitable_deviation
+
     return {
         'is_pbe': is_pbe,
-        'agent_accepts': accept_contract,
-        'optimal_effort': optimal_effort if accept_contract else None,
-        'ic_satisfied': ic_satisfied if accept_contract else False,
+        'agent_accepts': agent_accepts,
+        'optimal_effort': optimal_effort,
+        'ic_satisfied': ic_satisfied,
         'no_profitable_deviation': no_profitable_deviation,
         'equilibrium_profit': profit_equilibrium,
         'eu_H': eu_H,
         'eu_B': eu_B,
-        'profit_deviation_B': profit_deviation_B
+        'profit_deviation_B': profit_deviation_B,
+        'w_bar': w_bar,
+        'w': w
     }
 
 
-def sensitivity_analysis(model: PrincipalAgentModel):
-    """Analyse de sensibilité"""
+def sensitivity_analysis(
+    model: PrincipalAgentModel,
+    gamma_range: Tuple[float, float] = (0.3, 1.0),
+    gamma_steps: int = 8,
+    pi_B_min: float = 0.2,
+    pi_B_max_offset: float = 0.05,
+    pi_B_steps: int = 8
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """
+    Analyse de sensibilité du coût d'agence par rapport à γ (aversion au risque)
+    et π_B (probabilité de succès avec effort faible).
+
+    Args:
+        model: instance de PrincipalAgentModel (sera modifiée temporairement)
+        gamma_range: (min, max) pour γ
+        gamma_steps: nombre de points pour γ
+        pi_B_min: borne inférieure pour π_B
+        pi_B_max_offset: offset pour garantir π_B < π_H (π_B_max = min(0.7, π_H - offset))
+        pi_B_steps: nombre de points pour π_B
+
+    Returns:
+        gammas, agency_costs_gamma, pi_Bs_effectifs, agency_costs_pi
+        (tableaux numpy prêts à tracer)
+    """
+    # Sauvegarde des paramètres originaux
     original_gamma = model.gamma
     original_pi_B = model.pi_B
-    
-    # Analyse 1: Impact de l'aversion au risque (gamma)
-    gammas = np.linspace(0.3, 1.0, 8)
-    agency_costs_gamma = []
-    
-    for g in gammas:
-        model.gamma = g
+
+    # Grille pour gamma
+    gammas = np.linspace(gamma_range[0], gamma_range[1], gamma_steps)
+    agency_costs_gamma = np.zeros_like(gammas)
+
+    for i, g in enumerate(gammas):
+        model.gamma = float(g)
         fb = solve_first_best(model, 'H')
         sb = solve_second_best(model)
-        ac = fb['profit_principal'] - sb['profit_principal']
-        agency_costs_gamma.append(ac)
-    
-    # Analyse 2: Impact de pi_B
-    model.gamma = original_gamma
-    pi_Bs = np.linspace(0.2, min(0.7, model.pi_H - 0.05), 8)
-    agency_costs_pi = []
-    
-    for pi_b in pi_Bs:
-        if pi_b < model.pi_H:
-            model.pi_B = pi_b
-            fb = solve_first_best(model, 'H')
-            sb = solve_second_best(model)
-            ac = fb['profit_principal'] - sb['profit_principal']
-            agency_costs_pi.append(ac)
-    
-    # Restaurer paramètres
+        agency_costs_gamma[i] = fb['profit_principal'] - sb['profit_principal']
+
+    # Grille pour pi_B (s'assurer qu'elle reste < pi_H)
+    pi_B_max = min(0.7, model.pi_H - pi_B_max_offset)
+    if pi_B_max <= pi_B_min:
+        # Si l'intervalle invalide, on renvoie un tableau vide pour pi_B
+        pi_Bs_effectifs = np.array([])
+        agency_costs_pi = np.array([])
+    else:
+        pi_Bs = np.linspace(pi_B_min, pi_B_max, pi_B_steps)
+        agency_costs_pi_list: list = []
+        pi_Bs_effectifs_list: list = []
+        for pi_b in pi_Bs:
+            if pi_b < model.pi_H:
+                model.pi_B = float(pi_b)
+                fb = solve_first_best(model, 'H')
+                sb = solve_second_best(model)
+                agency_costs_pi_list.append(fb['profit_principal'] - sb['profit_principal'])
+                pi_Bs_effectifs_list.append(pi_b)
+        pi_Bs_effectifs = np.array(pi_Bs_effectifs_list)
+        agency_costs_pi = np.array(agency_costs_pi_list)
+
+    # Restauration des paramètres originaux
     model.gamma = original_gamma
     model.pi_B = original_pi_B
-    
-    return gammas, agency_costs_gamma, pi_Bs[:len(agency_costs_pi)], agency_costs_pi
 
+    return gammas, agency_costs_gamma, pi_Bs_effectifs, agency_costs_pi
 
 # ============= INTERFACE STREAMLIT =============
 
@@ -560,7 +605,7 @@ def main():
         "π_H (Effort élevé)", 
         min_value=0.1, 
         max_value=0.99, 
-        value=0.7, 
+        value=0.79, 
         step=0.01,
         help="Probabilité de succès avec effort élevé"
     )
