@@ -19,6 +19,8 @@ header-includes:
   - \usepackage{mathrsfs}
   - \usepackage{setspace}
   - \onehalfspacing
+  - \usepackage{forest}
+  - \usepackage{amsmath,amssymb}
 ---
 
 

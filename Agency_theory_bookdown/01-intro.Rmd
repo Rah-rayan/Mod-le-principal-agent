@@ -1,4 +1,4 @@
-# Introduction { . unnumbered}
+# Introduction { .unnumbered}
 
 
 Les relations économiques reposent très souvent sur des situations dans lesquelles une personne ou une organisation, appelée **le principal**, délègue une tâche à une autre, appelée **l’agent**. Cette délégation est au cœur du fonctionnement des entreprises, des administrations publiques et, plus largement, de nombreuses interactions économiques et sociales. Un employeur confie une mission à un salarié, un actionnaire délègue la gestion de son entreprise à un manager, un assuré confie la gestion d’un risque à un assureur, ou encore un client mandate un professionnel pour exécuter une tâche en son nom.

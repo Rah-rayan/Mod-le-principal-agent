@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Formalisation du problème
 
 Dans cette partie, nous allons procéder à la formalisation mathématique du problème.
@@ -106,12 +101,8 @@ U_A = \mathbb{E}[u(w(y))] - c(e)
 
 
 ## Formalisation en théorie des jeux  
-(les joueurs, les stratégies, JFE)
 
-
-Le modèle Principal–Agent avec aléa moral**(?????????????????????????? a voir)** peut être formalisé comme un jeu dynamique à information incomplète et imparfaite. Cette formalisation permet de préciser la structure stratégique de l’interaction entre le principal et l’agent, ainsi que le rôle du hasard dans la détermination du résultat.
-
-
+Le modèle Principal–Agent avec aléa moral peut être formalisé comme un jeu dynamique à information incomplète et imparfaite. Cette formalisation permet de préciser la structure stratégique de l’interaction entre le principal et l’agent, ainsi que le rôle du hasard dans la détermination du résultat.
 
 - Nature du jeu
 Le jeu est dynamique, car les décisions des joueurs se prennent de manière séquentielle. Le principal agit en premier en proposant un contrat, puis l’agent réagit en acceptant ou refusant ce contrat et en choisissant ensuite son niveau d’effort.
@@ -203,7 +194,108 @@ T = 4 : paiements et utilités
 Cette représentation extensive met en évidence le caractère dynamique du jeu, le rôle central de l’asymétrie d’information et la manière dont les incitations doivent être construites à travers le contrat.
 
 
-### GRAPHIQUE ET TABLEAU ---
+### GRAPHIQUE ET TABLEAU 
+
+On fait une repréentation graphique de l'arbre du jeu :
 
 
+```{=latex}
+
+\begin{center}
+\footnotesize
+\begin{forest}
+for tree={
+  grow=east,
+  parent anchor=east,
+  child anchor=west,
+  align=left,
+  edge={-Latex},
+  l sep=12pt,
+  s sep=10pt,
+  font=\footnotesize
+}
+[
+  {$P$ : propose $(\bar w,\, w)$}
+  [
+    {$A$ : accepte / refuse}
+    [
+      {Refuse\\ \textbf{Gains :} $(0,\,u_r)$}
+    ]
+    [
+      {Accepte}
+      [
+        {$A$ : choisit $e\in\{H,B\}$\\ \textit{(non observé par $P$)}}
+        [
+          {$e=H$}
+          [
+            {Nature}
+            [
+              {Succès\\ prob. $\pi_H$\\ \textbf{Gains :} $(\bar q-\bar w,\; u(\bar w)-d_H)$}
+            ]
+            [
+              {Échec\\ prob. $1-\pi_H$\\ \textbf{Gains :} $(q-w,\; u(w)-d_H)$}
+            ]
+          ]
+        ]
+        [
+          {$e=B$}
+          [
+            {Nature}
+            [
+              {Succès\\ prob. $\pi_B$\\ \textbf{Gains :} $(\bar q-\bar w,\; u(\bar w)-d_B)$}
+            ]
+            [
+              {Échec\\ prob. $1-\pi_B$\\ \textbf{Gains :} $(q-w,\; u(w)-d_B)$}
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+\end{center}
+
+
+```
+
+```{r}
+library(DiagrammeR)
+
+grViz("
+digraph PA {
+  rankdir=LR;
+  node [shape=box, fontsize=10];
+
+  P  [label='P : propose (w̄, w)'];
+  A1 [label='A : accepte / refuse'];
+  R  [label='Refuse\\nGains : (0, u_r)'];
+
+  A2 [label='A : choisit e ∈ {H,B}\\n(non observé par P)'];
+
+  NH [shape=ellipse, label='Nature | e=H'];
+  NB [shape=ellipse, label='Nature | e=B'];
+
+  SH [label='Succès (π_H)\\n( q̄ - w̄ , u(w̄) - d_H )'];
+  FH [label='Échec (1-π_H)\\n( q - w , u(w) - d_H )'];
+
+  SB [label='Succès (π_B)\\n( q̄ - w̄ , u(w̄) - d_B )'];
+  FB [label='Échec (1-π_B)\\n( q - w , u(w) - d_B )'];
+
+  P  -> A1;
+  A1 -> R  [label='Refuse'];
+  A1 -> A2 [label='Accepte'];
+
+  A2 -> NH [label='e=H'];
+  A2 -> NB [label='e=B'];
+
+  NH -> SH [label='Succès'];
+  NH -> FH [label='Échec'];
+
+  NB -> SB [label='Succès'];
+  NB -> FB [label='Échec'];
+}
+")
+
+```
 
