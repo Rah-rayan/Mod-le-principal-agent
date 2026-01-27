@@ -196,56 +196,44 @@ Cette représentation extensive met en évidence le caractère dynamique du jeu,
 
 ### GRAPHIQUE ET TABLEAU 
 
-On fait une repréentation graphique de l'arbre du jeu :
-
-
-```{=latex}
+On fait une représentation graphique de l'arbre du jeu :
 
 \begin{center}
-\footnotesize
 \begin{forest}
 for tree={
-  grow=east,
-  parent anchor=east,
-  child anchor=west,
-  align=left,
+  grow'=south,
+  parent anchor=south,
+  child anchor=north,
+  align=center,
+  s sep=8mm,
+  l sep=8mm,
   edge={-Latex},
-  l sep=12pt,
-  s sep=10pt,
-  font=\footnotesize
+  if n children=0{tier=terminal}{}
 }
-[
-  {$P$ : propose $(\bar w,\, w)$}
-  [
-    {$A$ : accepte / refuse}
-    [
-      {Refuse\\ \textbf{Gains :} $(0,\,u_r)$}
+[{\(t=0\) \\ Principal \(P\) \\ choisit C}
+  [{\(t=1\) \\ Agent \(A\)}
+    [Refuse \(R\)
+      [{\(t=4\) \\ Paiements \\ \(P:0\) \\ \(A:u^r\)}]
     ]
-    [
-      {Accepte}
-      [
-        {$A$ : choisit $e\in\{H,B\}$\\ \textit{(non observé par $P$)}}
-        [
-          {$e=H$}
-          [
-            {Nature}
-            [
-              {Succès\\ prob. $\pi_H$\\ \textbf{Gains :} $(\bar q-\bar w,\; u(\bar w)-d_H)$}
+    [Accepte
+      [{\(t=2\) \\ Agent \(A\) \\ choisit \(e\)}
+        [{\(e=B\)}
+          [{\(t=3\) \\ Nature}
+            [Succès \\ prob. \(\pi_B\)
+              [{\(t=4\) \\ Paiements \\ \(P:\bar q-\bar w\) \\ \(A:u(\bar w)-d_B\)}]
             ]
-            [
-              {Échec\\ prob. $1-\pi_H$\\ \textbf{Gains :} $(q-w,\; u(w)-d_H)$}
+            [Échec \\ prob. \(1-\pi_B\)
+              [{\(t=4\) \\ Paiements \\ \(P:q-w\) \\ \(A:u(w)-d_B\)}]
             ]
           ]
         ]
-        [
-          {$e=B$}
-          [
-            {Nature}
-            [
-              {Succès\\ prob. $\pi_B$\\ \textbf{Gains :} $(\bar q-\bar w,\; u(\bar w)-d_B)$}
+        [{\(e=H\)}
+          [{\(t=3\) \\ Nature}
+            [Succès \\ prob. \(\pi_H\)
+              [{\(t=4\) \\ Paiements \\ \(P:\bar q-\bar w\) \\ \(A:u(\bar w)-d_H\)}]
             ]
-            [
-              {Échec\\ prob. $1-\pi_B$\\ \textbf{Gains :} $(q-w,\; u(w)-d_B)$}
+            [Échec \\ prob. \(1-\pi_H\)
+              [{\(t=4\) \\ Paiements \\ \(P:q-w\) \\ \(A:u(w)-d_H\)}]
             ]
           ]
         ]
@@ -257,45 +245,7 @@ for tree={
 \end{center}
 
 
-```
+![Jeu sous forme extensive](images/arbre.jpeg)
 
-```{r}
-library(DiagrammeR)
 
-grViz("
-digraph PA {
-  rankdir=LR;
-  node [shape=box, fontsize=10];
-
-  P  [label='P : propose (w̄, w)'];
-  A1 [label='A : accepte / refuse'];
-  R  [label='Refuse\\nGains : (0, u_r)'];
-
-  A2 [label='A : choisit e ∈ {H,B}\\n(non observé par P)'];
-
-  NH [shape=ellipse, label='Nature | e=H'];
-  NB [shape=ellipse, label='Nature | e=B'];
-
-  SH [label='Succès (π_H)\\n( q̄ - w̄ , u(w̄) - d_H )'];
-  FH [label='Échec (1-π_H)\\n( q - w , u(w) - d_H )'];
-
-  SB [label='Succès (π_B)\\n( q̄ - w̄ , u(w̄) - d_B )'];
-  FB [label='Échec (1-π_B)\\n( q - w , u(w) - d_B )'];
-
-  P  -> A1;
-  A1 -> R  [label='Refuse'];
-  A1 -> A2 [label='Accepte'];
-
-  A2 -> NH [label='e=H'];
-  A2 -> NB [label='e=B'];
-
-  NH -> SH [label='Succès'];
-  NH -> FH [label='Échec'];
-
-  NB -> SB [label='Succès'];
-  NB -> FB [label='Échec'];
-}
-")
-
-```
 

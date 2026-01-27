@@ -1,14 +1,433 @@
-p.caption {
-  color: #777;
-  margin-top: 10px;
+/* ------------------------
+   Police et couleurs globales
+------------------------ */
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2c3e50;
+  background-color: #fdfdfd;
+  padding: 10px;
 }
-p code {
-  white-space: inherit;
+
+/* ------------------------
+   Titres
+------------------------ */
+h1 {
+  font-size: 30px;
+  color: #2d572c; /* vert forêt */
+  border-bottom: 3px solid #88c999;
+  padding-bottom: 10px;
+  margin-top: 40px;
 }
+
+h2 {
+  font-size: 24px;
+  color: #388e3c;
+  border-left: 5px solid #a5d6a7;
+  padding-left: 10px;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 20px;
+  color: #00796b;
+  margin-top: 25px;
+}
+
+h4, h5 {
+  color: #00695c;
+}
+
+/* ------------------------
+   Liens
+------------------------ */
+a {
+  color: #2e7d32;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------
+   Paragraphes et blocs
+------------------------ */
+p {
+  margin-bottom: 1.2em;
+}
+
+blockquote {
+  font-style: italic;
+  color: #555;
+  border-left: 4px solid #81c784;
+  padding-left: 12px;
+  background-color: #f1f8e9;
+  margin: 20px 0;
+}
+
+/* ------------------------
+   Encadrés personnalisés
+------------------------ */
+.note, .tip, .warning {
+  border-left: 6px solid;
+  padding: 12px 18px;
+  margin: 20px 0;
+  border-radius: 5px;
+  background-color: #f4fdf4;
+}
+
+.note {
+  border-color: #81c784;
+  background-color: #edf7ed;
+}
+
+.tip {
+  border-color: #4caf50;
+  background-color: #e8f5e9;
+}
+
+.warning {
+  border-color: #e65100;
+  background-color: #fff3e0;
+}
+
+/* ------------------------
+   Blocs de code
+------------------------ */
 pre {
-  word-break: normal;
-  word-wrap: normal;
+  background-color: #f4f4f4;
+  border-left: 5px solid #66bb6a;
+  padding: 10px;
+  font-size: 14px;
+  overflow-x: auto;
+  border-radius: 4px;
 }
-pre code {
-  white-space: inherit;
+
+/* ------------------------
+   Tableaux
+------------------------ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+th {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* ------------------------
+   Espacement général
+------------------------ */
+ul {
+  margin-left: 1.5em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3, h4 {
+  color: #0077b6;
+  font-weight: 600;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 4px;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.6em;
+}
+h3 {
+  font-size: 1.3em;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== NAVIGATION (toc) ===== */
+#book-menu {
+  background-color: #e0f7fa;
+  color: #004d61;
+}
+
+.toc a {
+  color: #0077b6;
+}
+
+.toc a:hover {
+  background-color: #d0ebff;
+  font-weight: bold;
+}
+
+/* ===== CODE BLOCKS ===== */
+pre, code {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-family: 'Fira Code', monospace;
+  color: #343a40;
+}
+
+/* ===== TABLES ===== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+th, td {
+  padding: 0.6em;
+  border: 1px solid #dee2e6;
+}
+
+th {
+  background-color: #0077b6;
+  color: white;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+/* ===== BLOCKQUOTES ===== */
+blockquote {
+  border-left: 4px solid #0077b6;
+  background-color: #eef8fb;
+  padding: 0.8em 1em;
+  font-style: italic;
+  color: #333;
+}
+
+/* ===== TOOLBAR / HEADER ===== */
+#book-header {
+  background-color: #0077b6 !important;
+  color: white;
+}
+
+/* ===== SEARCH BAR ===== */
+#book-search-input {
+  border: 1px solid #ccc;
+  padding: 6px;
+  font-size: 1em;
+  border-radius: 4px;
+}
+
+/* ===== CUSTOM BUTTON STYLE (optional) ===== */
+.btn {
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #005f86;
+}
+/* ===== ✅ Personnalisation de l’onglet latéral ===== */
+#book-menu {
+  background-color: #cce5ff;   /* 🌈 Change ici la couleur de fond */
+  border-right: 1px solid #b3d7ff;
+  padding: 10px;
+  max-width: 300px;            /* Augmente la largeur si besoin */
+  overflow-wrap: break-word;  /* Pour forcer le retour à la ligne */
+}
+
+.toc {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.toc a {
+  color: #003366 !important;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: block;
+  word-break: break-word;
+}
+
+.toc a:hover {
+  background-color: #99ccff;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.toc .active > a {
+  background-color: #3399ff;
+  color: white !important;
+  font-weight: bold;
+}
+
+/* ✅ Multiligne pour le titre dans le panneau latéral */
+.book-title {
+  white-space: normal !important;
+  word-wrap: break-word;
+  line-height: 1.4;
+  font-size: 17px;
+  font-weight: bold;
+  padding-right: 10px;
+  color: #002f5e;
+}
+
+/* 🔵 Forcer une nouvelle couleur de fond de l'onglet latéral */
+#book-menu {
+  background-color: blue !important; /* couleur bleu pâle */
+  border-right: 1px solid #b3d7ff;
+}
+
+/* ✅ Forcer l'affichage du titre sur plusieurs lignes */
+.book .book-summary .book-title {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+  color: #003366;
+  padding: 12px 10px;
+  max-width: 100%;
+}
+
+/* 🌈 Amélioration du style des liens du sommaire */
+.summary a {
+  color: #003366 !important;
+}
+
+.summary a:hover {
+  background-color: #cce5ff !important;
+  color: #000 !important;
+}
+
+/* Pour éviter le tronquage du titre par overflow */
+.book .book-summary {
+  max-width: 300px;
+}
+
+/* 🔁 1. Forcer la couleur de fond de la barre latérale */
+div.book-summary {
+  background-color: #e0f3ff !important; /* couleur bleu clair */
+  border-right: 1px solid #99cce5 !important;
+}
+
+/* 🧱 2. Corriger le style du titre principal tronqué */
+.book .book-summary .book-title a {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  line-height: 1.5 !important;
+  color: #003366 !important;
+  display: block !important;
+  max-width: 100% !important;
+  padding: 12px 14px !important;
+  margin: 0 !important;
+}
+
+/* 🖌️ 3. Style des liens dans le sommaire */
+.book .book-summary ul.summary li a {
+  color: #003366 !important;
+}
+
+.book .book-summary ul.summary li a:hover {
+  background-color: #b3dcff !important;
+  color: #000 !important;
+}
+
+/* ✅ 4. Étendre la largeur de la barre latérale si nécessaire */
+.book .book-summary {
+  width: 280px !important;
+}
+.book .book-body {
+  left: 280px !important;
+}
+
+/* 🧩 Empêche le titre du livre d'être tronqué */
+.book .book-summary .book-title {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  line-height: 1.4 !important;
+  padding: 10px 15px !important;
+  font-weight: bold !important;
+  background-color: #e0f3ff !important;
+}
+
+.book .book-summary .book-title a {
+  display: block !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  font-size: 16px !important;
+  color: #003366 !important;
+  text-decoration: none !important;
+}
+
+.book .book-summary .book-logo img {
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+footer {
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 15px;
+  font-size: 0.85em;
+  border-top: 1px solid #ddd;
+}
+
+/* Couleur de fond de la barre du haut */
+.book-header {
+  background-color: #0077B6 !important; /* Bleu ENSAE 
+  color: white !important;
+}
+
+.book-header .book-title {
+  display: inline-block !important;
+  color: white !important;
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+/* Corriger le comportement au survol */
+.book-header:hover .book-title {
+  display: inline-block !important;
+}
+
+.book-header .gitbook-link {
+  display: none !important;
 }

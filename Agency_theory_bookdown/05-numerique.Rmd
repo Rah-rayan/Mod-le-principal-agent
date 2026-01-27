@@ -1620,6 +1620,6 @@ plt.show()
 
 
     
-![png](images/output_22_1.png)
+![Impacts de l'aversion au risque et de la diifculté de surveillance](images/output_22_1.png)
     
 

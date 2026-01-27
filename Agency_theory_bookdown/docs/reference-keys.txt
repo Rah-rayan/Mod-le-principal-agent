@@ -14,11 +14,8 @@ description-formelle-du-jeu
 représentation-sous-forme-extensive
 graphique-et-tableau
 résolution-analytique
-cadre-de-résolution
 cas-du-first-best-information-symétrique
-fusionner-les-2-demo
 cas-du-second-best-aléa-moral
-fusionner-les-2-demo-1
 justification-de-la-présence-dun-équilibre-parfait-bayésien
 premier-best-et-équilibre-parfait-bayésien
 second-best-et-équilibre-parfait-bayésien

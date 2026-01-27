@@ -26,21 +26,6 @@ Le cas du premier-best sert de référence d’efficacité. Le second-best met e
 
 
 
-## Cadre de résolution
-
--   **Principal** : Nous faisons ici l'hypothèse que le principal est neutre au risque, il cherche à maximiser son profit espéré :\
-    $$
-    \Pi = \mathbb{E}[y - w].
-    $$
--   **Agent** : Il est supposé averse au risque et sa fonction d’utilité est donnée par :\
-    $$
-    U_A = \mathbb{E}[u(w(y))] - d(e),
-    $$ où $u$ est croissante et concave ($u' > 0, u'' < 0$), et $d(e)$ est le coût (désutilité) de l’effort.
--   **Effort** : L'agent choisit de faire un effort noté $e \in \{H, B\}$ ($H=haut, B=bas$). Les coûts associés aux types d'efforts sont : $d_H > d_B \geq 0$.
--   **Résultat** : Le resultat depend de la nature et peut être un succès ($S$) ou un échec ($F$). Les profits associés sont: $q(S) = \bar{q}, \quad q(F) = q$, avec $\bar{q} > q$.
--   **Probabilités** : $\pi_H = \mathbb{P}(S|H), \quad \pi_B = \mathbb{P}(S|B)$, avec $0 < \pi_B < \pi_H < 1$.
--   **Rémunération** : Les remunérations de l'agent dépendent de la nature du résultat et sont donnés par : $w(S) = \bar{w}, \quad w(F) = w$.
--   **Utilité de réserve de l’agent** : $u_r$.
 
 
 ## Cas du first best (information symétrique)
@@ -87,8 +72,9 @@ Lorsque l’effort est observable, le principal choisit directement l’effort e
 = \pi_e(\bar q-\bar w) + (1-\pi_e)(q-w)
 \]
 sous la contrainte de participation de l’agent :
+sous la contrainte de participation de l’agent :
 \[
-\pi_e u(\bar w) + (1-\pi_e)u(w) - d_e \ge u_r.
+u_A(y,e) - c(e) \ge u_r,
 \]
 
 À effort donné, le principal cherche à minimiser le coût salarial espéré tout en satisfaisant la participation. Comme l’agent est averse au risque, il est optimal de l’assurer complètement. Le contrat optimal en premier-best vérifie donc :
@@ -98,25 +84,12 @@ sous la contrainte de participation de l’agent :
 
 La contrainte de participation devient alors :
 \[
-u(w) - d_e \ge u_r,
+\pi_e u(\bar w) + (1-\pi_e)u(w) - c(e) \ge u_r.
 \]
 ce qui détermine le salaire minimal compatible avec l’acceptation du contrat.
 
 Le principal choisit ensuite l’effort qui maximise le surplus total. Cette situation est efficace : l’effort est optimal et l’agent est parfaitement assuré. Elle constitue la référence de premier rang, ou premier-best.
 
-### Fusionner les 2 demo
-
-Dans ce cas, le principal observe l’effort de l'agent. Il impose un niveau d’effort et un contrat de rémunération. Pour un effort donné $e$, le problème est du principal est :
-
-$$
-\max_{\bar{w}, w} \mathbb{E}[y - w \mid e] = \pi_e (\bar{q} - \bar{w}) + (1-\pi_e)(q - w)
-$$
-
-sous la contrainte de participation (CP) de l'agent :
-
-$$
-\pi_e u(\bar{w}) + (1-\pi_e) u(w) - d_e \geq u_r.
-$$
 
 **Preuve de l’assurance complète** :\
 Le principal est neutre au risque, l’agent est averse. Pour un coût salarial espéré donné, l’agent préfère un salaire certain. Le principal, neutre, est indifférent à la variabilité des salaires. Ainsi, à l’optimum la contrainte (CP) est saturée et on égalise les utilités marginales de l’agent dans les deux états, ce qui implique $\bar{w} = w$.
@@ -158,63 +131,6 @@ Le principal choisit l’effort $e^*$ qui maximise $\Pi_e^{FB}$. L’allocation 
 
 
 ## Cas du second best (aléa moral)
-
-On parle de situation de second-best lorsque l’effort de l’agent n’est pas observable par le principal. Dans ce cas, le principal ne peut pas conditionner le contrat sur l’effort, mais uniquement sur le résultat du projet.
-
-Le principal choisit un contrat \((\bar w,w)\). Après avoir accepté le contrat, l’agent choisit librement son niveau d’effort.
-
-L’utilité espérée de l’agent dépend du niveau d’effort choisi.
-
-S’il fournit un effort élevé \(H\), son utilité espérée est :
-\[
-EU_A(H)=\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H.
-\]
-
-S’il fournit un effort faible \(B\), son utilité espérée est :
-\[
-EU_A(B)=\pi_B u(\bar w) + (1-\pi_B)u(w) - d_B.
-\]
-
-Pour que le contrat fonctionne, deux contraintes doivent être satisfaites.
-
-La première est la contrainte de participation (CP). Elle garantit que l’agent accepte le contrat :
-\[
-\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H \ge u_r.
-\]
-
-La seconde est la contrainte d’incitation (CI). Elle garantit que l’agent choisit effectivement l’effort élevé :
-\[
-EU_A(H)\ge EU_A(B).
-\]
-
-Cette contrainte s’écrit :
-\[
-(\pi_H-\pi_B)\big[u(\bar w)-u(w)\big] \ge d_H-d_B.
-\]
-
-Elle montre que, pour inciter l’agent à fournir un effort élevé, le salaire en cas de succès doit être suffisamment supérieur au salaire en cas d’échec. Autrement dit, le contrat doit introduire une variabilité de la rémunération.
-
-Le profit espéré du principal lorsqu’il souhaite induire l’effort élevé est :
-\[
-EU_P(H)=\pi_H(\bar q-\bar w) + (1-\pi_H)(q-w).
-\]
-
-Le problème du principal en second-best consiste donc à maximiser ce profit sous les contraintes de participation et d’incitation :
-\[
-\max_{\bar w,w}\;\; \pi_H(\bar q-\bar w) + (1-\pi_H)(q-w)
-\]
-sous
-\[
-\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H \ge u_r,
-\]
-\[
-(\pi_H-\pi_B)\big[u(\bar w)-u(w)\big] \ge d_H-d_B.
-\]
-
-Le contrat obtenu est un contrat de second rang, ou second-best. Il est généralement moins efficace que le premier-best, car l’introduction d’incitations oblige à exposer l’agent au risque. La perte de surplus par rapport au premier-best est appelée coût d’agence.
-
-
-### Fusionner les 2 demo
 
 Dans ce cas, le principal ne peut observer l’effort de l'agent. Il propose un contrat $(\bar{w}, w)$ incitant l’agent à fournir un effort élevé $H$ (cela arrange le principal). Le problème du principal est :
 

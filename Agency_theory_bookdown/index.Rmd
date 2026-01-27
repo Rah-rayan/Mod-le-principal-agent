@@ -19,8 +19,9 @@ header-includes:
   - \usepackage{mathrsfs}
   - \usepackage{setspace}
   - \onehalfspacing
+  - \usepackage{tikz}
   - \usepackage{forest}
-  - \usepackage{amsmath,amssymb}
+  - \usetikzlibrary{arrows.meta,positioning}
 ---
 
 

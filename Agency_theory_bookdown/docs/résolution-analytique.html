@@ -167,24 +167,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="formalisation-du-problème.html"><a href="formalisation-du-problème.html"><i class="fa fa-check"></i><b>2.3.1</b> Description formelle du jeu</a></li>
 <li class="chapter" data-level="2.3.2" data-path="04-resolution.html"><a href="#repr%C3%A9sentation-sous-forme-extensive"><i class="fa fa-check"></i><b>2.3.2</b> Représentation sous forme extensive</a></li>
-<li class="chapter" data-level="2.3.3" data-path="formalisation-du-problème.html"><a href="formalisation-du-problème.html#graphique-et-tableau"><i class="fa fa-check"></i><b>2.3.3</b> GRAPHIQUE ET TABLEAU —</a></li>
+<li class="chapter" data-level="2.3.3" data-path="formalisation-du-problème.html"><a href="formalisation-du-problème.html#graphique-et-tableau"><i class="fa fa-check"></i><b>2.3.3</b> GRAPHIQUE ET TABLEAU</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="04-resolution.html"><a href="#r%C3%A9solution-analytique"><i class="fa fa-check"></i><b>3</b> Résolution analytique</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="04-resolution.html"><a href="#cadre-de-r%C3%A9solution"><i class="fa fa-check"></i><b>3.1</b> Cadre de résolution</a></li>
-<li class="chapter" data-level="3.2" data-path="04-resolution.html"><a href="#cas-du-first-best-information-sym%C3%A9trique"><i class="fa fa-check"></i><b>3.2</b> Cas du first best (information symétrique)</a>
+<li class="chapter" data-level="3.1" data-path="04-resolution.html"><a href="#cas-du-first-best-information-sym%C3%A9trique"><i class="fa fa-check"></i><b>3.1</b> Cas du first best (information symétrique)</a></li>
+<li class="chapter" data-level="3.2" data-path="04-resolution.html"><a href="#cas-du-second-best-al%C3%A9a-moral"><i class="fa fa-check"></i><b>3.2</b> Cas du second best (aléa moral)</a></li>
+<li class="chapter" data-level="3.3" data-path="04-resolution.html"><a href="#justification-de-la-pr%C3%A9sence-dun-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>3.3</b> Justification de la présence d’un équilibre parfait bayésien</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="résolution-analytique.html"><a href="résolution-analytique.html"><i class="fa fa-check"></i><b>3.2.1</b> Fusionner les 2 demo</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="04-resolution.html"><a href="#cas-du-second-best-al%C3%A9a-moral"><i class="fa fa-check"></i><b>3.3</b> Cas du second best (aléa moral)</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="résolution-analytique.html"><a href="résolution-analytique.html#fusionner-les-2-demo-1"><i class="fa fa-check"></i><b>3.3.1</b> Fusionner les 2 demo</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="04-resolution.html"><a href="#justification-de-la-pr%C3%A9sence-dun-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>3.4</b> Justification de la présence d’un équilibre parfait bayésien</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="04-resolution.html"><a href="#premier-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>3.4.1</b> Premier-best et équilibre parfait bayésien</a></li>
-<li class="chapter" data-level="3.4.2" data-path="04-resolution.html"><a href="#second-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>3.4.2</b> Second-best et équilibre parfait bayésien</a></li>
+<li class="chapter" data-level="3.3.1" data-path="04-resolution.html"><a href="#premier-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>3.3.1</b> Premier-best et équilibre parfait bayésien</a></li>
+<li class="chapter" data-level="3.3.2" data-path="04-resolution.html"><a href="#second-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien"><i class="fa fa-check"></i><b>3.3.2</b> Second-best et équilibre parfait bayésien</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="04-resolution.html"><a href="#r%C3%A9solution-num%C3%A9rique"><i class="fa fa-check"></i><b>4</b> Résolution numérique</a></li>
@@ -286,26 +279,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 - le cas du premier-best, qui correspond à une situation d’information symétrique,
 - le cas du second-best, qui correspond à une situation d’aléa moral.</p>
 <p>Le cas du premier-best sert de référence d’efficacité. Le second-best met en évidence les distorsions dues à l’asymétrie d’information.</p>
-<div id="cadre-de-résolution" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Cadre de résolution<a href="#cadre-de-r%C3%A9solution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><strong>Principal</strong> : Nous faisons ici l’hypothèse que le principal est neutre au risque, il cherche à maximiser son profit espéré :<br />
-<span class="math display">\[
-\Pi = \mathbb{E}[y - w].
-\]</span></li>
-<li><strong>Agent</strong> : Il est supposé averse au risque et sa fonction d’utilité est donnée par :<br />
-<span class="math display">\[
-U_A = \mathbb{E}[u(w(y))] - d(e),
-\]</span> où <span class="math inline">\(u\)</span> est croissante et concave (<span class="math inline">\(u&#39; &gt; 0, u&#39;&#39; &lt; 0\)</span>), et <span class="math inline">\(d(e)\)</span> est le coût (désutilité) de l’effort.</li>
-<li><strong>Effort</strong> : L’agent choisit de faire un effort noté <span class="math inline">\(e \in \{H, B\}\)</span> (<span class="math inline">\(H=haut, B=bas\)</span>). Les coûts associés aux types d’efforts sont : <span class="math inline">\(d_H &gt; d_B \geq 0\)</span>.</li>
-<li><strong>Résultat</strong> : Le resultat depend de la nature et peut être un succès (<span class="math inline">\(S\)</span>) ou un échec (<span class="math inline">\(F\)</span>). Les profits associés sont: <span class="math inline">\(q(S) = \bar{q}, \quad q(F) = q\)</span>, avec <span class="math inline">\(\bar{q} &gt; q\)</span>.</li>
-<li><strong>Probabilités</strong> : <span class="math inline">\(\pi_H = \mathbb{P}(S|H), \quad \pi_B = \mathbb{P}(S|B)\)</span>, avec <span class="math inline">\(0 &lt; \pi_B &lt; \pi_H &lt; 1\)</span>.</li>
-<li><strong>Rémunération</strong> : Les remunérations de l’agent dépendent de la nature du résultat et sont donnés par : <span class="math inline">\(w(S) = \bar{w}, \quad w(F) = w\)</span>.</li>
-<li><strong>Utilité de réserve de l’agent</strong> : <span class="math inline">\(u_r\)</span>.</li>
-</ul>
-</div>
-<div id="cas-du-first-best-information-symétrique" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Cas du first best (information symétrique)<a href="#cas-du-first-best-information-sym%C3%A9trique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="cas-du-first-best-information-symétrique" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Cas du first best (information symétrique)<a href="#cas-du-first-best-information-sym%C3%A9trique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>On parle de situation de premier-best lorsque le principal observe parfaitement l’effort fourni par l’agent. Dans ce cas, l’effort est vérifiable et peut être directement imposé par le contrat. Il n’existe donc pas de problème d’incitation.</p>
 <p>L’effort de l’agent peut prendre deux valeurs :
 <span class="math display">\[
@@ -341,8 +316,9 @@ où <span class="math inline">\(u(\cdot)\)</span> est croissante et concave, et 
 = \pi_e(\bar q-\bar w) + (1-\pi_e)(q-w)
 \]</span>
 sous la contrainte de participation de l’agent :
+sous la contrainte de participation de l’agent :
 <span class="math display">\[
-\pi_e u(\bar w) + (1-\pi_e)u(w) - d_e \ge u_r.
+u_A(y,e) - c(e) \ge u_r,
 \]</span></p>
 <p>À effort donné, le principal cherche à minimiser le coût salarial espéré tout en satisfaisant la participation. Comme l’agent est averse au risque, il est optimal de l’assurer complètement. Le contrat optimal en premier-best vérifie donc :
 <span class="math display">\[
@@ -350,20 +326,10 @@ sous la contrainte de participation de l’agent :
 \]</span></p>
 <p>La contrainte de participation devient alors :
 <span class="math display">\[
-u(w) - d_e \ge u_r,
+\pi_e u(\bar w) + (1-\pi_e)u(w) - c(e) \ge u_r.
 \]</span>
 ce qui détermine le salaire minimal compatible avec l’acceptation du contrat.</p>
 <p>Le principal choisit ensuite l’effort qui maximise le surplus total. Cette situation est efficace : l’effort est optimal et l’agent est parfaitement assuré. Elle constitue la référence de premier rang, ou premier-best.</p>
-<div id="fusionner-les-2-demo" class="section level3 hasAnchor" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Fusionner les 2 demo<a href="résolution-analytique.html#fusionner-les-2-demo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dans ce cas, le principal observe l’effort de l’agent. Il impose un niveau d’effort et un contrat de rémunération. Pour un effort donné <span class="math inline">\(e\)</span>, le problème est du principal est :</p>
-<p><span class="math display">\[
-\max_{\bar{w}, w} \mathbb{E}[y - w \mid e] = \pi_e (\bar{q} - \bar{w}) + (1-\pi_e)(q - w)
-\]</span></p>
-<p>sous la contrainte de participation (CP) de l’agent :</p>
-<p><span class="math display">\[
-\pi_e u(\bar{w}) + (1-\pi_e) u(w) - d_e \geq u_r.
-\]</span></p>
 <p><strong>Preuve de l’assurance complète</strong> :<br />
 Le principal est neutre au risque, l’agent est averse. Pour un coût salarial espéré donné, l’agent préfère un salaire certain. Le principal, neutre, est indifférent à la variabilité des salaires. Ainsi, à l’optimum la contrainte (CP) est saturée et on égalise les utilités marginales de l’agent dans les deux états, ce qui implique <span class="math inline">\(\bar{w} = w\)</span>.</p>
 <p>Formellement, on forme le Lagrangien :</p>
@@ -388,52 +354,8 @@ u(w_e) - d_e = u_r \quad \Rightarrow \quad w_e = u^{-1}(u_r + d_e).
 \]</span></p>
 <p>Le principal choisit l’effort <span class="math inline">\(e^*\)</span> qui maximise <span class="math inline">\(\Pi_e^{FB}\)</span>. L’allocation est efficace (first best) : l’agent est parfaitement assuré et l’effort est optimal du point de vue du principal.</p>
 </div>
-</div>
-<div id="cas-du-second-best-aléa-moral" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Cas du second best (aléa moral)<a href="#cas-du-second-best-al%C3%A9a-moral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>On parle de situation de second-best lorsque l’effort de l’agent n’est pas observable par le principal. Dans ce cas, le principal ne peut pas conditionner le contrat sur l’effort, mais uniquement sur le résultat du projet.</p>
-<p>Le principal choisit un contrat <span class="math inline">\((\bar w,w)\)</span>. Après avoir accepté le contrat, l’agent choisit librement son niveau d’effort.</p>
-<p>L’utilité espérée de l’agent dépend du niveau d’effort choisi.</p>
-<p>S’il fournit un effort élevé <span class="math inline">\(H\)</span>, son utilité espérée est :
-<span class="math display">\[
-EU_A(H)=\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H.
-\]</span></p>
-<p>S’il fournit un effort faible <span class="math inline">\(B\)</span>, son utilité espérée est :
-<span class="math display">\[
-EU_A(B)=\pi_B u(\bar w) + (1-\pi_B)u(w) - d_B.
-\]</span></p>
-<p>Pour que le contrat fonctionne, deux contraintes doivent être satisfaites.</p>
-<p>La première est la contrainte de participation (CP). Elle garantit que l’agent accepte le contrat :
-<span class="math display">\[
-\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H \ge u_r.
-\]</span></p>
-<p>La seconde est la contrainte d’incitation (CI). Elle garantit que l’agent choisit effectivement l’effort élevé :
-<span class="math display">\[
-EU_A(H)\ge EU_A(B).
-\]</span></p>
-<p>Cette contrainte s’écrit :
-<span class="math display">\[
-(\pi_H-\pi_B)\big[u(\bar w)-u(w)\big] \ge d_H-d_B.
-\]</span></p>
-<p>Elle montre que, pour inciter l’agent à fournir un effort élevé, le salaire en cas de succès doit être suffisamment supérieur au salaire en cas d’échec. Autrement dit, le contrat doit introduire une variabilité de la rémunération.</p>
-<p>Le profit espéré du principal lorsqu’il souhaite induire l’effort élevé est :
-<span class="math display">\[
-EU_P(H)=\pi_H(\bar q-\bar w) + (1-\pi_H)(q-w).
-\]</span></p>
-<p>Le problème du principal en second-best consiste donc à maximiser ce profit sous les contraintes de participation et d’incitation :
-<span class="math display">\[
-\max_{\bar w,w}\;\; \pi_H(\bar q-\bar w) + (1-\pi_H)(q-w)
-\]</span>
-sous
-<span class="math display">\[
-\pi_H u(\bar w) + (1-\pi_H)u(w) - d_H \ge u_r,
-\]</span>
-<span class="math display">\[
-(\pi_H-\pi_B)\big[u(\bar w)-u(w)\big] \ge d_H-d_B.
-\]</span></p>
-<p>Le contrat obtenu est un contrat de second rang, ou second-best. Il est généralement moins efficace que le premier-best, car l’introduction d’incitations oblige à exposer l’agent au risque. La perte de surplus par rapport au premier-best est appelée coût d’agence.</p>
-<div id="fusionner-les-2-demo-1" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Fusionner les 2 demo<a href="résolution-analytique.html#fusionner-les-2-demo-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cas-du-second-best-aléa-moral" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Cas du second best (aléa moral)<a href="#cas-du-second-best-al%C3%A9a-moral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dans ce cas, le principal ne peut observer l’effort de l’agent. Il propose un contrat <span class="math inline">\((\bar{w}, w)\)</span> incitant l’agent à fournir un effort élevé <span class="math inline">\(H\)</span> (cela arrange le principal). Le problème du principal est :</p>
 <p><span class="math display">\[
 \max_{\bar{w}, w} \pi_H (\bar{q} - \bar{w}) + (1-\pi_H)(q - w)
@@ -503,9 +425,8 @@ Le principal peut aussi induire l’effort bas <span class="math inline">\(B\)</
 \]</span></p>
 <p>Le principal choisira d’induire l’effort élevé si et seulement si <span class="math inline">\(\Pi_H^{SB} \geq \Pi_B^{FB}\)</span>. Sinon, il induira l’effort bas et obtiendra le premier rang pour <span class="math inline">\(B\)</span>. L’asymétrie d’information peut donc conduire à une perte d’efficacité (second rang) soit par un coût d’agence, soit par un changement d’effort induit.</p>
 </div>
-</div>
-<div id="justification-de-la-présence-dun-équilibre-parfait-bayésien" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Justification de la présence d’un équilibre parfait bayésien<a href="#justification-de-la-pr%C3%A9sence-dun-%C3%A9quilibre-parfait-bay%C3%A9sien" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="justification-de-la-présence-dun-équilibre-parfait-bayésien" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Justification de la présence d’un équilibre parfait bayésien<a href="#justification-de-la-pr%C3%A9sence-dun-%C3%A9quilibre-parfait-bay%C3%A9sien" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La relation Principal–Agent peut être formalisée comme un jeu séquentiel à information incomplète :</p>
 <ol style="list-style-type: decimal">
 <li>Le <strong>principal</strong> choisit un contrat <span class="math inline">\((\bar w, w)\)</span>.</li>
@@ -535,8 +456,8 @@ Un équilibre parfait bayésien (EPB) est un triplet : <span class="math display
 <li><p>les stratégies soient <strong>séquentiellement rationnelles</strong>,</p></li>
 <li><p>les croyances soient <strong>cohérentes</strong> avec les stratégies sur le chemin de l’équilibre.</p></li>
 </ul>
-<div id="premier-best-et-équilibre-parfait-bayésien" class="section level3 hasAnchor" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Premier-best et équilibre parfait bayésien<a href="#premier-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="premier-best-et-équilibre-parfait-bayésien" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Premier-best et équilibre parfait bayésien<a href="#premier-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><strong>Stratégie du principal</strong> : <span class="math display">\[
 \sigma_P^{FB} : \text{offrir le contrat } (\bar w, w) \text{ avec } \bar w=w.
@@ -575,8 +496,8 @@ e^{FB} \in \arg\max_{e\in\{H,B\}} \{u(w)-d_e\}.
 (\sigma_P^{FB}, \sigma_A^{FB}, \mu)
 \]</span> constitue un <strong>équilibre parfait bayésien</strong> du jeu Principal–Agent.</p>
 </div>
-<div id="second-best-et-équilibre-parfait-bayésien" class="section level3 hasAnchor" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> Second-best et équilibre parfait bayésien<a href="#second-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="second-best-et-équilibre-parfait-bayésien" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Second-best et équilibre parfait bayésien<a href="#second-best-et-%C3%A9quilibre-parfait-bay%C3%A9sien" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>On considère maintenant le cas d’aléa moral, où l’effort n’est pas observable.</p>
 <ul>
 <li><p><strong>Stratégie du principal</strong> : <span class="math display">\[
