@@ -12,7 +12,6 @@ variables-clé-et-hypothèses-du-modèle
 formalisation-en-théorie-des-jeux
 description-formelle-du-jeu
 représentation-sous-forme-extensive
-graphique-et-tableau
 résolution-analytique
 cas-du-first-best-information-symétrique
 cas-du-second-best-aléa-moral

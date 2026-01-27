@@ -5,3 +5,6 @@
 * Coase, R. ***The Nature of the Firm*** (1937, *Economica*).
 * Jensen, M. & Meckling, W. ***Theory of the Firm: Managerial Behavior, Agency Costs and Ownership Structure*** (1976, *Journal of Financial Economics*).
 * Holmström, B. ***Moral Hazard and Observability*** (1979, *The Bell Journal of Economics*).
+* Université Paris-Dauphine. *Éléments de théorie des contrats : le modèle principal-agent avec action cachée, partie I* (Master MS0, Microéconomie 2) (s.d.). 
+* Macho-Stadler, I., & Pérez-Castrillo, D. *Principal-Agent Models* (Universitat Autònoma de Barcelona, Spain) (s.d.). 
+* Advanced-Microeconomic-Theory-3rd-Ed.-JEHLE-RENY, pages 413-420

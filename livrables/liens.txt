@@ -1,0 +1,3 @@
+Lien du bookdown : https://rah-rayan.github.io/Mod-le-principal-agent/
+
+Lien de l'application : https://mod-le-principal-agent-hykg8w7fj7rdknnk6vdfv3.streamlit.app

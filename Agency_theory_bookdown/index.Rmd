@@ -53,7 +53,7 @@ Exposé de théorie des jeux
 <p style="font-size: 18px;">
 <i>Rédigé par :</i> <br>
 <b>Khadidatou COULIBALY, Ange Emilson Rayan RAHERINASOLO, <br> Mamady I BERETE, Prosper Lawa FOUMSOU</b> et <b>Samba DIENG</b> <br>
-<i>Respectivement Élèves en ISE 2 </i>
+<i> Élèves en ISE 2 </i>
 </p>
 
 <br>

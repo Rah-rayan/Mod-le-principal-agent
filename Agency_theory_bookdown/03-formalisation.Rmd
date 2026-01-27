@@ -194,9 +194,8 @@ T = 4 : paiements et utilités
 Cette représentation extensive met en évidence le caractère dynamique du jeu, le rôle central de l’asymétrie d’information et la manière dont les incitations doivent être construites à travers le contrat.
 
 
-### GRAPHIQUE ET TABLEAU 
 
-On fait une représentation graphique de l'arbre du jeu :
+Faisons une représentation de l'arbre du jeu :
 
 \begin{center}
 \begin{forest}
